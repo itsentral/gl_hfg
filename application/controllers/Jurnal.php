@@ -103,6 +103,18 @@ class Jurnal extends CI_Controller
 		$this->load->view("jurnal/v_detail_jv", $data);
 	}
 
+	function detail_bum()
+	{
+		$nomor_jurnal		= $this->uri->segment(3);
+		$data['nomor_jurnal']		= $this->uri->segment(3);
+
+		$data['judul']		= "Detail BUM";
+		$data['list_data'] 	= $this->Jurnal_model->get_detail_bum($nomor_jurnal);
+
+		$this->load->view("jurnal/v_detail_bum", $data);
+	}
+
+
 
 	function print_jv()
 	{

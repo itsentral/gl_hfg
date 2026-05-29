@@ -52,11 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // $config['base_url'] = 'https://sentral.dutastudy.com/gl/';
 // $config['base_url'] = 'http://gl.dutastudy.com/';
 // $config['base_url'] = 'http://pisiliadev.dutastudy.com/';
-
-$root = "https://" .$_SERVER['HTTP_HOST'];
+$root = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https://" : "http://");
+$root .= $_SERVER['HTTP_HOST'];
 $root .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 $config['base_url'] = $root;
-
 
 
 /*

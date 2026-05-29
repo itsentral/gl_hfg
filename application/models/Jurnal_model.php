@@ -56,6 +56,22 @@ class Jurnal_model extends CI_Model
 			return 0;
 		}
 	}
+
+	public function get_detail_bum($nomor_jurnal)
+	{
+		// $query = "SELECT * FROM jurnal where nomor = '$nomor_jurnal'";
+		$query 	= "SELECT jurnal.*, jurnal.no_perkiraan, coa_master.nama 
+		FROM jurnal 
+		INNER JOIN coa_master ON coa_master.no_perkiraan=jurnal.no_perkiraan 
+		WHERE jurnal.nomor='$nomor_jurnal'
+        ORDER BY jurnal.debet DESC";
+		$query = $this->db->query($query);
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return 0;
+		}
+	}
 	public function get_javh($nomor_jurnal)
 	{
 		$kode_cabang	= $this->session->userdata('kode_cabang');

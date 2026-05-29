@@ -879,7 +879,7 @@ class Report extends CI_Controller
 			$filter_nokir2 = substr($var_filter_nokir2, 0, 10);
 
 			$awal = 1;
-			$akhir = 31;
+			$akhir = date("t",strtotime($var_tahun . "-" . $var_bulan ."-01"));
 			$enol = 0;
 			if ($var_bulan > 9) {
 				$var_tgl_awal = $var_tahun . "-" . $var_bulan . "-0" . $awal;
@@ -918,7 +918,7 @@ class Report extends CI_Controller
 		$filter_nokir2			= $this->uri->segment(6);
 
 		$awal = 1;
-		$akhir = 31;
+		$akhir =  date("t",strtotime($var_tahun . "-" . $var_bulan ."-01"));
 		$enol = 0;
 		
 		if ($var_bulan > 9) {
@@ -992,7 +992,7 @@ class Report extends CI_Controller
 		}
 
 		$awal = 1;
-		$akhir = 31;
+		$akhir =  date("t",strtotime($thn_aktif . "-" . $bln_aktif ."-01"));
 		$enol = 0;
 		if ($bln_aktif > 9) {
 			$var_tgl_awal = $thn_aktif . "-" . $bln_aktif . "-0" . $awal;

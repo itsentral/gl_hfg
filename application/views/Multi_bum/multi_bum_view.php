@@ -112,7 +112,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 								}
 								echo "<tr style='font-size:11px'>";
 								echo "<td class='text-center'><input type='checkbox' id='checkbox_data' class='checkbox_data' value='" . $valR->nomor . "'></td>";
-								echo "<td class='text-left'>" . $valR->nomor . "</td>";
+								
+								echo "<td align='left'><a href='jurnal/detail_bum/".$valR->nomor."' data-toggle='tooltip' title='Click for detail'>".$valR->nomor."</a></td>";
 								//echo "<td class='text-left'>" . $nama_coa . "</td>";
 								echo "<td class='text-center'>" . date('d-m-Y', strtotime($valR->tgl)) . "</td>";
 								echo "<td class='text-right'>" . number_format($valR->jml) . "</td>";
