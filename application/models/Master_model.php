@@ -141,7 +141,7 @@ class Master_model extends CI_Model
 
 		$this->db->where('kdcab', $kdcab);
 		$this->db->where('no_perkiraan', $nokir_sebelumnya);
-		$this->db->update('COA', $data);
+		$this->db->update('coa', $data);
 
 		$this->db->where('kdcab', $kdcab);
 		$this->db->where('no_perkiraan', $nokir_sebelumnya);
