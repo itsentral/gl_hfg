@@ -336,7 +336,7 @@ class Latihan extends CI_Controller
 						$total = $row_sum->total;
 					}
 				}
-				$this->db->query("UPDATE COA set saldoawal = '$total' where no_perkiraan LIKE '$ambil_nokir%' AND level='4' and bln='$bln_periode' and  thn='$thn_periode' and kdcab='$kode_cabang'");
+				$this->db->query("UPDATE coa set saldoawal = '$total' where no_perkiraan LIKE '$ambil_nokir%' AND level='4' and bln='$bln_periode' and  thn='$thn_periode' and kdcab='$kode_cabang'");
 
 				$ambil_nokir2	= substr($nokir, 0, 5); //$ambil_nokir = "1101-01-";
 				$sum_saldo2		= $this->Model_latihan->sum_saldo_4($ambil_nokir2, $bln_periode, $thn_periode, $kode_cabang);
@@ -345,7 +345,7 @@ class Latihan extends CI_Controller
 						$total2 = $row_sum2->total2;
 					}
 				}
-				$this->db->query("UPDATE COA set saldoawal = '$total2' where no_perkiraan LIKE '$ambil_nokir2%' AND level='3' and bln='$bln_periode' and thn='$thn_periode' and kdcab='$kode_cabang'");
+				$this->db->query("UPDATE coa set saldoawal = '$total2' where no_perkiraan LIKE '$ambil_nokir2%' AND level='3' and bln='$bln_periode' and thn='$thn_periode' and kdcab='$kode_cabang'");
 			}
 		}
 		redirect('latihan/saldoawal');
