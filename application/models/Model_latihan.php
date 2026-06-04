@@ -926,24 +926,33 @@ class Model_latihan extends CI_Model
 	}
 
 	function get_list_jvcoz()
-	{ //combobox jvCoz	
-		if ($this->input->post()) {
-			$bln = $this->input->post('bln');
-			$thn = $this->input->post('thn');
-			if (empty($bln)) {
-				$thnbln	= empty($thn) ? date('Y') : $thn;
-			} else {
-				$thnbln = date("Y-m", strtotime($thn . "-" . $bln . "-01"));
-			}
-			$query = "SELECT * from javh where bulan='$bln' and tahun='$thn'";
-			$query	= $this->db->query($query);
+	{
+		$bln = $this->input->post('bln');
+		$thn = $this->input->post('thn');
 
-			if ($query->num_rows() > 0) {
-				return $query->result();
-			} else {
-				return 0;
-				//return echo "data tidak tersedia";
-			}
+		// Default tahun jika tidak ada POST
+		if (empty($thn)) {
+			$thn = date('Y');
+		}
+
+		$sql  = "SELECT * FROM javh WHERE tahun = ?";
+		$bind = [$thn];
+
+		// Hanya filter bulan jika bukan "All" (bln = 0 atau kosong)
+		if (!empty($bln) && $bln != '0') {
+			// Pastikan format bulan 2 digit: 1 → 01
+			$sql   .= " AND bulan = ?";
+			$bind[] = str_pad($bln, 2, '0', STR_PAD_LEFT);
+		}
+
+		$sql .= " ORDER BY nomor DESC";
+
+		$query = $this->db->query($sql, $bind);
+
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return 0;
 		}
 	}
 	//====================================================== view ledger in query n query control==============================================
@@ -970,7 +979,7 @@ class Model_latihan extends CI_Model
 		}
 	}
 
-	function get_list_ledger_cont($bln_aktif, $thn_aktif, $kode_cabang) 
+	function get_list_ledger_cont($bln_aktif, $thn_aktif, $kode_cabang)
 	{
 		if ($this->input->post()) {
 			$level = $this->input->post('level');
@@ -989,7 +998,7 @@ class Model_latihan extends CI_Model
 			}
 		}
 	}
-	
+
 	public function excel_control($bln_aktif, $thn_aktif)
 	{
 		$query = " SELECT *,saldoawal+debet-kredit as saldoakhir FROM coa WHERE bln='$bln_aktif' and thn='$thn_aktif'";
@@ -1000,7 +1009,7 @@ class Model_latihan extends CI_Model
 			return 0;
 		}
 	}
-	
+
 	//SYAM 07-12-2020
 	public function excel_control_level($bln_aktif, $thn_aktif, $level)
 	{
@@ -1012,7 +1021,7 @@ class Model_latihan extends CI_Model
 			return 0;
 		}
 	}
-	
+
 	function ledger_lev3($id, $kode_cabang)
 	{
 		$query = "SELECT * FROM coa where  id='$id' and kdcab='$kode_cabang' ";
@@ -1067,7 +1076,7 @@ class Model_latihan extends CI_Model
 		}
 	}
 
-	
+
 
 	function update_nobuk()
 	{

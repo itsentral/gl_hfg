@@ -691,10 +691,8 @@ class Latihan extends CI_Controller
 
 	function list_jvcoz()
 	{
-		$data['judul'] 			= "Daftar COA";
-		/*$var_bulan			= $this->input->post('bln');
-					$var_tahun			= $this->input->post('thn');*/
-		$data['data_listjv'] 	= $this->Model_latihan->get_list_jvcoz();
+		$data['judul']       = "Daftar JV COZ";
+		$data['data_listjv'] = $this->Model_latihan->get_list_jvcoz();
 
 		$this->load->view('jurnal/v_list_jv', $data);
 	}
@@ -736,30 +734,28 @@ class Latihan extends CI_Controller
 	}
 	function list_ledger_control_level()
 	{
-		
-			
-		if ($this->input->post('tampilkan') == "View Excel") { 
-			
+
+
+		if ($this->input->post('tampilkan') == "View Excel") {
+
 			$level = $this->input->post('level');
 			// exit;
-			
-		redirect('latihan/excel_ledger_control/' . $level . '');		
 
-		} else {	
-		
-		$data['judul'] 			= "ledger Control";
-		$cek_periode_aktif			= $this->Model_latihan->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
-			foreach ($cek_periode_aktif as $row_periode_aktif) {
-				$tgl_periode_aktif	= $row_periode_aktif->periode;
-				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
-				$thn_aktif			= substr($tgl_periode_aktif, 3, 4);
+			redirect('latihan/excel_ledger_control/' . $level . '');
+		} else {
+
+			$data['judul'] 			= "ledger Control";
+			$cek_periode_aktif			= $this->Model_latihan->cek_periode_aktif();
+			if ($cek_periode_aktif > 0) {
+				foreach ($cek_periode_aktif as $row_periode_aktif) {
+					$tgl_periode_aktif	= $row_periode_aktif->periode;
+					$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
+					$thn_aktif			= substr($tgl_periode_aktif, 3, 4);
+				}
 			}
-		}
-		$kode_cabang	= $this->session->userdata('kode_cabang');
-		$data['data_ledgr_cont'] 	= $this->Model_latihan->get_list_ledger_cont($bln_aktif, $thn_aktif, $kode_cabang);
-		$this->load->view('latihan/ledger_control', $data);
-		
+			$kode_cabang	= $this->session->userdata('kode_cabang');
+			$data['data_ledgr_cont'] 	= $this->Model_latihan->get_list_ledger_cont($bln_aktif, $thn_aktif, $kode_cabang);
+			$this->load->view('latihan/ledger_control', $data);
 		}
 	}
 
@@ -835,7 +831,7 @@ class Latihan extends CI_Controller
 
 	public function excel_ledger_control()
 	{
-		
+
 		$data['judul'] 			= "ledger Control";
 		$cek_periode_aktif			= $this->Model_latihan->cek_periode_aktif();
 		if ($cek_periode_aktif > 0) {
@@ -845,10 +841,10 @@ class Latihan extends CI_Controller
 				$thn_aktif			= substr($tgl_periode_aktif, 3, 4);
 			}
 		}
-		
+
 		$level          = $this->uri->segment(3);
-	   //$data['data_ledgr_cont']		= $this->Model_latihan->excel_control($bln_aktif,	$thn_aktif);
-	    $data['data_ledgr_cont']		= $this->Model_latihan->excel_control_level($bln_aktif,	$thn_aktif, $level);
+		//$data['data_ledgr_cont']		= $this->Model_latihan->excel_control($bln_aktif,	$thn_aktif);
+		$data['data_ledgr_cont']		= $this->Model_latihan->excel_control_level($bln_aktif,	$thn_aktif, $level);
 		$this->load->view('latihan/v_excel_lcontrol', $data);
 	}
 
