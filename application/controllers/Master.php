@@ -95,19 +95,39 @@ class Master extends CI_Controller
 		// redirect('Gl_laporan/master_coa');
 	}
 
+	// public function proses_edit_coa()
+	// {
+	// 	$no_perkiraan	= $this->input->post('no_perkiraan');
+	// 	$kdcab		    = $this->input->post('kdcab');
+
+	// 	$cek_duplikat_nokir = $this->db->query("SELECT * FROM coa_master WHERE no_perkiraan='$no_perkiraan' and kdcab='$kdcab'")->result();
+
+	// 	if ($cek_duplikat_nokir) {
+	// 		redirect('master/master_coa');
+	// 	} else {
+	// 		$this->master_model->proses_edit_coa();
+	// 		redirect('master/master_coa');
+	// 	}
+	// }
+
 	public function proses_edit_coa()
 	{
-		$no_perkiraan	= $this->input->post('no_perkiraan');
-		$kdcab		    = $this->input->post('kdcab');
+		$no_perkiraan       = $this->input->post('no_perkiraan');
+		$nokir_sebelumnya   = $this->input->post('nokir_sebelumnya');
+		$kdcab              = $this->input->post('kdcab');
 
-		$cek_duplikat_nokir = $this->db->query("SELECT * FROM coa_master WHERE no_perkiraan='$no_perkiraan' and kdcab='$kdcab'")->result();
+		if ($no_perkiraan != $nokir_sebelumnya) {
+			$cek_duplikat_nokir = $this->db->query("SELECT * FROM coa_master WHERE no_perkiraan='$no_perkiraan' AND kdcab='$kdcab'")->result();
 
-		if ($cek_duplikat_nokir) {
-			redirect('master/master_coa');
-		} else {
-			$this->master_model->proses_edit_coa();
-			redirect('master/master_coa');
+			if ($cek_duplikat_nokir) {
+				$this->session->set_flashdata('error', 'Nomor Perkiraan sudah digunakan!');
+				redirect('master/master_coa');
+				return;
+			}
 		}
+
+		$this->master_model->proses_edit_coa();
+		redirect('master/master_coa');
 	}
 
 	public function cetak_nokir()
