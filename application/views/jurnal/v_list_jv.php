@@ -37,11 +37,8 @@
 									<?php
 									$nm_bulan = array('All', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember');
 									$bln = $this->input->post('bln');
-									$uri_s3 	= $this->uri->segment(3);
-									if ($uri_s3 == 'month') {
-										$bln = date('m');
-									} else if (!empty($post_bulan)) {
-										$bln = 0;
+									if ($bln === false || $bln === null) {
+										$bln = 0; 
 									}
 									for ($i = 0; $i <= 12; $i++) {
 										if ($i == $bln) {
@@ -151,11 +148,10 @@
 			"order": [
 				[0, 'desc']
 			],
-			   "dom": 'Blfrtip',
-				"buttons": [
-				{
-                "extend": 'excel',
-				}],// Default sortingnya berdasarkan kolom / field ke 0 (paling pertama)
+			"dom": 'Blfrtip',
+			"buttons": [{
+				"extend": 'excel',
+			}], // Default sortingnya berdasarkan kolom / field ke 0 (paling pertama)
 		});
 	});
 

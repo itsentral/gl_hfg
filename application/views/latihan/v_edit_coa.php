@@ -63,7 +63,7 @@
 				<h4 class="modal-title">Form edit COA</h4>
 			</div>
 			<div class="box-body table-responsive no-padding">
-			<form method='post' action="<?=base_url().'index.php/Latihan/proses_add_master_coa';?>" enctype="multipart/form-data">
+			<form method='post' action="<?=base_url().'index.php/master/proses_edit_coa';?>" enctype="multipart/form-data">
 			
 			<div class="form-group has-success col-lg-6"  id="c_jabatan">
 					  <label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> Nomor Perkiraan (<?=$cek_level?>)</label>

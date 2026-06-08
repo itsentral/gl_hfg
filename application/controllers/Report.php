@@ -791,8 +791,8 @@ class Report extends CI_Controller
 		$bln_periode = $this->input->post('bulan_periode');
 		$thn_periode = $this->input->post('tahun_periode');
 		//$blnthn_periode = $bln_periode."-".$thn_periode;
-        $kode_cabang = $this->session->userdata('singkat_cbg');
-		
+		$kode_cabang = $this->session->userdata('singkat_cbg');
+
 		if ($bln_periode > 9) {
 			$blnthn_periode = $bln_periode . "-" . $thn_periode;
 		} else {
@@ -822,8 +822,8 @@ class Report extends CI_Controller
 	{
 		$data['judul']			= "Laporan Ledger";
 		$cek_periode_aktif			= $this->Report_model->cek_periode_aktif();
-		
-				
+
+
 		if ($cek_periode_aktif > 0) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
@@ -838,20 +838,20 @@ class Report extends CI_Controller
 
 	function tampilkan_ledger()
 	{
-		
-		
+
+
 		$data['judul']			= "Laporan Ledger";
 
 		if ($this->input->post('tampilkan') == "View Excel") {
 			$var_bln					= $this->input->post('bulan_ledger');
 			$var_thn					= $this->input->post('tahun_ledger');
-			$var_filter_nokir			= $this->input->post('filter_nokir'); 
+			$var_filter_nokir			= $this->input->post('filter_nokir');
 			$var_filter_nokir2			= $this->input->post('filter_nokir2');
 			$filter_nokir = substr($var_filter_nokir, 0, 10);
 			$filter_nokir2 = substr($var_filter_nokir2, 0, 10);
-			
-			
-			
+
+
+
 			redirect('report/excel_ledger/' . $var_bln . '/' . $var_thn . '/' . $filter_nokir . '/' . $filter_nokir2);
 			//redirect('report/ledger');
 
@@ -865,8 +865,8 @@ class Report extends CI_Controller
 				}
 			}
 			$data['data_perkiraan']		= $this->Jurnal_model->get_noperkiraan($bln_aktif, $thn_aktif);
-			
-			
+
+
 			$var_bulan					= $this->input->post('bulan_ledger');
 			$var_tahun					= $this->input->post('tahun_ledger');
 			$data['bln_ledger']			= $this->input->post('bulan_ledger');
@@ -879,7 +879,7 @@ class Report extends CI_Controller
 			$filter_nokir2 = substr($var_filter_nokir2, 0, 10);
 
 			$awal = 1;
-			$akhir = date("t",strtotime($var_tahun . "-" . $var_bulan ."-01"));
+			$akhir = date("t", strtotime($var_tahun . "-" . $var_bulan . "-01"));
 			$enol = 0;
 			if ($var_bulan > 9) {
 				$var_tgl_awal = $var_tahun . "-" . $var_bulan . "-0" . $awal;
@@ -892,15 +892,15 @@ class Report extends CI_Controller
 				$var_tgl_akhir = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
 				$data['var_tgl_akhir'] = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
 			}
-			
-			
+
+
 
 			$data['coa_sa']				= $this->Report_model->get_coa_sa($filter_nokir, $filter_nokir2, $var_bulan, $var_tahun);
 			//$data['detail_jurnal']		= $this->Report_model->get_detail_jurnal($filter_nokir,$filter_nokir2,$var_tgl_awal,$var_tgl_akhir);
 
 			// print_r($data['coa_sa']);
 			// exit;
-			
+
 			$this->load->view("report/v_list_ledger", $data);
 		}
 	}
@@ -918,22 +918,22 @@ class Report extends CI_Controller
 		$filter_nokir2			= $this->uri->segment(6);
 
 		$awal = 1;
-		$akhir =  date("t",strtotime($var_tahun . "-" . $var_bulan ."-01"));
+		$akhir =  date("t", strtotime($var_tahun . "-" . $var_bulan . "-01"));
 		$enol = 0;
-		
+
 		if ($var_bulan > 9) {
-				$var_tgl_awal = $var_tahun . "-" . $var_bulan . "-0" . $awal;
-				$data['var_tgl_awal'] = $var_tahun . "-" . $var_bulan . "-0" . $awal;
-				$var_tgl_akhir = $var_tahun . "-" . $var_bulan . "-" . $akhir;
-				$data['var_tgl_akhir'] = $var_tahun . "-" . $var_bulan . "-" . $akhir;
-			} else {
-				$var_tgl_awal = $var_tahun . "-" . $enol . $var_bulan . "-0" . $awal;
-				$data['var_tgl_awal'] = $var_tahun . "-" . $enol . $var_bulan . "-0" . $awal;
-				$var_tgl_akhir = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
-				$data['var_tgl_akhir'] = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
-			}
-			
-		
+			$var_tgl_awal = $var_tahun . "-" . $var_bulan . "-0" . $awal;
+			$data['var_tgl_awal'] = $var_tahun . "-" . $var_bulan . "-0" . $awal;
+			$var_tgl_akhir = $var_tahun . "-" . $var_bulan . "-" . $akhir;
+			$data['var_tgl_akhir'] = $var_tahun . "-" . $var_bulan . "-" . $akhir;
+		} else {
+			$var_tgl_awal = $var_tahun . "-" . $enol . $var_bulan . "-0" . $awal;
+			$data['var_tgl_awal'] = $var_tahun . "-" . $enol . $var_bulan . "-0" . $awal;
+			$var_tgl_akhir = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
+			$data['var_tgl_akhir'] = $var_tahun . "-" . $enol . $var_bulan . "-" . $akhir;
+		}
+
+
 		$data['coa_sa']				= $this->Report_model->get_coa_sa($filter_nokir, $filter_nokir2, $var_bulan, $var_tahun);
 		//$data['detail_jurnal']		= $this->Report_model->get_detail_jurnal($filter_nokir, $filter_nokir2, $var_tgl_awal, $var_tgl_akhir);
 
@@ -978,30 +978,133 @@ class Report extends CI_Controller
 		$this->load->view('report/v_tutup_bulan', $data);
 	}
 
+	// function proses_tutup_bulan()
+	// {
+	// 	$data['judul'] = "Proses Tutup Bulan";
+
+	// 	$cek_periode_aktif			= $this->Report_model->cek_periode_aktif();
+	// 	if ($cek_periode_aktif > 0) {
+	// 		foreach ($cek_periode_aktif as $row_periode_aktif) {
+	// 			$tgl_periode_aktif	= $row_periode_aktif->periode;
+	// 			$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
+	// 			$thn_aktif			= substr($tgl_periode_aktif, 3, 4);
+	// 		}
+	// 	}
+
+	// 	$awal = 1;
+	// 	$akhir =  date("t",strtotime($thn_aktif . "-" . $bln_aktif ."-01"));
+	// 	$enol = 0;
+	// 	if ($bln_aktif > 9) {
+	// 		$var_tgl_awal = $thn_aktif . "-" . $bln_aktif . "-0" . $awal;
+	// 		$var_tgl_akhir = $thn_aktif . "-" . $bln_aktif . "-" . $akhir;
+	// 	} else {
+	// 		$var_tgl_awal = $thn_aktif . "-" . $enol . $bln_aktif . "-0" . $awal;
+	// 		$var_tgl_akhir = $thn_aktif . "-" . $enol . $bln_aktif . "-" . $akhir;
+	// 	}
+	// 	$kode_cabang = $this->session->userdata('kode_cabang');
+	// 	if ($bln_aktif <= 11) {
+	// 		$nu_bln_aktif = $bln_aktif + 1;
+	// 		$nu_thn_aktif = $thn_aktif;
+	// 	} else {
+	// 		$nu_bln_aktif = 1;
+	// 		$nu_thn_aktif = $thn_aktif + 1;
+	// 	}
+
+	// 	$this->db->query("delete from coa WHERE bln='$nu_bln_aktif' AND thn='$nu_thn_aktif' and kdcab='$kode_cabang'");
+
+
+	// 	$data_coa					= $this->Report_model->get_coa($bln_aktif, $thn_aktif);
+	// 	if ($data_coa > 0) {
+	// 		foreach ($data_coa as $row_coa) {
+	// 			$nokir			= $row_coa->no_perkiraan;
+	// 			$nm_perkiraan	= $row_coa->nama;
+	// 			$lvl			= $row_coa->level;
+	// 			$grup			= $row_coa->grup;
+	// 			$faktor			= $row_coa->faktor;
+	// 			$saldo_awal		= $row_coa->saldoawal;
+	// 			$debet			= $row_coa->debet;
+	// 			$kredit			= $row_coa->kredit;
+	// 			$saldo_akhir	= $saldo_awal + $debet - $kredit;
+
+	// 			//$data_jurnal	= $this->Report_model->get_jurnal($nokir, $var_tgl_awal, $var_tgl_akhir);
+	// 			/*
+	// 			$data_jurnal	= $this->Report_model->get_coa($bln_aktif, $thn_aktif);
+
+	// 			if ($data_jurnal > 0) {
+	// 				foreach ($data_jurnal as $row_jurnal) {
+	// 					$jumlah_debet	= $row_jurnal->debet;
+	// 					$jumlah_kredit	= $row_jurnal->kredit;
+	// 					$saldo_akhir = $saldo_awal + $jumlah_debet - $jumlah_kredit;
+	// 				}
+	// 			}
+	// 			*/
+	// 			$data_newcoa					= $this->Report_model->get_newcoa($nu_bln_aktif, $nu_thn_aktif, $nokir); // cek coa utk bln & thn yg baru sdh ada apa belum
+	// 			if ($data_newcoa > 0) { // jika sudah ada
+
+	// 				$this->db->query("INSERT INTO coa (no_perkiraan,nama,kdcab,saldoawal,bln,thn,debet,kredit,tmp,tipe,level,grup,faktor) VALUES ('$nokir','$nm_perkiraan','$kode_cabang','$saldo_akhir','$nu_bln_aktif','$nu_thn_aktif',0,0,'O','A','$lvl','$grup','$faktor')");
+	// 			} else {		// jika belum ada
+
+
+	// 				$this->db->query("INSERT INTO coa (no_perkiraan,nama,kdcab,saldoawal,bln,thn,debet,kredit,tmp,tipe,level,grup,faktor) VALUES ('$nokir','$nm_perkiraan','$kode_cabang','$saldo_akhir','$nu_bln_aktif','$nu_thn_aktif',0,0,'O','A','$lvl','$grup','$faktor')");
+	// 				// echo "INSERT INTO coa (no_perkiraan,nama,kdcab,saldoawal,bln,thn,debet,kredit,tmp,tipe,level,grup,faktor) VALUES ('$nokir','$nm_perkiraan','$kode_cabang','$saldo_akhir','$nu_bln_aktif','$nu_thn_aktif',0,0,'O','A','$lvl','$grup','$faktor')";
+	// 			}
+	// 		}
+
+	// 		$enol = 0;
+	// 		if ($nu_bln_aktif > 9) {
+	// 			$nu_tgl_periode_aktif = $nu_bln_aktif . "-" . $nu_thn_aktif;
+	// 		} else {
+	// 			$nu_tgl_periode_aktif = $enol . $nu_bln_aktif . "-" . $nu_thn_aktif;
+	// 		}
+	// 		$singkat_cbg = $this->session->userdata('singkat_cbg');
+
+	// 		$this->db->query("UPDATE periode set stsaktif='C' WHERE periode='$tgl_periode_aktif' and kdcab='$singkat_cbg'");
+
+	// 		$nu_periode	= $this->Report_model->get_periode($nu_tgl_periode_aktif); // cek apakah periode yg baru sudah ada apa belum
+	// 		if ($nu_periode > 0) { // jika sudah ada
+
+	// 			$this->db->query("UPDATE periode set stsaktif='O',stspost='1',stslock='0' WHERE periode='$nu_tgl_periode_aktif' and kdcab='$singkat_cbg'");
+	// 		} else { // jika belum ada
+
+	// 			$this->db->query("INSERT INTO periode (periode,stsaktif,stspost,stslock,kdcab) VALUES ('$nu_tgl_periode_aktif','O','1','0','$singkat_cbg')");
+	// 		}
+	// 	}
+	//                             if ($this->db->trans_status() !== TRUE) {
+	// 								$this->db->trans_rollback();
+	// 								$rows_Return	= array(
+	// 									'pesan'			=> 'Posting process failed. Please try again later ...',
+	// 									'status'		=> 3
+	// 								);
+	// 							} else {
+	// 								$this->db->trans_commit();
+	// 								$rows_Return	= array(
+	// 									'pesan'		=> 'Posting process success. Thanks ...',
+	// 									'status'	=> 1
+
+	// 								);
+	// 							}
+	// 	$data['proses'] = 1;
+	// 	$this->load->view('report/v_tutup_bulan', $data);
+	// }
+
 	function proses_tutup_bulan()
 	{
 		$data['judul'] = "Proses Tutup Bulan";
 
-		$cek_periode_aktif			= $this->Report_model->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
-			foreach ($cek_periode_aktif as $row_periode_aktif) {
-				$tgl_periode_aktif	= $row_periode_aktif->periode;
-				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
-				$thn_aktif			= substr($tgl_periode_aktif, 3, 4);
-			}
+		$cek_periode_aktif = $this->Report_model->cek_periode_aktif();
+		if (empty($cek_periode_aktif) || $cek_periode_aktif <= 0) {
+			$data['proses'] = 0;
+			$this->load->view('report/v_tutup_bulan', $data);
+			return;
 		}
 
-		$awal = 1;
-		$akhir =  date("t",strtotime($thn_aktif . "-" . $bln_aktif ."-01"));
-		$enol = 0;
-		if ($bln_aktif > 9) {
-			$var_tgl_awal = $thn_aktif . "-" . $bln_aktif . "-0" . $awal;
-			$var_tgl_akhir = $thn_aktif . "-" . $bln_aktif . "-" . $akhir;
-		} else {
-			$var_tgl_awal = $thn_aktif . "-" . $enol . $bln_aktif . "-0" . $awal;
-			$var_tgl_akhir = $thn_aktif . "-" . $enol . $bln_aktif . "-" . $akhir;
+		foreach ($cek_periode_aktif as $row_periode_aktif) {
+			$tgl_periode_aktif = $row_periode_aktif->periode;
+			$bln_aktif         = (int) substr($tgl_periode_aktif, 0, 2);
+			$thn_aktif         = (int) substr($tgl_periode_aktif, 3, 4);
 		}
-		$kode_cabang = $this->session->userdata('kode_cabang');
+
+		// Hitung bulan & tahun berikutnya
 		if ($bln_aktif <= 11) {
 			$nu_bln_aktif = $bln_aktif + 1;
 			$nu_thn_aktif = $thn_aktif;
@@ -1010,79 +1113,77 @@ class Report extends CI_Controller
 			$nu_thn_aktif = $thn_aktif + 1;
 		}
 
-		$this->db->query("delete from coa WHERE bln='$nu_bln_aktif' AND thn='$nu_thn_aktif' and kdcab='$kode_cabang'");
+		$tgl_periode_aktif    = sprintf("%02d", $bln_aktif) . "-" . $thn_aktif;
+		$nu_tgl_periode_aktif = sprintf("%02d", $nu_bln_aktif) . "-" . $nu_thn_aktif;
 
+		$kode_cabang = $this->session->userdata('kode_cabang');
+		$singkat_cbg = $this->session->userdata('singkat_cbg');
+		$data_coa = $this->Report_model->get_coa_with_master($bln_aktif, $thn_aktif, $kode_cabang);
 
-		$data_coa					= $this->Report_model->get_coa($bln_aktif, $thn_aktif);
-		if ($data_coa > 0) {
-			foreach ($data_coa as $row_coa) {
-				$nokir			= $row_coa->no_perkiraan;
-				$nm_perkiraan	= $row_coa->nama;
-				$lvl			= $row_coa->level;
-				$grup			= $row_coa->grup;
-				$faktor			= $row_coa->faktor;
-				$saldo_awal		= $row_coa->saldoawal;
-				$debet			= $row_coa->debet;
-				$kredit			= $row_coa->kredit;
-				$saldo_akhir	= $saldo_awal + $debet - $kredit;
-
-				//$data_jurnal	= $this->Report_model->get_jurnal($nokir, $var_tgl_awal, $var_tgl_akhir);
-				/*
-				$data_jurnal	= $this->Report_model->get_coa($bln_aktif, $thn_aktif);
-				
-				if ($data_jurnal > 0) {
-					foreach ($data_jurnal as $row_jurnal) {
-						$jumlah_debet	= $row_jurnal->debet;
-						$jumlah_kredit	= $row_jurnal->kredit;
-						$saldo_akhir = $saldo_awal + $jumlah_debet - $jumlah_kredit;
-					}
-				}
-				*/
-				$data_newcoa					= $this->Report_model->get_newcoa($nu_bln_aktif, $nu_thn_aktif, $nokir); // cek coa utk bln & thn yg baru sdh ada apa belum
-				if ($data_newcoa > 0) { // jika sudah ada
-
-					$this->db->query("INSERT INTO coa (no_perkiraan,nama,kdcab,saldoawal,bln,thn,debet,kredit,tmp,tipe,level,grup,faktor) VALUES ('$nokir','$nm_perkiraan','$kode_cabang','$saldo_akhir','$nu_bln_aktif','$nu_thn_aktif',0,0,'O','A','$lvl','$grup','$faktor')");
-				} else {		// jika belum ada
-
-
-					$this->db->query("INSERT INTO coa (no_perkiraan,nama,kdcab,saldoawal,bln,thn,debet,kredit,tmp,tipe,level,grup,faktor) VALUES ('$nokir','$nm_perkiraan','$kode_cabang','$saldo_akhir','$nu_bln_aktif','$nu_thn_aktif',0,0,'O','A','$lvl','$grup','$faktor')");
-					// echo "INSERT INTO coa (no_perkiraan,nama,kdcab,saldoawal,bln,thn,debet,kredit,tmp,tipe,level,grup,faktor) VALUES ('$nokir','$nm_perkiraan','$kode_cabang','$saldo_akhir','$nu_bln_aktif','$nu_thn_aktif',0,0,'O','A','$lvl','$grup','$faktor')";
-				}
-			}
-
-			$enol = 0;
-			if ($nu_bln_aktif > 9) {
-				$nu_tgl_periode_aktif = $nu_bln_aktif . "-" . $nu_thn_aktif;
-			} else {
-				$nu_tgl_periode_aktif = $enol . $nu_bln_aktif . "-" . $nu_thn_aktif;
-			}
-			$singkat_cbg = $this->session->userdata('singkat_cbg');
-
-			$this->db->query("UPDATE periode set stsaktif='C' WHERE periode='$tgl_periode_aktif' and kdcab='$singkat_cbg'");
-
-			$nu_periode	= $this->Report_model->get_periode($nu_tgl_periode_aktif); // cek apakah periode yg baru sudah ada apa belum
-			if ($nu_periode > 0) { // jika sudah ada
-
-				$this->db->query("UPDATE periode set stsaktif='O',stspost='1',stslock='0' WHERE periode='$nu_tgl_periode_aktif' and kdcab='$singkat_cbg'");
-			} else { // jika belum ada
-
-				$this->db->query("INSERT INTO periode (periode,stsaktif,stspost,stslock,kdcab) VALUES ('$nu_tgl_periode_aktif','O','1','0','$singkat_cbg')");
-			}
+		if (empty($data_coa)) {
+			$data['proses'] = 0;
+			$this->load->view('report/v_tutup_bulan', $data);
+			return;
 		}
-                                if ($this->db->trans_status() !== TRUE) {
-									$this->db->trans_rollback();
-									$rows_Return	= array(
-										'pesan'			=> 'Posting process failed. Please try again later ...',
-										'status'		=> 3
-									);
-								} else {
-									$this->db->trans_commit();
-									$rows_Return	= array(
-										'pesan'		=> 'Posting process success. Thanks ...',
-										'status'	=> 1
 
-									);
-								}
+		$this->db->trans_start();
+
+		$this->db->query(
+			"DELETE FROM coa WHERE bln = ? AND thn = ? AND kdcab = ?",
+			array($nu_bln_aktif, $nu_thn_aktif, $kode_cabang)
+		);
+
+		foreach ($data_coa as $row_coa) {
+			$saldo_awal  = (float) $row_coa->saldoawal;
+			$debet       = (float) $row_coa->debet;
+			$kredit      = (float) $row_coa->kredit;
+			$saldo_akhir = $saldo_awal + $debet - $kredit;
+
+			$this->db->query(
+				"INSERT INTO coa 
+                (no_perkiraan, nama, kdcab, saldoawal, bln, thn, debet, kredit, tmp, tipe, level, grup, faktor, cf_grup, cf_urut, cf_child) 
+             VALUES (?, ?, ?, ?, ?, ?, 0, 0, 'O', 'A', ?, ?, ?, ?, ?, ?)",
+				array(
+					$row_coa->no_perkiraan,
+					$row_coa->nama,
+					$kode_cabang,
+					$saldo_akhir,
+					$nu_bln_aktif,
+					$nu_thn_aktif,
+					$row_coa->level,
+					$row_coa->grup,
+					$row_coa->faktor,
+					$row_coa->cf_grup,
+					$row_coa->cf_urut,
+					$row_coa->cf_child
+				)
+			);
+		}
+
+		$this->db->query(
+			"UPDATE periode SET stsaktif = 'C' WHERE periode = ? AND kdcab = ?",
+			array($tgl_periode_aktif, $singkat_cbg)
+		);
+
+		$nu_periode = $this->Report_model->get_periode($nu_tgl_periode_aktif);
+		if ($nu_periode > 0) {
+			$this->db->query(
+				"UPDATE periode SET stsaktif = 'O', stspost = '1', stslock = '0' WHERE periode = ? AND kdcab = ?",
+				array($nu_tgl_periode_aktif, $singkat_cbg)
+			);
+		} else {
+			$this->db->query(
+				"INSERT INTO periode (periode, stsaktif, stspost, stslock, kdcab) VALUES (?, 'O', '1', '0', ?)",
+				array($nu_tgl_periode_aktif, $singkat_cbg)
+			);
+		}
+
+		$this->db->trans_complete();
+
+		if ($this->db->trans_status() !== TRUE) {
+			$this->db->trans_rollback();
+		}
+
 		$data['proses'] = 1;
 		$this->load->view('report/v_tutup_bulan', $data);
 	}
@@ -1571,5 +1672,4 @@ class Report extends CI_Controller
 		$data['rekap'] = $rekap;
 		$this->load->view("report/v_list_umur_piutang", $data);
 	}
-	
 }
