@@ -154,9 +154,9 @@ $db['default'] = array(
 	'dsn'	=> '', //http://103.228.117.98/gl/index.php/login
 
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'db_hfg_gl_dev',
+	'username' => 'glhfg',
+	'password' => 'App@system26',
+	'database' => 'db_hfg_gl',
 	'dbdriver' => 'mysqli',
 
 	'dbprefix' => '',
