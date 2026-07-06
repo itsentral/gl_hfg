@@ -110,51 +110,33 @@ class Master_model extends CI_Model
 
 	public function proses_edit_coa()
 	{
-		// $id      	    = $this->input->post('id');
+		$id                 = $this->input->post('id');
 		$nokir_sebelumnya	= $this->input->post('nokir_sebelumnya');
 		$nama_sebelumnya	= $this->input->post('nama_sebelumnya');
-		$no_perkiraan	= $this->input->post('no_perkiraan');
-		$nama	        = $this->input->post('nama');
-		$kdcab		    = $this->input->post('kdcab');
+		$no_perkiraan	    = $this->input->post('no_perkiraan');
+		$nama	            = $this->input->post('nama');
+		$kdcab		        = $this->input->post('kdcab');
 
-		$bln		    = $this->input->post('bln');
-		$thn		= $this->input->post('thn');
-
-		$data	= array(
-			// 'id'			=> "$id",
-			'no_perkiraan'		=> $no_perkiraan,
-			'nama'		=> $nama
-			// 'kdcab'		=> $kdcab,
-			// 'saldoawal'		=> $saldoawal,
-			// 'bln'	=> $bln,
-			// 'thn'		=> $thn
-		);
-		$data2	= array(
-			'no_perkiraan'		=> $no_perkiraan,
-			'nama'		=> $nama
-			// 'kdcab'		=> $kdcab,
-			// 'bln'	=> $bln,
-			// 'thn'		=> $thn
+		$data = array(
+			'no_perkiraan' => $no_perkiraan,
+			'nama'         => $nama
 		);
 
-		// $this->db->query("UPDATE COA SET no_perkiraan='$no_perkiraan', nama='$nama', kdcab='$kdcab")
+		$this->db->where('id', $id);
+		$this->db->update('coa_master', $data);
 
 		$this->db->where('kdcab', $kdcab);
 		$this->db->where('no_perkiraan', $nokir_sebelumnya);
 		$this->db->update('coa', $data);
 
-		$this->db->where('kdcab', $kdcab);
-		$this->db->where('no_perkiraan', $nokir_sebelumnya);
-		$this->db->update('coa_master', $data2);
-
-
-		$transaksi = "Edit No.COA: " . $nokir_sebelumnya . ", Nama COA: " . $nama_sebelumnya . ", menjadi No.COA: " . $no_perkiraan . ", Nama COA: " . $nama . ", Oleh: " . $this->session->userdata('pn_name');
-		$add_log = array(
+		$transaksi = "Edit No.COA: " . $nokir_sebelumnya . ", Nama COA: " . $nama_sebelumnya .
+			", menjadi No.COA: " . $no_perkiraan . ", Nama COA: " . $nama .
+			", Oleh: " . $this->session->userdata('pn_name');
+		$this->db->insert('log_transaksi', array(
 			'transaksi' => $transaksi,
 			'nama_user' => $this->session->userdata('pn_name'),
-			'waktu' => date('Y-m-d H:i:s')
-		);
-		$this->db->insert('log_transaksi', $add_log);
+			'waktu'     => date('Y-m-d H:i:s')
+		));
 	}
 
 
@@ -401,52 +383,62 @@ class Master_model extends CI_Model
 	}
 
 
-	//SYAM 11/07/2020
-
 	function simpan_jurnal()
 	{
-		$tipe      	    	= $this->input->post('tipe');
-		$nama_jurnal		= $this->input->post('nama_jurnal');
-		$keterangan_header	= $this->input->post('keterangan_header');
-		$jenis_jurnal	= $this->input->post('jenis_jurnal');
-		$eksekusi	= $this->input->post('eksekusi');
+		$tipe               = $this->input->post('tipe');
+		$nama_jurnal        = $this->input->post('nama_jurnal');
+		$keterangan_header  = $this->input->post('keterangan_header');
+		$jenis_jurnal       = $this->input->post('jenis_jurnal');
+		$eksekusi           = $this->input->post('eksekusi');
+		$jenis_transaksi    = $this->input->post('jenis_transaksi');
 
 		$no_konter = $this->get_konter($tipe);
 		$kode_master_jurnal = $tipe . $no_konter;
 
-		$det_Detail		= $this->input->post('detail');
+		$det_Detail = $this->input->post('detail');
 
-		$data_header	= array(
-			'kode_master_jurnal'	=> $kode_master_jurnal,
-			'nama_jurnal'			=> $nama_jurnal,
-			'keterangan_header'		=> $keterangan_header,
-			'tipe'					=> $tipe,
-			'jenis_jurnal'			=> $jenis_jurnal,
-			'eksekusi'				=> $eksekusi
+		$data_header = array(
+			'kode_master_jurnal' => $kode_master_jurnal,
+			'nama_jurnal'        => $nama_jurnal,
+			'keterangan_header'  => $keterangan_header,
+			'tipe'               => $tipe,
+			'jenis_jurnal'       => $jenis_jurnal,
+			'eksekusi'           => $eksekusi,
+			'jenis_transaksi'    => $jenis_transaksi
 		);
 
-		$Detail_BUM			= array();
+		$Detail_BUM = array();
+		$intL = 0;
 
-		// insert ke jurnal kredit
-		$intL	= 0;
 		foreach ($det_Detail as $key => $vals) {
 			$intL++;
-			$Kode_Coa			= explode('^', $vals['noperkiraan']);
-			$descr				= $vals['keterangan'];
-			$posisi     		= $vals['posisi'];
-			$nama_menu				= $vals['nama_menu'];
-			$nama_field				= $vals['nama_field'];
-			$proses				    = $vals['proses'];
 
+			$sumber_coa = $vals['sumber_coa'];
 
-			$Detail_BUM[$intL]	= array(
-				'kode_master_jurnal'	=> $kode_master_jurnal,
-				'menu'                  => $nama_menu,
-				'no_perkiraan'  		=> $Kode_Coa[0],
-				'keterangan'    		=> $descr,
-				'posisi'                => $posisi,
-				'field'                 => $nama_field,
-				'cara_insert'           => $proses
+			if ($sumber_coa == 'tetap') {
+				$Kode_Coa          = explode('^', $vals['noperkiraan']);
+				$no_perkiraan      = $Kode_Coa[0];
+				$table_coa_dinamis = null;
+				$field_coa_dinamis = null;
+			} else {
+				$no_perkiraan      = null;
+				$table_coa_dinamis = $vals['table_coa_dinamis'];
+				$field_coa_dinamis = $vals['field_coa_dinamis'];
+			}
+
+			$Detail_BUM[$intL] = array(
+				'kode_master_jurnal' => $kode_master_jurnal,
+				'menu'               => $vals['nama_menu'],
+				'field'              => $vals['nama_field'],
+				'field_no_reff'      => $vals['field_no_reff'],
+				'field_no_request'   => $vals['field_no_request'],
+				'sumber_coa'         => $sumber_coa,
+				'no_perkiraan'       => $no_perkiraan,
+				'table_coa_dinamis'  => $table_coa_dinamis,
+				'field_coa_dinamis'  => $field_coa_dinamis,
+				'keterangan'         => $vals['keterangan'],
+				'posisi'             => $vals['posisi'],
+				'cara_insert'        => $vals['proses'],
 			);
 		}
 
@@ -454,18 +446,16 @@ class Master_model extends CI_Model
 		$this->db->insert_batch("master_oto_jurnal_detail", $Detail_BUM);
 
 		if ($tipe == "BUM") {
-			$no_konter_update = substr($kode_master_jurnal, 3, 3); // BUM001
-			$data_konter = array('nobum' => $no_konter_update);
-			$this->db->update("konter_master_jurnal", $data_konter);
+			$no_konter_update = substr($kode_master_jurnal, 3, 3);
+			$this->db->update("konter_master_jurnal", array('nobum' => $no_konter_update));
 		} elseif ($tipe == "JV") {
-			$no_konter_update = substr($kode_master_jurnal, 2, 3); // JV001
-			$data_konter = array('nojv' => $no_konter_update);
-			$this->db->update("konter_master_jurnal", $data_konter);
+			$no_konter_update = substr($kode_master_jurnal, 2, 3);
+			$this->db->update("konter_master_jurnal", array('nojv' => $no_konter_update));
 		} elseif ($tipe == "BUK") {
-			$no_konter_update = substr($kode_master_jurnal, 3, 3); // BUK001
-			$data_konter = array('nobuk' => $no_konter_update);
-			$this->db->update("konter_master_jurnal", $data_konter);
+			$no_konter_update = substr($kode_master_jurnal, 3, 3);
+			$this->db->update("konter_master_jurnal", array('nobuk' => $no_konter_update));
 		}
+
 		echo "<script> alert('Data berhasil di simpan!')";
 		echo "</script>";
 	}
@@ -2208,27 +2198,58 @@ class Master_model extends CI_Model
 		}
 	}
 
+	// Ganti get_menu() -> ambil daftar TABEL dari db_hfg_dev
 	public function get_menu()
 	{
+		$db_hfg = $this->load->database(DBHFG, TRUE);
 
-		$query	= "SELECT * from master_menu_erp";
+		$query = $db_hfg->query("
+        SELECT TABLE_NAME 
+        FROM INFORMATION_SCHEMA.TABLES 
+        WHERE TABLE_SCHEMA = 'db_hfg_dev'
+        ORDER BY TABLE_NAME
+    	");
 
-		$query 	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
-			return $query->result();
+			// disamakan formatnya biar kompatibel dgn view (pakai nama_table & nama_menu)
+			$result = array();
+			foreach ($query->result() as $row) {
+				$obj = new stdClass();
+				$obj->nama_table = $row->TABLE_NAME;
+				$obj->nama_menu  = $row->TABLE_NAME; // atau bikin label lebih rapi kalau perlu
+				$result[] = $obj;
+			}
+			return $result;
 		} else {
 			return 0;
 		}
 	}
 
-	public function get_field_menu()
+	// Ganti get_field_menu() -> ambil daftar KOLOM sesuai tabel yang dipilih
+	public function get_field_menu($nama_table = null)
 	{
+		if (empty($nama_table)) {
+			return 0;
+		}
 
-		$query	= "SELECT * from master_menu_field_erp";
+		$db_hfg = $this->load->database(DBHFG, TRUE);
 
-		$query 	= $this->db->query($query);
+		$query = $db_hfg->query("
+        SELECT COLUMN_NAME, DATA_TYPE
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_SCHEMA = 'db_hfg_dev' AND TABLE_NAME = ?
+        ORDER BY ORDINAL_POSITION
+    	", array($nama_table));
+
 		if ($query->num_rows() > 0) {
-			return $query->result();
+			$result = array();
+			foreach ($query->result() as $row) {
+				$obj = new stdClass();
+				$obj->nama_field = $row->COLUMN_NAME;
+				$obj->label      = $row->COLUMN_NAME; // bisa dipercantik (ucwords, replace _ jadi spasi)
+				$result[] = $obj;
+			}
+			return $result;
 		} else {
 			return 0;
 		}
