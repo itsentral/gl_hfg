@@ -207,3 +207,25 @@ $db['accounting'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+$db['db_hfg_dev'] = array(
+	'dsn'          => '',
+	'hostname'     => 'localhost',
+	'username'     => 'heru',
+	'password'     => '@Sentral123',
+	'database'     => 'db_hfg_dev',
+	'dbdriver'     => 'mysqli',
+	'dbprefix'     => '',
+	'pconnect'     => false,
+	'db_debug'     => (ENVIRONMENT !== 'production'),
+	'cache_on'     => false,
+	'cachedir'     => '',
+	'char_set'     => 'utf8',
+	'dbcollat'     => 'utf8_general_ci',
+	'swap_pre'     => '',
+	'encrypt'      => false,
+	'compress'     => false,
+	'stricton'     => false,
+	'failover'     => array(),
+	'save_queries' => true,
+);

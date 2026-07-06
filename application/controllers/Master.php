@@ -95,21 +95,6 @@ class Master extends CI_Controller
 		// redirect('Gl_laporan/master_coa');
 	}
 
-	// public function proses_edit_coa()
-	// {
-	// 	$no_perkiraan	= $this->input->post('no_perkiraan');
-	// 	$kdcab		    = $this->input->post('kdcab');
-
-	// 	$cek_duplikat_nokir = $this->db->query("SELECT * FROM coa_master WHERE no_perkiraan='$no_perkiraan' and kdcab='$kdcab'")->result();
-
-	// 	if ($cek_duplikat_nokir) {
-	// 		redirect('master/master_coa');
-	// 	} else {
-	// 		$this->master_model->proses_edit_coa();
-	// 		redirect('master/master_coa');
-	// 	}
-	// }
-
 	public function proses_edit_coa()
 	{
 		$no_perkiraan       = $this->input->post('no_perkiraan');
@@ -316,9 +301,12 @@ class Master extends CI_Controller
 
 		if ($data_header) {
 			foreach ($data_header as $row_header) {
-				$data['tipe']				= $row_header->tipe;
-				$data['nama_jurnal']		= $row_header->nama_jurnal;
-				$data['keterangan_header']	= $row_header->keterangan_header;
+				$data['tipe']              = $row_header->tipe;
+				$data['nama_jurnal']       = $row_header->nama_jurnal;
+				$data['keterangan_header'] = $row_header->keterangan_header;
+				$data['jenis_jurnal']      = $row_header->jenis_jurnal;   
+				$data['eksekusi']          = $row_header->eksekusi;       
+				$data['jenis_transaksi']   = $row_header->jenis_transaksi;
 			}
 		}
 
@@ -1486,17 +1474,16 @@ class Master extends CI_Controller
 
 	public function get_kolom()
 	{
-		$id = $this->uri->segment(3);
-		$query	 	= "SELECT * FROM master_menu_field_erp WHERE nama_table='" . $id . "'";
-		// echo $query;
-		$Q_result	= $this->db->query($query)->result();
-		$option 	= "<option value='0'>- Nama Kolom -</option>";
-		// $option 	= "";
-		foreach ($Q_result as $row) {
-			$option .= "<option value='" . $row->nama_field . "'>" . $row->nama_field . "</option>";
+		$nama_table = $this->uri->segment(3);
+
+		$Q_result = $this->master_model->get_field_menu($nama_table);
+
+		$option = "<option value='0'>- Nama Kolom -</option>";
+		if ($Q_result !== 0) {
+			foreach ($Q_result as $row) {
+				$option .= "<option value='" . $row->nama_field . "'>" . $row->label . "</option>";
+			}
 		}
-		echo json_encode(array(
-			'option' => $option
-		));
+		echo json_encode(array('option' => $option));
 	}
 }

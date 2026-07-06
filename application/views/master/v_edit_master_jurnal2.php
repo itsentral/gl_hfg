@@ -1,51 +1,76 @@
 <?php
 $this->load->view('header');
-error_reporting(E_ALL & ~E_NOTICE);
-$Arr_Coa		= array();
-$Arr_Coa_bank	= array();
-$Arr_Menu	    = array();
 
-if ($data_bank) {
-	foreach ($data_bank as $key => $vals) {
-		$kode_Coa					= $vals->no_perkiraan . '^' . $vals->nama;
-		$Arr_Coa_bank[$kode_Coa]	= $vals->no_perkiraan . '  ' . $vals->nama;
-	}
-}
+$Arr_Coa  = array();
+$Arr_Menu = array();
 
 if ($data_perkiraan) {
 	foreach ($data_perkiraan as $key => $vals) {
-		$kode_Coa			= $vals->no_perkiraan . '^' . $vals->nama;
-		$Arr_Coa[$kode_Coa]	= $vals->no_perkiraan . '  ' . $vals->nama;
+		$kode_Coa = $vals->no_perkiraan . '^' . $vals->nama;
+		$Arr_Coa[$kode_Coa] = $vals->no_perkiraan . '  ' . $vals->nama;
 	}
 }
+
 if ($data_menu) {
 	foreach ($data_menu as $key => $vals) {
-		$kode_Menu			    = $vals->nama_table;
-		$Arr_Menu[$kode_Menu]	= $vals->nama_menu;
+		$kode_Menu = $vals->nama_table;
+		$Arr_Menu[$kode_Menu] = $vals->nama_menu;
 	}
 }
 
-if ($data_field) {
-	foreach ($data_field as $key => $vals) {
-		$kode_Field			    = $vals->nama_field;
-		$Arr_Field[$kode_Field]	= $vals->label;
-	}
-}
-
-$data_coa = $this->db->query("SELECT * FROM COA WHERE no_perkiraan = '$no_perkiraan' and bln='$bln_aktif' and thn='$thn_aktif'")->result();
-
-if ($data_coa > 0) {
-	foreach ($data_coa as $brs_coa2) {
-		$nama_coa2 = $brs_coa2->nama;
-		$pndptn = $no_perkiraan . " " . $nama_coa2;
+// Susun data detail existing jadi array asosiatif sederhana untuk dikirim ke JS.
+// SESUAIKAN nama properti ($row->...) di bawah ini dengan nama kolom asli di tabel detail kamu.
+$Existing_Detail = array();
+if (!empty($data_detail)) {
+	foreach ($data_detail as $row) {
+		$Existing_Detail[] = array(
+			'nama_menu'         => isset($row->menu) ? $row->menu : '',
+			'nama_field'        => isset($row->field) ? $row->field : '',
+			'field_no_reff'     => isset($row->field_no_reff) ? $row->field_no_reff : '',
+			'field_no_request'  => isset($row->field_no_request) ? $row->field_no_request : '',
+			'sumber_coa'        => isset($row->sumber_coa) ? $row->sumber_coa : 'tetap',
+			'noperkiraan'       => isset($row->no_perkiraan) ? $row->no_perkiraan : '',
+			'table_coa_dinamis' => isset($row->table_coa_dinamis) ? $row->table_coa_dinamis : '',
+			'field_coa_dinamis' => isset($row->field_coa_dinamis) ? $row->field_coa_dinamis : '',
+			'keterangan'        => isset($row->keterangan) ? $row->keterangan : '',
+			'posisi'            => isset($row->posisi) ? $row->posisi : 'D',
+			'proses'            => isset($row->cara_insert) ? $row->cara_insert : 'otomatis',
+		);
 	}
 }
 ?>
+
+<style>
+	.select2-container--default .select2-selection--single {
+		height: 34px;
+		border: 1px solid #d2d6de;
+		border-radius: 0px;
+		background: none;
+		box-shadow: none;
+		color: #444;
+	}
+
+	.select2-container--default .select2-selection--single .select2-selection__rendered {
+		line-height: 32px;
+		padding-left: 8px;
+	}
+
+	.select2-container--default .select2-selection--single .select2-selection__arrow {
+		height: 32px;
+	}
+
+	.table-responsive .select2-container {
+		min-width: 140px !important;
+	}
+
+	.select2-container {
+		z-index: 9999;
+	}
+</style>
+
 <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>dist/jquery.timepicker.css">
 <section class="content-header">
-	<h1>
-		<?= $judul ?>
-	</h1>
+	<h1><?= $judul ?></h1>
 	<ol class="breadcrumb">
 		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 		<li class="active"><?= $judul ?></li>
@@ -54,22 +79,48 @@ if ($data_coa > 0) {
 <section class="content">
 	<div class="row">
 		<div class="col-lg-12 col-xs-12">
-			<form method="post" action="<?= base_url() ?>index.php/master/proses_edit_jurnal" id="form-proses-bro">
+			<form method="post" action="<?= base_url() ?>index.php/master/proses_edit_jurnal_header" id="form-proses-bro">
+				<input type="hidden" name="kode_master_jurnal" value="<?= $kode_master_jurnal ?>">
+
 				<div class="box box-primary">
 					<div class="box-header">
 						<h3 class="box-title">Jurnal Header</h3>
 					</div>
-					<!-- /.box-header -->
 					<div class="box-body">
 						<div class="form-group row">
 							<label class="control-label col-sm-2">Kode Master Jurnal</label>
 							<div class="col-sm-4">
-								<!-- <span class="badge bg-maroon">Otomatis System</span> -->
-								<input type="text" class="form-control" id="kode_master_jurnal" name="kode_master_jurnal" value="<?= $kode_master_jurnal ?>" readonly>
+								<span class="badge bg-maroon"><?= $kode_master_jurnal ?></span>
 							</div>
 							<label class="control-label col-sm-2">Tipe Jurnal</label>
-							<div class="col-sm-3">
-								<input type="text" class="form-control" id="tipe" name="tipe" value="<?= $tipe ?>" readonly>
+							<div class="col-sm-4">
+								<select name="tipe" class="form-control select2-me" id="tipe" required>
+									<option value="">-- Pilih Tipe Jurnal --</option>
+									<option value="BUM" <?= ($tipe == 'BUM') ? 'selected' : '' ?>>BUM</option>
+									<option value="BUK" <?= ($tipe == 'BUK') ? 'selected' : '' ?>>BUK</option>
+									<option value="JV" <?= ($tipe == 'JV') ? 'selected' : '' ?>>JV</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="control-label col-sm-2">Jenis Pembelian</label>
+							<div class="col-sm-4">
+								<select name="jenis_jurnal" class="form-control select2-me" id="jenis_jurnal" required>
+									<option value="">-- Pilih Jenis Pembelian --</option>
+									<option value="produksi" <?= ($jenis_jurnal == 'produksi') ? 'selected' : '' ?>>Produksi</option>
+									<option value="nonstok" <?= ($jenis_jurnal == 'nonstok') ? 'selected' : '' ?>>Non Stok</option>
+									<option value="stok" <?= ($jenis_jurnal == 'stok') ? 'selected' : '' ?>>Stok</option>
+									<option value="aset" <?= ($jenis_jurnal == 'aset') ? 'selected' : '' ?>>Aset</option>
+								</select>
+							</div>
+							<label class="control-label col-sm-2">Eksekusi Saat</label>
+							<div class="col-sm-4">
+								<select name="eksekusi" class="form-control select2-me" id="eksekusi" required>
+									<option value="">-- Pilih Proses Jurnal --</option>
+									<option value="penerimaan" <?= ($eksekusi == 'penerimaan') ? 'selected' : '' ?>>Penerimaan Barang</option>
+									<option value="aproval" <?= ($eksekusi == 'aproval') ? 'selected' : '' ?>>Approval Persetujuan Pembayaran</option>
+									<option value="pembayaran" <?= ($eksekusi == 'pembayaran') ? 'selected' : '' ?>>Pembayaran</option>
+								</select>
 							</div>
 						</div>
 						<div class="form-group row">
@@ -77,195 +128,296 @@ if ($data_coa > 0) {
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="nama_jurnal" name="nama_jurnal" value="<?= $nama_jurnal ?>" required>
 							</div>
-							<label class="control-label col-sm-2">Keterangan</label>
+							<label class="control-label col-sm-2">Jenis Transaksi</label>
 							<div class="col-sm-4">
+								<input type="text" class="form-control" id="jenis_transaksi" name="jenis_transaksi" value="<?= isset($jenis_transaksi) ? $jenis_transaksi : '' ?>" placeholder="- Isi Jenis Transaksi -">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="control-label col-sm-2">Keterangan</label>
+							<div class="col-sm-10">
 								<textarea cols="75" rows="2" class="form-control input-sm" name="keterangan_header" id="keterangan_header"><?= $keterangan_header ?></textarea>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="box-body">
-					<!--<div class="box box-warning">-->
-					<div class="box-header">
-						<h3 class="box-title">Jurnal Detail</h3>
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-md btn-primary" id="add_field_button">Add Row</button>
+					<div class="box-body">
+						<div class="box-header">
+							<h3 class="box-title">Jurnal Detail</h3>
 						</div>
+
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped" style="min-width:1400px;">
+								<thead>
+									<tr class="bg-blue">
+										<th class="text-center">Nama Tabel</th>
+										<th class="text-center">Nama Kolom</th>
+										<th class="text-center">Field No. Reff</th>
+										<th class="text-center">Field No. Request</th>
+										<th class="text-center">Sumber COA</th>
+										<th class="text-center">No. Perkiraan</th>
+										<th class="text-center">Keterangan</th>
+										<th class="text-center">Posisi</th>
+										<th class="text-center">Insert</th>
+										<th class="text-center">Opsi</th>
+									</tr>
+								</thead>
+								<tbody id="list_detail">
+									<!-- Baris diisi via JavaScript (buildDetailRow) saat halaman dimuat -->
+								</tbody>
+							</table>
+						</div>
+						<!-- /table-responsive -->
+
 					</div>
-					<!-- /.box-header -->
-					<!--<div class="box-body" style="overflow-x:scroll;">	-->
-					<table class="table table-bordered table-striped">
-						<thead>
-							<thead>
-								<tr class="bg-blue">
-								    <th class="text-center">Nama Menu</th>
-									<th class="text-center">No. Perkiraan</th>
-									<th class="text-center">Keterangan</th>
-									<th class="text-center">Kolom nominal ERP </th>
-									<th class="text-center">Posisi</th>
-									<th class="text-center">Opsi</th>
-								</tr>
-							</thead>
-						</thead>
-						<tbody id="list_detail">
-							<?php
-							$no = 0;
-							$nama_coa2 = "";
-							if ($data_detail) {
-								foreach ($data_detail as $row_jurnal) {
-									$no++;
-                                    $Menu			= $row_jurnal->menu;
-									$No_Coa			= $row_jurnal->no_perkiraan;
-                                    $Field			= $row_jurnal->field;
-                                    $Posisi			= $row_jurnal->posisi;
-
-									$Pecah_Coa		= explode('-', $No_Coa);
-									$Cek_Coa		= $Pecah_Coa[0];
-
-									$parameter_no	= $row_jurnal->parameter_no;
-									$Keterangan		= $row_jurnal->keterangan;
-
-									$Action_link	= '-';
-
-									if ($Cek_Coa !== '1101' && $Cek_Coa !== '1102' && $Cek_Coa !== '1103' &&  $Cek_Coa !== '1104') {
-										$Action_link	= '<button type="button" class="btn btn-sm btn-danger" onClick="return delRows(\'' . $no . '\');"> <i class="fa fa-trash"></i></button>';
-									}
-
-									echo "<tr id='tr_" . $no . "'>";
-									echo"<td>
-										<select name='detDetail[$no][nama_menu]' id='nama_menu_$no' class='form-control input-sm'>
-											<option value=''>- Nama Menu -</option>";
-											
-											foreach ($Arr_Menu as $key => $row2) {
-											$menu_pisah	= explode('^', $key);
-											$menu1		= $menu_pisah[0];
-
-											if ($menu1 == $Menu) {
-												echo "<option value='" . $key . "' selected>" . $row2 . "</option>";
-											} else {
-												echo "<option value='" . $key . "'>" . $row2 . "</option>";
-											}
-
-												//	echo "<option value='".$row2->no_perkiraan." --- ".$row2->nama."'>".$row2->no_perkiraan." --- ".$row2->nama."</option>";
-											}
-										
-									echo"</select>
-									</td>";
-									echo "<td width='25%'>";
-							?>
-									<select name="detDetail[<?= $no ?>][no_perkiraan]" id="no_perkiraan_<?= $no ?>" class="form-control input-sm">
-										<!-- <option value="<?= $No_Coa ?>" selected><?= $pndptn ?></option> -->
-										<?php
-										foreach ($Arr_Coa as $key => $row2) {
-											$coa_pisah	= explode('^', $key);
-											$nokir		= $coa_pisah[0];
-
-											if ($nokir == $No_Coa) {
-												echo "<option value='" . $key . "' selected>" . $row2 . "</option>";
-											} else {
-												echo "<option value='" . $key . "'>" . $row2 . "</option>";
-											}
-										}
-										?>
-									</select>
-							<?php
-									// echo form_dropdown('detDetail[' . $no . '][no_perkiraan]', $Arr_Coa, $No_Coa, array('id' => 'no_perkiraan_' . $no, 'class' => 'form-control input-sm'));
-									echo "</td>";
-									echo "<td>";
-									echo form_input(array('id' => 'keterangan_' . $no, 'name' => 'detDetail[' . $no . '][keterangan]', 'class' => 'form-control input-sm', 'autocomplete' => 'off'), $Keterangan);
-									echo "</td>";
-									echo "<td>";
-									echo "  <select name='detDetail[$no][nama_field]' id='nama_field_$no' class='form-control input-sm'>
-											<option value=''>- Nama Kolom -</option>";
-											
-											foreach ($Arr_Field as $key => $row2) {
-                                                $field_pisah	= explode('^', $key);
-												$field1		= $field_pisah[0];
-
-                                                if ($field1 == $Field) {
-												echo "<option value='" . $key . "' selected>" . $row2 . "</option>";
-												} else {
-													echo "<option value='" . $key . "'>" . $row2 . "</option>";
-												}
-																								//	echo "<option value='".$row2->no_perkiraan." --- ".$row2->nama."'>".$row2->no_perkiraan." --- ".$row2->nama."</option>";
-											}
-											
-								    echo"</select>
-									</td>";
-									echo" <td>
-										<select name='detDetail[$no][posisi]' id='posisi_$no' class='form-control input-sm'>";
-                                          if ($Posisi == 'D') {
-											echo" <option value='D' selected > Debet </option>";
-											echo" <option value='K'> Kredit </option>";
-                                          }else if ($Posisi == 'K') {
-                                            echo" <option value='D'> Debet </option>";
-											echo" <option value='K' selected> Kredit </option>";
-                                          }
-                                          
-                                    echo"
-										</select> 
-									</td>";
-									echo "<td class='text-center'>";
-									echo $Action_link;
-									echo "</td>";
-									echo "</tr>";
-									// , 'readOnly' => true
-								}
-							}
-							?>
-						</tbody>
-						<!-- <tfoot>
-								<tr class="bg-gray">
-									<td colspan="3" class="text-center"><b>Grand Total</b></td>
-									<td>
-										<input type="text" class="form-control input-sm" name="total_debet" id="total_debet" value="<?= number_format($Total_Debet) ?>" readOnly>
-									</td>
-									<td>
-										<input type="text" class="form-control input-sm" name="total_kredit" id="total_kredit" value="<?= number_format($Total_Kredit) ?>" readOnly>
-									</td>
-								</tr>
-							</tfoot> -->
-					</table>
-					<!--</div><div class="box-body" style="overflow-x:scroll;">-->
-					<!--</div> <div class="box box-warning">-->
-				</div>
-				<div class="box-footer">
-					<?php
-					echo form_button(array('type' => 'button', 'class' => 'btn btn-md btn-success', 'value' => 'save', 'content' => 'SIMPAN', 'id' => 'simpan-bro')) . ' ';
-					//echo form_button(array('type'=>'button','class'=>'btn btn-md btn-danger','value'=>'back','id'=>'btn-back','content'=>'KEMBALI','onClick'=>'javascript:back()'));
-					?>
-					<a href="<?= base_url() ?>index.php/master/jurnal_header" class="btn btn-danger">KEMBALI</a>
+					<div class="box-footer">
+						<?php
+						echo form_button(array('type' => 'button', 'class' => 'btn btn-md btn-success', 'value' => 'save', 'content' => 'SIMPAN', 'id' => 'simpan-bro')) . ' ';
+						?>
+						<a href="<?= base_url() ?>index.php/master/jurnal_header" class="btn btn-danger">KEMBALI</a>
+					</div>
 				</div>
 		</div>
-
-	</div>
 	</div>
 </section>
 
-
 <?php $this->load->view('footer'); ?>
 
-<link rel="stylesheet" href="../../plugins/timepicker/bootstrap-timepicker.min.css">
-<script src="../../plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<!-- bootstrap datepicker -->
+<link rel="stylesheet" href="<?= base_url() ?>plugins/timepicker/bootstrap-timepicker.min.css">
+<script src="<?= base_url() ?>plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <link rel="stylesheet" href="<?= base_url() ?>plugins/datepicker/datepicker3.css">
 <link rel="stylesheet" href="<?= base_url() ?>dist/css/bootstrap-clockpicker.min.css">
-<!-- bootstrap datepicker -->
 <script src="<?= base_url() ?>plugins/datepicker/bootstrap-datepicker.js"></script>
 <script src="<?= base_url() ?>dist/js/bootstrap-clockpicker.min.js"></script>
-<script src="<?= base_url(); ?>dist/jquery.min.js"></script>
 <script type="text/javascript" src="<?= base_url(); ?>dist/jquery.timepicker.min.js"></script>
-</script>
-<script>
-	var list_coa = <?php echo json_encode($Arr_Coa); ?>;
-    var data_coa = <?php echo json_encode($Arr_Coa); ?>;
-	var data_menu = <?php echo json_encode($Arr_Menu); ?>;
-	var data_field = <?php echo json_encode($Arr_Field); ?>;
 
-	var max_fields = 15; //maximum records
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+	var data_coa          = <?php echo json_encode($Arr_Coa); ?>;
+	var data_menu         = <?php echo json_encode($Arr_Menu); ?>;
+	var existing_details  = <?php echo json_encode($Existing_Detail); ?>;
+	var max_fields         = 15;
+
+	function initSelect2(context) {
+		var target = context ? $(context).find('.select2-me') : $('.select2-me');
+
+		target.each(function() {
+			var $el = $(this);
+			if ($el.data('chosen')) {
+				$el.chosen('destroy');
+			}
+			$el.next('.chosen-container').remove();
+			$el.removeClass('chosen-select').css('display', '');
+		});
+
+		target.select2({
+			dropdownParent: $('body'),
+			width: '100%'
+		});
+	}
+
+	// Dipakai saat user mengganti Nama Tabel secara manual (baris baru / diganti)
+	function ajaxGetKolom(nama_tabel, target_selector) {
+		$.ajax({
+			url: base_url + 'index.php/master/get_kolom/' + nama_tabel,
+			cache: false,
+			type: "POST",
+			dataType: "json",
+			success: function(data) {
+				$(target_selector).html(data.option).trigger("change");
+			},
+			error: function() {
+				swal({
+					title: "Error Message !",
+					text: 'Connection Time Out. Please try again..',
+					type: "warning",
+					timer: 3000,
+					showCancelButton: false,
+					showConfirmButton: false,
+					allowOutsideClick: false
+				});
+			}
+		});
+	}
+
+	// Dipakai KHUSUS saat load awal (edit mode): isi dropdown dependent SEKALIGUS pilih value lama
+	function ajaxGetKolomEdit(nama_tabel, targets) {
+		$.ajax({
+			url: base_url + 'index.php/master/get_kolom/' + nama_tabel,
+			cache: false,
+			type: "POST",
+			dataType: "json",
+			success: function(data) {
+				$.each(targets, function(i, target) {
+					var $sel = $(target.selector);
+					$sel.html(data.option);
+					if (target.value) {
+						$sel.val(target.value);
+					}
+					$sel.trigger('change');
+				});
+			},
+			error: function() {
+				swal({
+					title: "Error Message !",
+					text: 'Connection Time Out. Please try again..',
+					type: "warning",
+					timer: 3000,
+					showCancelButton: false,
+					showConfirmButton: false,
+					allowOutsideClick: false
+				});
+			}
+		});
+	}
+
+	// Satu fungsi untuk membangun baris detail, dipakai baik untuk data lama (edit)
+	// maupun baris kosong baru (tombol Tambah) -> supaya strukturnya selalu sama persis.
+	function buildDetailRow(rowNum, existingData) {
+		existingData = existingData || {};
+
+		var Template = '<tr id="tr_' + rowNum + '">';
+
+		// 1. Nama Tabel
+		Template += '<td><select name="detail[' + rowNum + '][nama_menu]" id="nama_menu_' + rowNum + '" class="form-control input-sm nm_menu select2-me"><option value="">- Nama Tabel -</option>';
+		$.each(data_menu, function(key, nilai) {
+			var sel = (key === existingData.nama_menu) ? ' selected' : '';
+			Template += '<option value="' + key + '"' + sel + '>' + nilai + '</option>';
+		});
+		Template += '</select></td>';
+
+		// 2. Nama Kolom (diisi via ajax kalau ada nama_menu)
+		Template += '<td><select name="detail[' + rowNum + '][nama_field]" id="nama_field_' + rowNum + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
+
+		// 3. Field No. Reff
+		Template += '<td><select name="detail[' + rowNum + '][field_no_reff]" id="field_no_reff_' + rowNum + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
+
+		// 4. Field No. Request
+		Template += '<td><select name="detail[' + rowNum + '][field_no_request]" id="field_no_request_' + rowNum + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
+
+		// 5. Sumber COA
+		var tetapSel = (existingData.sumber_coa !== 'dinamis') ? ' selected' : '';
+		var dinamisSel = (existingData.sumber_coa === 'dinamis') ? ' selected' : '';
+		Template += '<td><select name="detail[' + rowNum + '][sumber_coa]" id="sumber_coa_' + rowNum + '" class="form-control input-sm sumber_coa select2-me">';
+		Template += '<option value="tetap"' + tetapSel + '>Tetap (Pilih Manual)</option>';
+		Template += '<option value="dinamis"' + dinamisSel + '>Dari Form Input HFG</option>';
+		Template += '</select></td>';
+
+		// 6. No. Perkiraan (1 kolom, toggle di dalamnya)
+		var tampilTetap = (existingData.sumber_coa === 'dinamis') ? 'display:none;' : '';
+		var tampilDinamis = (existingData.sumber_coa === 'dinamis') ? '' : 'display:none;';
+
+		Template += '<td><div class="coa-wrap-' + rowNum + '">';
+		Template += '<div class="kolom_coa_tetap" style="' + tampilTetap + '">';
+		Template += '<select name="detail[' + rowNum + '][noperkiraan]" id="noperkiraan' + rowNum + '" class="form-control input-sm select2-me"><option value="">- No Perkiraan -</option>';
+		$.each(data_coa, function(key, nilai) {
+			var sel = (key === existingData.noperkiraan) ? ' selected' : '';
+			Template += '<option value="' + key + '"' + sel + '>' + nilai + '</option>';
+		});
+		Template += '</select></div>';
+
+		Template += '<div class="kolom_coa_dinamis" style="' + tampilDinamis + '">';
+		Template += '<select name="detail[' + rowNum + '][table_coa_dinamis]" id="table_coa_dinamis_' + rowNum + '" class="form-control input-sm tabel_coa select2-me"><option value="">- Nama Tabel -</option>';
+		$.each(data_menu, function(key, nilai) {
+			var sel = (key === existingData.table_coa_dinamis) ? ' selected' : '';
+			Template += '<option value="' + key + '"' + sel + '>' + nilai + '</option>';
+		});
+		Template += '</select>';
+		Template += '<select name="detail[' + rowNum + '][field_coa_dinamis]" id="field_coa_dinamis_' + rowNum + '" class="form-control input-sm select2-me" style="margin-top:4px;"><option value="">- Daftar Kosong -</option></select>';
+		Template += '</div>';
+		Template += '</div></td>';
+
+		// 7. Keterangan
+		var ketVal = existingData.keterangan ? existingData.keterangan.replace(/"/g, '&quot;') : '';
+		Template += '<td><input type="text" class="form-control input-sm" id="keterangan' + rowNum + '" name="detail[' + rowNum + '][keterangan]" placeholder="- Keterangan -" value="' + ketVal + '"></td>';
+
+		// 8. Posisi
+		Template += '<td><select name="detail[' + rowNum + '][posisi]" id="posisi' + rowNum + '" class="form-control input-sm select2-me">';
+		Template += '<option value="D"' + (existingData.posisi === 'D' ? ' selected' : '') + '>Debet</option>';
+		Template += '<option value="K"' + (existingData.posisi === 'K' ? ' selected' : '') + '>Kredit</option>';
+		Template += '</select></td>';
+
+		// 9. Insert / Proses
+		Template += '<td><select name="detail[' + rowNum + '][proses]" id="proses' + rowNum + '" class="form-control input-sm select2-me">';
+		Template += '<option value="otomatis"' + (existingData.proses !== 'input' ? ' selected' : '') + '>Otomatis</option>';
+		Template += '<option value="input"' + (existingData.proses === 'input' ? ' selected' : '') + '>Input</option>';
+		Template += '</select></td>';
+
+		// 10. Opsi: baris pertama = tombol Tambah, baris lain = tombol Delete
+		var opsiHtml = (rowNum === 1) ?
+			'<button type="button" class="btn btn-sm btn-primary" id="add_field_button">Tambah</button>' :
+			'<button type="button" class="btn btn-sm btn-danger" onClick="return DelRow(' + rowNum + ');">Delete <i class="fa fa-trash-o"></i></button>';
+		Template += '<td width="10%" class="text-center">' + opsiHtml + '</td>';
+
+		Template += '</tr>';
+		return Template;
+	}
+
 	$(document).ready(function() {
-		// $(".harga").maskMoney();
+
+		// ==== RENDER BARIS AWAL (data lama kalau ada, atau 1 baris kosong kalau data baru) ====
+		if (existing_details.length > 0) {
+			$.each(existing_details, function(idx, row) {
+				$('#list_detail').append(buildDetailRow(idx + 1, row));
+			});
+		} else {
+			$('#list_detail').append(buildDetailRow(1, {}));
+		}
+
+		initSelect2();
+
+		// Untuk setiap baris lama yang sudah punya Nama Tabel, load dropdown dependent-nya
+		// (Nama Kolom, Field No.Reff, Field No.Request, dan Field COA Dinamis kalau perlu)
+		$.each(existing_details, function(idx, row) {
+			var rowNum = idx + 1;
+
+			if (row.nama_menu) {
+				ajaxGetKolomEdit(row.nama_menu, [
+					{ selector: '#nama_field_' + rowNum, value: row.nama_field },
+					{ selector: '#field_no_reff_' + rowNum, value: row.field_no_reff },
+					{ selector: '#field_no_request_' + rowNum, value: row.field_no_request }
+				]);
+			}
+
+			if (row.sumber_coa === 'dinamis' && row.table_coa_dinamis) {
+				ajaxGetKolomEdit(row.table_coa_dinamis, [
+					{ selector: '#field_coa_dinamis_' + rowNum, value: row.field_coa_dinamis }
+				]);
+			}
+		});
+
+		// Nama Tabel utama -> isi 3 dropdown kolom sekaligus (Nama Kolom, Field No. Reff, Field No. Request)
+		$(document).on('change', '.nm_menu', function() {
+			var loop = $(this).attr('id').split('_')[2];
+			var nama_tabel = $(this).val();
+
+			ajaxGetKolom(nama_tabel, '#nama_field_' + loop);
+			ajaxGetKolom(nama_tabel, '#field_no_reff_' + loop);
+			ajaxGetKolom(nama_tabel, '#field_no_request_' + loop);
+		});
+
+		// Toggle tampilan No. Perkiraan (Tetap vs Dinamis)
+		$(document).on('change', '.sumber_coa', function() {
+			var val = $(this).val();
+			var row = $(this).closest('tr');
+
+			if (val === 'dinamis') {
+				row.find('.kolom_coa_tetap').hide();
+				row.find('.kolom_coa_dinamis').show();
+			} else {
+				row.find('.kolom_coa_tetap').show();
+				row.find('.kolom_coa_dinamis').hide();
+			}
+		});
+
+		// Tabel COA Dinamis -> Field COA Dinamis
+		$(document).on('change', '.tabel_coa', function() {
+			var loop = $(this).attr('id').split('_')[3];
+			ajaxGetKolom($(this).val(), '#field_coa_dinamis_' + loop);
+		});
+
 		$('#simpan-bro').click(function(e) {
 			e.preventDefault();
 			$('#simpan-bro, #btn-back').prop('disabled', true);
@@ -274,53 +426,49 @@ if ($data_coa > 0) {
 			var tipe = $('#tipe').val();
 			var nama_jurnal = $('#nama_jurnal').val();
 			var keterangan_header = $('#keterangan_header').val();
-			// var notes = $('#note').val();
-			if (tipe == '' || tipe == null || tipe == '-') {
+
+			if (!tipe) {
 				close_spinner();
 				alert('Tipe belum dipilih, mohon pilih tipe jurnal terlebih dahulu..');
 				$('#simpan-bro, #btn-back').prop('disabled', false);
 				return false;
 			}
-			if (nama_jurnal == '' || nama_jurnal == null) {
+			if (!nama_jurnal) {
 				close_spinner();
 				alert('Nama Jurnal belum diinput, mohon isi Nama Jurnal terlebih dahulu..');
 				$('#simpan-bro, #btn-back').prop('disabled', false);
 				return false;
 			}
-			if (keterangan_header == '' || keterangan_header == null) {
+			if (!keterangan_header) {
 				close_spinner();
 				alert('Keterangan belum diinput, mohon isi Keterangan terlebih dahulu..');
 				$('#simpan-bro, #btn-back').prop('disabled', false);
 				return false;
 			}
+
 			var intC = 0;
 			var intD = 0;
-			var intP = 0;
-			var intJ = 0;
+
 			$('#list_detail').find('tr').each(function() {
-				var nil = $(this).attr('id');
-				var jum = nil.split('_');
-				var loop = jum[1];
-				var kode_coa = $('#no_perkiraan_' + loop).val();
-				var descr = $('#keterangan_' + loop).val();
-				var no_parameter = $('#no_parameter_' + loop).val();
-				// var nilai = $('#jumlah' + loop).val().replace(/\,/g, '');
-				if (kode_coa == '' || kode_coa == null) {
-					intC++;
+				var loop = $(this).attr('id').split('_')[1];
+				var sumber = $('#sumber_coa_' + loop).val();
+				var descr = $('#keterangan' + loop).val();
+
+				if (sumber === 'dinamis') {
+					var tabel_coa = $('#table_coa_dinamis_' + loop).val();
+					var field_coa = $('#field_coa_dinamis_' + loop).val();
+					if (!tabel_coa || !field_coa) intC++;
+				} else {
+					var kode_coa = $('#noperkiraan' + loop).val();
+					if (!kode_coa) intC++;
 				}
-				if (descr == '' || descr == null || descr == '-') {
-					intD++;
-				}
-				if (no_parameter == '' || no_parameter == null) {
-					intP++;
-				}
-				// if (nilai == '' || nilai == null || parseInt(nilai) < 1) {
-				// 	intJ++;
-				// }
+
+				if (!descr || descr === '-') intD++;
 			});
+
 			if (intC > 0) {
 				close_spinner();
-				alert('No Perkiraan Belum dipilih. Mohon pilih no perkiraan terlebih dahulu');
+				alert('No Perkiraan Belum dipilih/dilengkapi. Mohon lengkapi sumber No. Perkiraan terlebih dahulu');
 				$('#simpan-bro, #btn-back').prop('disabled', false);
 				return false;
 			}
@@ -330,127 +478,27 @@ if ($data_coa > 0) {
 				$('#simpan-bro, #btn-back').prop('disabled', false);
 				return false;
 			}
-			// if (intP > 0) {
-			// 	close_spinner();
-			// 	alert('No. Parameter Belum diinput. Mohon input no. parameter terlebih dahulu');
-			// 	$('#simpan-bro, #btn-back').prop('disabled', false);
-			// 	return false;
-			// }
 
-			// if (intJ > 0) {
-			// 	close_spinner();
-			// 	alert('Nilai Transaksi kosong. Mohon input nilai transaksi terlebih dahulu');
-			// 	$('#simpan-bro, #btn-back').prop('disabled', false);
-			// 	return false;
-			// }
 			$('#form-proses-bro').submit();
-
 		});
-		$('#add_field_button').click(function() {
+
+		$(document).on('click', '#add_field_button', function() {
 			var total_row = parseInt($('#list_detail').find('tr').length);
-			if (total_row < max_fields) {
-				var last_row = $('#list_detail tr:last').attr('id');
-				var beda = last_row.split('_');
-				var awal = parseInt(beda[1]) + 1;
+			if (total_row >= max_fields) return;
 
-				var Template = '<tr id="tr_' + awal + '">';
-				
-                Template += '<td>';
-				Template += '<select name="detail[' + awal + '][nama_menu]" id="nama_menu' + awal + '" class="form-control input-sm">';
-				Template += '<option value="">- Nama Menu -</option>';
-				$.each(data_menu, function(key, nilai) {
-					Template += '<option value="' + key + '">' + nilai + '</option>';
-				});
-				Template += '</select>';
-				Template += '</td>';
-				Template += '<td>';
-				Template += '<select name="detail[' + awal + '][noperkiraan]" id="noperkiraan' + awal + '" class="form-control input-sm">';
-				Template += '<option value="">- No Perkiraan -</option>';
-				$.each(data_coa, function(key, nilai) {
-					Template += '<option value="' + key + '">' + nilai + '</option>';
-				});
-				Template += '</select>';
-				Template += '</td>';
-				Template += '<td>';
-				Template += '<input type="text" name="detail[' + awal + '][keterangan]" id="keterangan' + awal + '" class="form-control input-sm">';
-				Template += '</td>';
-				Template += '<td>';
-				Template += '<select name="detail[' + awal + '][nama_field]" id="nama_field' + awal + '" class="form-control input-sm">';
-				Template += '<option value="">- Nama Menu -</option>';
-				$.each(data_field, function(key, nilai) {
-					Template += '<option value="' + key + '">' + nilai + '</option>';
-				});
-				Template += '</select>';
-				Template += '</td>';
-				Template += '<td>';
-				Template += '<select name="detail[' + awal + '][posisi]" id="posisi' + awal + '" class="form-control input-sm">';
-				Template += '<option value="D">Debet</option>';
-				Template += '<option value="K">Kredit</option>';
-				Template += '</td>';
-				
-				Template += '<td align="center"><button type="button" class="btn btn-sm btn-danger" onClick="return DelRow(' + awal + ');">Delete <i class="fa fa-trash-o"></i></button></td>';
+			var last_row = $('#list_detail tr:last').attr('id');
+			var awal = parseInt(last_row.split('_')[1]) + 1;
 
-				Template += '</tr>';
-				$('#list_detail').append(Template);
-				// $('.harga').maskMoney();
-				$('#noperkiraan' + awal).chosen();
-			}
+			$('#list_detail').append(buildDetailRow(awal, {}));
+			initSelect2($('#tr_' + awal));
 		});
+
 		$('#datepicker').datepicker({
-			dateFormat: 'd-m-Y'
+			dateFormat: 'yy-mm-dd'
 		});
-		$('#datepicker2').datepicker({
-			dateFormat: 'd-m-Y'
-		});
-
 	});
 
-	function delRows(id) {
+	function DelRow(id) {
 		$('#list_detail #tr_' + id).remove();
-		Calculation();
 	}
-
-	function startCalculation(id) {
-		intervalCalculation = setInterval('Calculation()', 1);
-	}
-
-	function Calculation() {
-		var sub_debet = 0;
-		var sub_kredit = 0;
-
-
-		$('#list_detail').find('tr').each(function() {
-			var nil = $(this).attr('id');
-			var jum = nil.split('_');
-			var loop = jum[1];
-			var debet_nil = $('#debet_' + loop).val().replace(/\,/g, '');
-			var kredit_nil = $('#kredit_' + loop).val().replace(/\,/g, '');
-			if (debet_nil == '' || debet_nil == null) {
-				var debet_nil = 0;
-			}
-
-			if (kredit_nil == '' || kredit_nil == null) {
-				var kredit_nil = 0;
-			}
-			sub_debet = parseFloat(sub_debet) + parseFloat(debet_nil);
-			sub_kredit = parseFloat(sub_kredit) + parseFloat(kredit_nil);
-
-		});
-
-		//grand_tot = parseFloat(sub_tot);
-		$('#total_debet').val(sub_debet.format(0, 3, ','));
-		$('#total_kredit').val(sub_kredit.format(0, 3, ','));
-		//$('#jumlah').val(sub_debet.format(0, 3, ','));
-		$('#jumlah').val(sub_kredit.format(0, 3, ','));
-	}
-
-	function stopCalculation() {
-		clearInterval(intervalCalculation);
-	}
-	Number.prototype.format = function(n, x, s, c) {
-		var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
-			num = this.toFixed(Math.max(0, ~~n));
-
-		return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
-	};
 </script>
