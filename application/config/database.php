@@ -154,8 +154,8 @@ $db['default'] = array(
 	'dsn'	=> '', //http://103.228.117.98/gl/index.php/login
 
 	'hostname' => 'localhost',
-	'username' => 'heru',
-	'password' => '@Sentral123',
+	'username' => 'harapan',
+	'password' => 'App@ssc1',
 	'database' => 'db_hfg_gl_dev',
 	'dbdriver' => 'mysqli',
 
