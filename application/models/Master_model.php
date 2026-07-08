@@ -86,7 +86,7 @@ class Master_model extends CI_Model
 			'faktor' 		=> $faktor
 		);
 		$this->db->insert('coa_master', $data);
-		$this->db->insert('COA', $data);
+		$this->db->insert('coa', $data);
 
 		$transaksi = "Tambah COA baru oleh " . $this->session->userdata('pn_name') . " no.coa : " . $no_perkiraan;
 		$add_log = array(
@@ -142,7 +142,7 @@ class Master_model extends CI_Model
 
 	public function get_nokirbr($id)
 	{
-		$query 	= "SELECT * from COA where no_perkiraan LIKE '$id%' AND level ='5'";
+		$query 	= "SELECT * from coa where no_perkiraan LIKE '$id%' AND level ='5'";
 
 		$query	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
@@ -155,7 +155,7 @@ class Master_model extends CI_Model
 	public function cek_ketersediaan_coa($no_perkiraan, $kdcab, $bln, $thn)
 	{
 
-		$query	= "SELECT * from COA where no_perkiraan='$no_perkiraan' and kdcab='$kdcab' and bln='$bln' and thn='$thn'";
+		$query	= "SELECT * from coa where no_perkiraan='$no_perkiraan' and kdcab='$kdcab' and bln='$bln' and thn='$thn'";
 		$query 	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
 			return $query->result();
@@ -189,7 +189,7 @@ class Master_model extends CI_Model
 			}
 		}
 		$kode_cabang	= $this->session->userdata('kode_cabang');
-		$query	= "SELECT * FROM COA WHERE level = '4' and bln = '$bln_periode' and thn = '$thn_periode' and kdcab = '$kode_cabang' order by no_perkiraan";
+		$query	= "SELECT * FROM coa WHERE level = '4' and bln = '$bln_periode' and thn = '$thn_periode' and kdcab = '$kode_cabang' order by no_perkiraan";
 		$query 	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
 			return $query->result();
@@ -316,7 +316,7 @@ class Master_model extends CI_Model
 	public function get_detail($kode_master_jurnal)
 	{
 
-		$query	= "SELECT * from master_oto_jurnal_detail where kode_master_jurnal = '$kode_master_jurnal'";
+		$query	= "SELECT * from master_oto_jurnal_detail where kode_master_jurnal = '$kode_master_jurnal' ORDER BY urutan ASC";
 
 		$query 	= $this->db->query($query);
 		if ($query->num_rows() > 0) {
@@ -383,68 +383,66 @@ class Master_model extends CI_Model
 	}
 
 
-	function simpan_jurnal()
+	public function simpan_jurnal()
 	{
 		$tipe               = $this->input->post('tipe');
 		$nama_jurnal        = $this->input->post('nama_jurnal');
 		$keterangan_header  = $this->input->post('keterangan_header');
-		$jenis_jurnal       = $this->input->post('jenis_jurnal');
-		$eksekusi           = $this->input->post('eksekusi');
 		$jenis_transaksi    = $this->input->post('jenis_transaksi');
-
+ 
 		$no_konter = $this->get_konter($tipe);
 		$kode_master_jurnal = $tipe . $no_konter;
-
+ 
 		$det_Detail = $this->input->post('detail');
-
+ 
 		$data_header = array(
 			'kode_master_jurnal' => $kode_master_jurnal,
 			'nama_jurnal'        => $nama_jurnal,
 			'keterangan_header'  => $keterangan_header,
 			'tipe'               => $tipe,
-			'jenis_jurnal'       => $jenis_jurnal,
-			'eksekusi'           => $eksekusi,
 			'jenis_transaksi'    => $jenis_transaksi
 		);
-
+ 
 		$Detail_BUM = array();
 		$intL = 0;
-
+ 
 		foreach ($det_Detail as $key => $vals) {
 			$intL++;
-
+ 
 			$sumber_coa = $vals['sumber_coa'];
-
+ 
 			if ($sumber_coa == 'tetap') {
 				$Kode_Coa          = explode('^', $vals['noperkiraan']);
 				$no_perkiraan      = $Kode_Coa[0];
-				$table_coa_dinamis = null;
 				$field_coa_dinamis = null;
 			} else {
 				$no_perkiraan      = null;
-				$table_coa_dinamis = $vals['table_coa_dinamis'];
+
 				$field_coa_dinamis = $vals['field_coa_dinamis'];
 			}
-
+ 
+			// 'urutan' diambil dari hidden input hasil drag & drop di frontend.
+			$urutan = isset($vals['urutan']) ? (int) $vals['urutan'] : $intL;
+ 
 			$Detail_BUM[$intL] = array(
 				'kode_master_jurnal' => $kode_master_jurnal,
+				'urutan'             => $urutan,
 				'menu'               => $vals['nama_menu'],
 				'field'              => $vals['nama_field'],
 				'field_no_reff'      => $vals['field_no_reff'],
-				'field_no_request'   => $vals['field_no_request'],
+				'field_nominal_kurs' => $vals['field_nominal_kurs'],
 				'sumber_coa'         => $sumber_coa,
 				'no_perkiraan'       => $no_perkiraan,
-				'table_coa_dinamis'  => $table_coa_dinamis,
 				'field_coa_dinamis'  => $field_coa_dinamis,
 				'keterangan'         => $vals['keterangan'],
 				'posisi'             => $vals['posisi'],
-				'cara_insert'        => $vals['proses'],
+
 			);
 		}
-
+ 
 		$this->db->insert('master_oto_jurnal_header', $data_header);
 		$this->db->insert_batch("master_oto_jurnal_detail", $Detail_BUM);
-
+ 
 		if ($tipe == "BUM") {
 			$no_konter_update = substr($kode_master_jurnal, 3, 3);
 			$this->db->update("konter_master_jurnal", array('nobum' => $no_konter_update));
@@ -455,7 +453,7 @@ class Master_model extends CI_Model
 			$no_konter_update = substr($kode_master_jurnal, 3, 3);
 			$this->db->update("konter_master_jurnal", array('nobuk' => $no_konter_update));
 		}
-
+ 
 		echo "<script> alert('Data berhasil di simpan!')";
 		echo "</script>";
 	}
@@ -2198,7 +2196,6 @@ class Master_model extends CI_Model
 		}
 	}
 
-	// Ganti get_menu() -> ambil daftar TABEL dari db_hfg_dev
 	public function get_menu()
 	{
 		$db_hfg = $this->load->database(DBHFG, TRUE);
@@ -2225,7 +2222,6 @@ class Master_model extends CI_Model
 		}
 	}
 
-	// Ganti get_field_menu() -> ambil daftar KOLOM sesuai tabel yang dipilih
 	public function get_field_menu($nama_table = null)
 	{
 		if (empty($nama_table)) {
@@ -2250,6 +2246,94 @@ class Master_model extends CI_Model
 				$result[] = $obj;
 			}
 			return $result;
+		} else {
+			return 0;
+		}
+	}
+
+	public function update_jurnal_header()
+	{
+		$kode_master_jurnal = $this->input->post('kode_master_jurnal');
+		$tipe                = $this->input->post('tipe');
+		$nama_jurnal         = $this->input->post('nama_jurnal');
+		$keterangan_header   = $this->input->post('keterangan_header');
+		$jenis_transaksi     = $this->input->post('jenis_transaksi');
+ 
+		$det_Detail = $this->input->post('detail');
+ 
+		// ===== Update header =====
+		$data_header = array(
+			'nama_jurnal'       => $nama_jurnal,
+			'keterangan_header' => $keterangan_header,
+			'tipe'              => $tipe,
+			'jenis_transaksi'   => $jenis_transaksi
+		);
+ 
+		$this->db->where('kode_master_jurnal', $kode_master_jurnal);
+		$this->db->update('master_oto_jurnal_header', $data_header);
+ 
+		// ===== Susun ulang detail =====
+		$Detail_BUM = array();
+		$intL = 0;
+ 
+		foreach ($det_Detail as $key => $vals) {
+			$intL++;
+ 
+			$sumber_coa = $vals['sumber_coa'];
+ 
+			if ($sumber_coa == 'tetap') {
+				$Kode_Coa          = explode('^', $vals['noperkiraan']);
+				$no_perkiraan      = $Kode_Coa[0];
+				$field_coa_dinamis = null;
+			} else {
+				$no_perkiraan      = null;
+
+				$field_coa_dinamis = $vals['field_coa_dinamis'];
+			}
+ 
+			// 'urutan' diambil dari hidden input hasil drag & drop di frontend.
+			// Fallback ke $intL kalau field itu entah kenapa tidak terkirim,
+			// supaya tetap ada nilai default yang masuk akal.
+			$urutan = isset($vals['urutan']) ? (int) $vals['urutan'] : $intL;
+ 
+			$Detail_BUM[$intL] = array(
+				'kode_master_jurnal' => $kode_master_jurnal,
+				'urutan'             => $urutan,
+				'menu'               => $vals['nama_menu'],
+				'field'              => $vals['nama_field'],
+				'field_no_reff'      => $vals['field_no_reff'],
+				'field_nominal_kurs' => $vals['field_nominal_kurs'],
+				'sumber_coa'         => $sumber_coa,
+				'no_perkiraan'       => $no_perkiraan,
+				'field_coa_dinamis'  => $field_coa_dinamis,
+				'keterangan'         => $vals['keterangan'],
+				'posisi'             => $vals['posisi'],
+
+			);
+		}
+ 
+		// Hapus detail lama, ganti dengan yang baru (paling aman krn jumlah baris bisa berubah)
+		$this->db->where('kode_master_jurnal', $kode_master_jurnal);
+		$this->db->delete('master_oto_jurnal_detail');
+ 
+		if (!empty($Detail_BUM)) {
+			$this->db->insert_batch('master_oto_jurnal_detail', $Detail_BUM);
+		}
+ 
+		// Catatan: tidak ada penyesuaian konter (nobum/nojv/nobuk) di sini,
+		// karena kode_master_jurnal tidak berubah saat edit.
+ 
+		echo "<script> alert('Data berhasil diupdate!')";
+		echo "</script>";
+	}
+
+	public function cek_coatipe($Lv_2)
+	{
+		$kode_cabang = $this->session->userdata('kode_cabang');
+		$query	= "SELECT * from coa_tipe where coa='$Lv_2'";
+		$query 	= $this->db->query($query);
+		if ($query->num_rows() > 0) {
+			return $query->result();
 		} else {
 			return 0;
 		}

@@ -55,7 +55,7 @@
 							</select>						 -->
 						</div>
 						<?php
-						$data_periode_aktif = $this->Model_latihan->cek_periode_aktif();
+						$data_periode_aktif = $this->master_model->cek_periode_aktif();
 
 						if ($data_periode_aktif > 0) {
 							foreach ($data_periode_aktif as $row_nokir) {

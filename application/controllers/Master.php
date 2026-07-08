@@ -304,8 +304,6 @@ class Master extends CI_Controller
 				$data['tipe']              = $row_header->tipe;
 				$data['nama_jurnal']       = $row_header->nama_jurnal;
 				$data['keterangan_header'] = $row_header->keterangan_header;
-				$data['jenis_jurnal']      = $row_header->jenis_jurnal;   
-				$data['eksekusi']          = $row_header->eksekusi;       
 				$data['jenis_transaksi']   = $row_header->jenis_transaksi;
 			}
 		}
@@ -332,8 +330,7 @@ class Master extends CI_Controller
 				$data['thn_aktif']	= substr($tgl_periode_aktif, 3, 4);
 			}
 		}
-		$data['data_bank']		= $this->Jurnal_model->get_bank($bln_aktif, $thn_aktif);
-		$data['data_perkiraan']		= $this->Jurnal_model->get_noperkiraan($bln_aktif, $thn_aktif);
+		$data['data_perkiraan']	= $this->Jurnal_model->get_noperkiraan($bln_aktif, $thn_aktif);
 		$data['data_menu']		    = $this->master_model->get_menu();
 		$data['data_field']		    = $this->master_model->get_field_menu();
 		//$data['data_project']		= $this->Jurnal_model->get_project();
@@ -1485,5 +1482,11 @@ class Master extends CI_Controller
 			}
 		}
 		echo json_encode(array('option' => $option));
+	}
+
+	function proses_edit_jurnal_header()
+	{
+		$this->master_model->update_jurnal_header();
+		redirect('master/jurnal_header');
 	}
 }
