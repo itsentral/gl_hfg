@@ -81,6 +81,7 @@ if ($data_master_coa > 0) {
 							<input type="hidden" class="form-control" id="nokir_sebelumnya" name='nokir_sebelumnya' value="<?= $no_perkiraan ?>">
 							<input type="hidden" class="form-control" id="nama_sebelumnya" name='nama_sebelumnya' value="<?= $nama ?>">
 							<input type="hidden" class="form-control" id="kdcab" name="kdcab" placeholder="Masukkan kode" value="<?= $kode ?>">
+							<input type="hidden" class="form-control" id="id" name="id" value="<?= $row->id ?>">
 							<div class="form-group has-success btn-group col-lg-6"></div>
 							<div class="form-group has-success col-lg-6" id="c_">
 								<input type="submit" name="submit" value="Save" class='pull-right btn btn-success' onclick="return check()">
