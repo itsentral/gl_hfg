@@ -19,7 +19,8 @@ if ($data_menu) {
 }
 
 // Susun data detail existing jadi array asosiatif sederhana untuk dikirim ke JS.
-// SESUAIKAN nama properti ($row->...) di bawah ini dengan nama kolom asli di tabel detail kamu.
+// PENTING: $data_detail HARUS sudah di-ORDER BY urutan ASC dari controller/model,
+// supaya urutan render baris di halaman edit sama persis dengan urutan tersimpan.
 $Existing_Detail = array();
 if (!empty($data_detail)) {
 	foreach ($data_detail as $row) {
@@ -27,14 +28,13 @@ if (!empty($data_detail)) {
 			'nama_menu'         => isset($row->menu) ? $row->menu : '',
 			'nama_field'        => isset($row->field) ? $row->field : '',
 			'field_no_reff'     => isset($row->field_no_reff) ? $row->field_no_reff : '',
-			'field_no_request'  => isset($row->field_no_request) ? $row->field_no_request : '',
+			'field_nominal_kurs'  => isset($row->field_nominal_kurs) ? $row->field_nominal_kurs : '',
 			'sumber_coa'        => isset($row->sumber_coa) ? $row->sumber_coa : 'tetap',
 			'noperkiraan'       => isset($row->no_perkiraan) ? $row->no_perkiraan : '',
-			'table_coa_dinamis' => isset($row->table_coa_dinamis) ? $row->table_coa_dinamis : '',
+
 			'field_coa_dinamis' => isset($row->field_coa_dinamis) ? $row->field_coa_dinamis : '',
 			'keterangan'        => isset($row->keterangan) ? $row->keterangan : '',
 			'posisi'            => isset($row->posisi) ? $row->posisi : 'D',
-			'proses'            => isset($row->cara_insert) ? $row->cara_insert : 'otomatis',
 		);
 	}
 }
@@ -65,6 +65,26 @@ if (!empty($data_detail)) {
 
 	.select2-container {
 		z-index: 9999;
+	}
+
+	.drag-handle {
+		cursor: move;
+		vertical-align: middle !important;
+		color: #999;
+		font-size: 16px;
+	}
+
+	.drag-handle:hover {
+		color: #333;
+	}
+
+	tr.sortable-ghost {
+		background: #f0f8ff !important;
+		opacity: 0.6;
+	}
+
+	tr.sortable-chosen {
+		background: #fffbe6 !important;
 	}
 </style>
 
@@ -102,27 +122,7 @@ if (!empty($data_detail)) {
 								</select>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label class="control-label col-sm-2">Jenis Pembelian</label>
-							<div class="col-sm-4">
-								<select name="jenis_jurnal" class="form-control select2-me" id="jenis_jurnal" required>
-									<option value="">-- Pilih Jenis Pembelian --</option>
-									<option value="produksi" <?= ($jenis_jurnal == 'produksi') ? 'selected' : '' ?>>Produksi</option>
-									<option value="nonstok" <?= ($jenis_jurnal == 'nonstok') ? 'selected' : '' ?>>Non Stok</option>
-									<option value="stok" <?= ($jenis_jurnal == 'stok') ? 'selected' : '' ?>>Stok</option>
-									<option value="aset" <?= ($jenis_jurnal == 'aset') ? 'selected' : '' ?>>Aset</option>
-								</select>
-							</div>
-							<label class="control-label col-sm-2">Eksekusi Saat</label>
-							<div class="col-sm-4">
-								<select name="eksekusi" class="form-control select2-me" id="eksekusi" required>
-									<option value="">-- Pilih Proses Jurnal --</option>
-									<option value="penerimaan" <?= ($eksekusi == 'penerimaan') ? 'selected' : '' ?>>Penerimaan Barang</option>
-									<option value="aproval" <?= ($eksekusi == 'aproval') ? 'selected' : '' ?>>Approval Persetujuan Pembayaran</option>
-									<option value="pembayaran" <?= ($eksekusi == 'pembayaran') ? 'selected' : '' ?>>Pembayaran</option>
-								</select>
-							</div>
-						</div>
+
 						<div class="form-group row">
 							<label class="control-label col-sm-2">Nama Jurnal</label>
 							<div class="col-sm-4">
@@ -144,21 +144,24 @@ if (!empty($data_detail)) {
 					<div class="box-body">
 						<div class="box-header">
 							<h3 class="box-title">Jurnal Detail</h3>
+							<p class="text-muted" style="margin-bottom:0;">
+								<i class="fa fa-info-circle"></i> Geser ikon <i class="fa fa-arrows"></i> di kolom paling kiri untuk mengubah urutan baris.
+							</p>
 						</div>
 
 						<div class="table-responsive">
-							<table class="table table-bordered table-striped" style="min-width:1400px;">
+							<table class="table table-bordered table-striped" style="min-width:1450px;">
 								<thead>
 									<tr class="bg-blue">
+										<th class="text-center" width="30">&nbsp;</th>
 										<th class="text-center">Nama Tabel</th>
-										<th class="text-center">Nama Kolom</th>
+										<th class="text-center">Nominal IDR</th>
+										<th class="text-center">Nominal Kurs</th>
 										<th class="text-center">Field No. Reff</th>
-										<th class="text-center">Field No. Request</th>
 										<th class="text-center">Sumber COA</th>
 										<th class="text-center">No. Perkiraan</th>
-										<th class="text-center">Keterangan</th>
+										<th class="text-center" style="min-width: 250px;">Keterangan</th>
 										<th class="text-center">Posisi</th>
-										<th class="text-center">Insert</th>
 										<th class="text-center">Opsi</th>
 									</tr>
 								</thead>
@@ -194,11 +197,15 @@ if (!empty($data_detail)) {
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+<!-- SortableJS untuk drag & drop urutan baris detail -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
 <script>
-	var data_coa          = <?php echo json_encode($Arr_Coa); ?>;
-	var data_menu         = <?php echo json_encode($Arr_Menu); ?>;
-	var existing_details  = <?php echo json_encode($Existing_Detail); ?>;
-	var max_fields         = 15;
+	var data_coa = <?php echo json_encode($Arr_Coa); ?>;
+	var data_menu = <?php echo json_encode($Arr_Menu); ?>;
+	var existing_details = <?php echo json_encode($Existing_Detail); ?>;
+	var max_fields = 15;
+	var sortableDetail = null;
 
 	function initSelect2(context) {
 		var target = context ? $(context).find('.select2-me') : $('.select2-me');
@@ -280,6 +287,9 @@ if (!empty($data_detail)) {
 
 		var Template = '<tr id="tr_' + rowNum + '">';
 
+		// 0. Drag handle (kolom urutan) - HARUS jadi kolom pertama
+		Template += '<td class="text-center drag-handle"><i class="fa fa-arrows"></i></td>';
+
 		// 1. Nama Tabel
 		Template += '<td><select name="detail[' + rowNum + '][nama_menu]" id="nama_menu_' + rowNum + '" class="form-control input-sm nm_menu select2-me"><option value="">- Nama Tabel -</option>';
 		$.each(data_menu, function(key, nilai) {
@@ -291,11 +301,11 @@ if (!empty($data_detail)) {
 		// 2. Nama Kolom (diisi via ajax kalau ada nama_menu)
 		Template += '<td><select name="detail[' + rowNum + '][nama_field]" id="nama_field_' + rowNum + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
 
-		// 3. Field No. Reff
-		Template += '<td><select name="detail[' + rowNum + '][field_no_reff]" id="field_no_reff_' + rowNum + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
+		// 3. Nominal Kurs
+		Template += '<td><select name="detail[' + rowNum + '][field_nominal_kurs]" id="field_nominal_kurs_' + rowNum + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
 
-		// 4. Field No. Request
-		Template += '<td><select name="detail[' + rowNum + '][field_no_request]" id="field_no_request_' + rowNum + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
+		// 4. Field No. Reff
+		Template += '<td><select name="detail[' + rowNum + '][field_no_reff]" id="field_no_reff_' + rowNum + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
 
 		// 5. Sumber COA
 		var tetapSel = (existingData.sumber_coa !== 'dinamis') ? ' selected' : '';
@@ -313,19 +323,15 @@ if (!empty($data_detail)) {
 		Template += '<div class="kolom_coa_tetap" style="' + tampilTetap + '">';
 		Template += '<select name="detail[' + rowNum + '][noperkiraan]" id="noperkiraan' + rowNum + '" class="form-control input-sm select2-me"><option value="">- No Perkiraan -</option>';
 		$.each(data_coa, function(key, nilai) {
-			var sel = (key === existingData.noperkiraan) ? ' selected' : '';
+			// Dropdown pakai key composite "kode^nama", tapi DB cuma simpan kode polos -> cocokkan bagian depannya saja
+			var nokirOnly = key.split('^')[0];
+			var sel = (nokirOnly === existingData.noperkiraan) ? ' selected' : '';
 			Template += '<option value="' + key + '"' + sel + '>' + nilai + '</option>';
 		});
 		Template += '</select></div>';
 
 		Template += '<div class="kolom_coa_dinamis" style="' + tampilDinamis + '">';
-		Template += '<select name="detail[' + rowNum + '][table_coa_dinamis]" id="table_coa_dinamis_' + rowNum + '" class="form-control input-sm tabel_coa select2-me"><option value="">- Nama Tabel -</option>';
-		$.each(data_menu, function(key, nilai) {
-			var sel = (key === existingData.table_coa_dinamis) ? ' selected' : '';
-			Template += '<option value="' + key + '"' + sel + '>' + nilai + '</option>';
-		});
-		Template += '</select>';
-		Template += '<select name="detail[' + rowNum + '][field_coa_dinamis]" id="field_coa_dinamis_' + rowNum + '" class="form-control input-sm select2-me" style="margin-top:4px;"><option value="">- Daftar Kosong -</option></select>';
+		Template += '<select name="detail[' + rowNum + '][field_coa_dinamis]" id="field_coa_dinamis_' + rowNum + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select>';
 		Template += '</div>';
 		Template += '</div></td>';
 
@@ -337,12 +343,7 @@ if (!empty($data_detail)) {
 		Template += '<td><select name="detail[' + rowNum + '][posisi]" id="posisi' + rowNum + '" class="form-control input-sm select2-me">';
 		Template += '<option value="D"' + (existingData.posisi === 'D' ? ' selected' : '') + '>Debet</option>';
 		Template += '<option value="K"' + (existingData.posisi === 'K' ? ' selected' : '') + '>Kredit</option>';
-		Template += '</select></td>';
-
-		// 9. Insert / Proses
-		Template += '<td><select name="detail[' + rowNum + '][proses]" id="proses' + rowNum + '" class="form-control input-sm select2-me">';
-		Template += '<option value="otomatis"' + (existingData.proses !== 'input' ? ' selected' : '') + '>Otomatis</option>';
-		Template += '<option value="input"' + (existingData.proses === 'input' ? ' selected' : '') + '>Input</option>';
+		Template += '<option value="otomatis"' + (existingData.posisi === 'otomatis' ? ' selected' : '') + '>Otomatis (ikuti tanda nilai)</option>';
 		Template += '</select></td>';
 
 		// 10. Opsi: baris pertama = tombol Tambah, baris lain = tombol Delete
@@ -353,6 +354,19 @@ if (!empty($data_detail)) {
 
 		Template += '</tr>';
 		return Template;
+	}
+
+	function initSortable() {
+		if (sortableDetail) {
+			sortableDetail.destroy();
+		}
+		sortableDetail = Sortable.create(document.getElementById('list_detail'), {
+			handle: '.drag-handle',
+			animation: 150,
+			forceFallback: true, // supaya select2 dropdown tidak mengganggu proses drag
+			ghostClass: 'sortable-ghost',
+			chosenClass: 'sortable-chosen'
+		});
 	}
 
 	$(document).ready(function() {
@@ -367,6 +381,7 @@ if (!empty($data_detail)) {
 		}
 
 		initSelect2();
+		initSortable();
 
 		// Untuk setiap baris lama yang sudah punya Nama Tabel, load dropdown dependent-nya
 		// (Nama Kolom, Field No.Reff, Field No.Request, dan Field COA Dinamis kalau perlu)
@@ -374,28 +389,35 @@ if (!empty($data_detail)) {
 			var rowNum = idx + 1;
 
 			if (row.nama_menu) {
-				ajaxGetKolomEdit(row.nama_menu, [
-					{ selector: '#nama_field_' + rowNum, value: row.nama_field },
-					{ selector: '#field_no_reff_' + rowNum, value: row.field_no_reff },
-					{ selector: '#field_no_request_' + rowNum, value: row.field_no_request }
-				]);
-			}
-
-			if (row.sumber_coa === 'dinamis' && row.table_coa_dinamis) {
-				ajaxGetKolomEdit(row.table_coa_dinamis, [
-					{ selector: '#field_coa_dinamis_' + rowNum, value: row.field_coa_dinamis }
+				ajaxGetKolomEdit(row.nama_menu, [{
+						selector: '#nama_field_' + rowNum,
+						value: row.nama_field
+					},
+					{
+						selector: '#field_no_reff_' + rowNum,
+						value: row.field_no_reff
+					},
+					{
+						selector: '#field_nominal_kurs_' + rowNum,
+						value: row.field_nominal_kurs
+					},
+					{
+						selector: '#field_coa_dinamis_' + rowNum,
+						value: row.field_coa_dinamis
+					}
 				]);
 			}
 		});
 
-		// Nama Tabel utama -> isi 3 dropdown kolom sekaligus (Nama Kolom, Field No. Reff, Field No. Request)
+		// Nama Tabel utama -> isi 4 dropdown kolom sekaligus (Nama Kolom, Field No. Reff, Field No. Request, Field COA Dinamis)
 		$(document).on('change', '.nm_menu', function() {
 			var loop = $(this).attr('id').split('_')[2];
 			var nama_tabel = $(this).val();
 
 			ajaxGetKolom(nama_tabel, '#nama_field_' + loop);
 			ajaxGetKolom(nama_tabel, '#field_no_reff_' + loop);
-			ajaxGetKolom(nama_tabel, '#field_no_request_' + loop);
+			ajaxGetKolom(nama_tabel, '#field_nominal_kurs_' + loop);
+			ajaxGetKolom(nama_tabel, '#field_coa_dinamis_' + loop);
 		});
 
 		// Toggle tampilan No. Perkiraan (Tetap vs Dinamis)
@@ -412,11 +434,6 @@ if (!empty($data_detail)) {
 			}
 		});
 
-		// Tabel COA Dinamis -> Field COA Dinamis
-		$(document).on('change', '.tabel_coa', function() {
-			var loop = $(this).attr('id').split('_')[3];
-			ajaxGetKolom($(this).val(), '#field_coa_dinamis_' + loop);
-		});
 
 		$('#simpan-bro').click(function(e) {
 			e.preventDefault();
@@ -455,9 +472,8 @@ if (!empty($data_detail)) {
 				var descr = $('#keterangan' + loop).val();
 
 				if (sumber === 'dinamis') {
-					var tabel_coa = $('#table_coa_dinamis_' + loop).val();
 					var field_coa = $('#field_coa_dinamis_' + loop).val();
-					if (!tabel_coa || !field_coa) intC++;
+					if (!field_coa) intC++;
 				} else {
 					var kode_coa = $('#noperkiraan' + loop).val();
 					if (!kode_coa) intC++;
@@ -478,6 +494,20 @@ if (!empty($data_detail)) {
 				$('#simpan-bro, #btn-back').prop('disabled', false);
 				return false;
 			}
+
+			// ===== Susun ulang nilai "urutan" sesuai posisi baris SAAT INI di layar =====
+			// Ini WAJIB dilakukan di sini (bukan sebelumnya), karena baris bisa saja
+			// sudah dipindah-pindah via drag & drop sebelum tombol SIMPAN ditekan.
+			$('#list_detail tr').each(function(idx) {
+				var loop = $(this).attr('id').split('_')[1];
+
+				// Hapus hidden input urutan lama (kalau sudah pernah ditambahkan) supaya tidak dobel
+				$(this).find('input[name="detail[' + loop + '][urutan]"]').remove();
+
+				$(this).append(
+					'<input type="hidden" name="detail[' + loop + '][urutan]" value="' + (idx + 1) + '">'
+				);
+			});
 
 			$('#form-proses-bro').submit();
 		});

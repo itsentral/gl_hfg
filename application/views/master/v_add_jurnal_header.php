@@ -37,7 +37,6 @@ if ($data_field) {
 ?>
 
 <style>
-	/* Styling untuk Select2 supaya mirip tampilan Chosen/AdminLTE lama */
 	.select2-container--default .select2-selection--single {
 		height: 34px;
 		border: 1px solid #d2d6de;
@@ -62,6 +61,26 @@ if ($data_field) {
 
 	.select2-container {
 		z-index: 9999;
+	}
+
+	.drag-handle {
+		cursor: move;
+		vertical-align: middle !important;
+		color: #999;
+		font-size: 16px;
+	}
+
+	.drag-handle:hover {
+		color: #333;
+	}
+
+	tr.sortable-ghost {
+		background: #f0f8ff !important;
+		opacity: 0.6;
+	}
+
+	tr.sortable-chosen {
+		background: #fffbe6 !important;
 	}
 </style>
 
@@ -97,27 +116,7 @@ if ($data_field) {
 								</select>
 							</div>
 						</div>
-						<div class="form-group row">
-							<label class="control-label col-sm-2">Jenis Pembelian</label>
-							<div class="col-sm-4">
-								<select name="jenis_jurnal" class="form-control select2-me" id="jenis_jurnal" required>
-									<option value="">-- Pilih Jenis Pembelian --</option>
-									<option value="produksi">Produksi</option>
-									<option value="nonstok">Non Stok</option>
-									<option value="stok">Stok</option>
-									<option value="aset">Aset</option>
-								</select>
-							</div>
-							<label class="control-label col-sm-2">Eksekusi Saat</label>
-							<div class="col-sm-4">
-								<select name="eksekusi" class="form-control select2-me" id="eksekusi" required>
-									<option value="">-- Pilih Proses Jurnal --</option>
-									<option value="penerimaan">Penerimaan Barang</option>
-									<option value="aproval">Approval Persetujuan Pembayaran</option>
-									<option value="pembayaran">Pembayaran</option>
-								</select>
-							</div>
-						</div>
+
 						<div class="form-group row">
 							<label class="control-label col-sm-2">Nama Jurnal</label>
 							<div class="col-sm-4">
@@ -139,26 +138,31 @@ if ($data_field) {
 					<div class="box-body">
 						<div class="box-header">
 							<h3 class="box-title">Jurnal Detail</h3>
+							<p class="text-muted" style="margin-bottom:0;">
+								<i class="fa fa-info-circle"></i> Geser ikon <i class="fa fa-arrows"></i> di kolom paling kiri untuk mengubah urutan baris.
+							</p>
 						</div>
 
 						<div class="table-responsive">
-							<table class="table table-bordered table-striped" style="min-width:1400px;">
+							<table class="table table-bordered table-striped" style="min-width:1450px;">
 								<thead>
 									<tr class="bg-blue">
+										<th class="text-center" width="30">&nbsp;</th>
 										<th class="text-center">Nama Tabel</th>
-										<th class="text-center">Nama Kolom</th>
+										<th class="text-center">Nominal IDR</th>
+										<th class="text-center">Nominal Kurs</th>
 										<th class="text-center">Field No. Reff</th>
-										<th class="text-center">Field No. Request</th>
 										<th class="text-center">Sumber COA</th>
 										<th class="text-center">No. Perkiraan</th>
-										<th class="text-center">Keterangan</th>
+										<th class="text-center" style="min-width: 250px;">Keterangan</th>
 										<th class="text-center">Posisi</th>
-										<th class="text-center">Insert</th>
 										<th class="text-center">Opsi</th>
 									</tr>
 								</thead>
 								<tbody id="list_detail">
 									<tr id="tr_1">
+										<!-- 0. Drag handle -->
+										<td class="text-center drag-handle"><i class="fa fa-arrows"></i></td>
 										<!-- 1. Nama Tabel -->
 										<td>
 											<select name="detail[1][nama_menu]" id="nama_menu_1" class="form-control input-sm nm_menu select2-me">
@@ -174,15 +178,15 @@ if ($data_field) {
 												<option value="">- Daftar Kosong -</option>
 											</select>
 										</td>
-										<!-- 3. Field No. Reff -->
+										<!-- 3. Nominal Kurs -->
 										<td>
-											<select name="detail[1][field_no_reff]" id="field_no_reff_1" class="form-control input-sm select2-me">
+											<select name="detail[1][field_nominal_kurs]" id="field_nominal_kurs_1" class="form-control input-sm select2-me">
 												<option value="">- Daftar Kosong -</option>
 											</select>
 										</td>
-										<!-- 4. Field No. Request -->
+										<!-- 4. Field No. Reff -->
 										<td>
-											<select name="detail[1][field_no_request]" id="field_no_request_1" class="form-control input-sm select2-me">
+											<select name="detail[1][field_no_reff]" id="field_no_reff_1" class="form-control input-sm select2-me">
 												<option value="">- Daftar Kosong -</option>
 											</select>
 										</td>
@@ -205,13 +209,7 @@ if ($data_field) {
 													</select>
 												</div>
 												<div class="kolom_coa_dinamis" style="display:none;">
-													<select name="detail[1][table_coa_dinamis]" id="table_coa_dinamis_1" class="form-control input-sm tabel_coa select2-me">
-														<option value="">- Nama Tabel -</option>
-														<?php foreach ($Arr_Menu as $key => $row2) {
-															echo "<option value='" . $key . "'>" . $row2 . "</option>";
-														} ?>
-													</select>
-													<select name="detail[1][field_coa_dinamis]" id="field_coa_dinamis_1" class="form-control input-sm select2-me" style="margin-top:4px;">
+													<select name="detail[1][field_coa_dinamis]" id="field_coa_dinamis_1" class="form-control input-sm select2-me">
 														<option value="">- Daftar Kosong -</option>
 													</select>
 												</div>
@@ -226,13 +224,7 @@ if ($data_field) {
 											<select name="detail[1][posisi]" id="posisi1" class="form-control input-sm select2-me">
 												<option value="D">Debet</option>
 												<option value="K">Kredit</option>
-											</select>
-										</td>
-										<!-- 9. Insert -->
-										<td>
-											<select name="detail[1][proses]" id="proses1" class="form-control input-sm select2-me">
-												<option value="otomatis">Otomatis</option>
-												<option value="input">Input</option>
+												<option value="otomatis">Otomatis (ikuti tanda nilai)</option>
 											</select>
 										</td>
 										<!-- 10. Opsi -->
@@ -271,10 +263,14 @@ if ($data_field) {
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+<!-- SortableJS untuk drag & drop urutan baris detail -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
 <script>
 	var data_coa = <?php echo json_encode($Arr_Coa); ?>;
 	var data_menu = <?php echo json_encode($Arr_Menu); ?>;
 	var max_fields = 15;
+	var sortableDetail = null;
 
 	function initSelect2(context) {
 		var target = context ? $(context).find('.select2-me') : $('.select2-me');
@@ -317,17 +313,32 @@ if ($data_field) {
 		});
 	}
 
+	function initSortable() {
+		if (sortableDetail) {
+			sortableDetail.destroy();
+		}
+		sortableDetail = Sortable.create(document.getElementById('list_detail'), {
+			handle: '.drag-handle',
+			animation: 150,
+			forceFallback: true, // supaya select2 dropdown tidak mengganggu proses drag
+			ghostClass: 'sortable-ghost',
+			chosenClass: 'sortable-chosen'
+		});
+	}
+
 	$(document).ready(function() {
 		initSelect2();
+		initSortable();
 
-		// Nama Tabel utama -> isi 3 dropdown kolom sekaligus (Nama Kolom, Field No. Reff, Field No. Request)
+		// Nama Tabel utama -> isi 4 dropdown kolom sekaligus (Nama Kolom, Field No. Reff, Field No. Request, Field COA Dinamis)
 		$(document).on('change', '.nm_menu', function() {
 			var loop = $(this).attr('id').split('_')[2];
 			var nama_tabel = $(this).val();
 
 			ajaxGetKolom(nama_tabel, '#nama_field_' + loop);
 			ajaxGetKolom(nama_tabel, '#field_no_reff_' + loop);
-			ajaxGetKolom(nama_tabel, '#field_no_request_' + loop);
+			ajaxGetKolom(nama_tabel, '#field_nominal_kurs_' + loop);
+			ajaxGetKolom(nama_tabel, '#field_coa_dinamis_' + loop);
 		});
 
 		// Toggle tampilan No. Perkiraan (Tetap vs Dinamis) DALAM 1 KOLOM YANG SAMA
@@ -344,11 +355,6 @@ if ($data_field) {
 			}
 		});
 
-		// Tabel COA Dinamis -> Field COA Dinamis
-		$(document).on('change', '.tabel_coa', function() {
-			var loop = $(this).attr('id').split('_')[3];
-			ajaxGetKolom($(this).val(), '#field_coa_dinamis_' + loop);
-		});
 
 		$('#simpan-bro').click(function(e) {
 			e.preventDefault();
@@ -387,9 +393,8 @@ if ($data_field) {
 				var descr = $('#keterangan' + loop).val();
 
 				if (sumber === 'dinamis') {
-					var tabel_coa = $('#table_coa_dinamis_' + loop).val();
 					var field_coa = $('#field_coa_dinamis_' + loop).val();
-					if (!tabel_coa || !field_coa) intC++;
+					if (!field_coa) intC++;
 				} else {
 					var kode_coa = $('#noperkiraan' + loop).val();
 					if (!kode_coa) intC++;
@@ -411,6 +416,17 @@ if ($data_field) {
 				return false;
 			}
 
+			// ===== Susun ulang nilai "urutan" sesuai posisi baris SAAT INI di layar =====
+			$('#list_detail tr').each(function(idx) {
+				var loop = $(this).attr('id').split('_')[1];
+
+				$(this).find('input[name="detail[' + loop + '][urutan]"]').remove();
+
+				$(this).append(
+					'<input type="hidden" name="detail[' + loop + '][urutan]" value="' + (idx + 1) + '">'
+				);
+			});
+
 			$('#form-proses-bro').submit();
 		});
 
@@ -423,6 +439,9 @@ if ($data_field) {
 
 			var Template = '<tr id="tr_' + awal + '">';
 
+			// 0. Drag handle
+			Template += '<td class="text-center drag-handle"><i class="fa fa-arrows"></i></td>';
+
 			// 1. Nama Tabel
 			Template += '<td><select name="detail[' + awal + '][nama_menu]" id="nama_menu_' + awal + '" class="form-control input-sm nm_menu select2-me"><option value="">- Nama Tabel -</option>';
 			$.each(data_menu, function(key, nilai) {
@@ -433,11 +452,11 @@ if ($data_field) {
 			// 2. Nama Kolom
 			Template += '<td><select name="detail[' + awal + '][nama_field]" id="nama_field_' + awal + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
 
-			// 3. Field No. Reff
-			Template += '<td><select name="detail[' + awal + '][field_no_reff]" id="field_no_reff_' + awal + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
+			// 3. Nominal Kurs
+			Template += '<td><select name="detail[' + awal + '][field_nominal_kurs]" id="field_nominal_kurs_' + awal + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
 
-			// 4. Field No. Request
-			Template += '<td><select name="detail[' + awal + '][field_no_request]" id="field_no_request_' + awal + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
+			// 4. Field No. Reff
+			Template += '<td><select name="detail[' + awal + '][field_no_reff]" id="field_no_reff_' + awal + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select></td>';
 
 			// 5. Sumber COA
 			Template += '<td><select name="detail[' + awal + '][sumber_coa]" id="sumber_coa_' + awal + '" class="form-control input-sm sumber_coa select2-me">';
@@ -454,12 +473,7 @@ if ($data_field) {
 			});
 			Template += '</select></div>';
 			Template += '<div class="kolom_coa_dinamis" style="display:none;">';
-			Template += '<select name="detail[' + awal + '][table_coa_dinamis]" id="table_coa_dinamis_' + awal + '" class="form-control input-sm tabel_coa select2-me"><option value="">- Nama Tabel -</option>';
-			$.each(data_menu, function(key, nilai) {
-				Template += '<option value="' + key + '">' + nilai + '</option>';
-			});
-			Template += '</select>';
-			Template += '<select name="detail[' + awal + '][field_coa_dinamis]" id="field_coa_dinamis_' + awal + '" class="form-control input-sm select2-me" style="margin-top:4px;"><option value="">- Daftar Kosong -</option></select>';
+			Template += '<select name="detail[' + awal + '][field_coa_dinamis]" id="field_coa_dinamis_' + awal + '" class="form-control input-sm select2-me"><option value="">- Daftar Kosong -</option></select>';
 			Template += '</div>';
 			Template += '</div>';
 			Template += '</td>';
@@ -468,10 +482,7 @@ if ($data_field) {
 			Template += '<td><input type="text" name="detail[' + awal + '][keterangan]" id="keterangan' + awal + '" placeholder="- Keterangan -" class="form-control input-sm"></td>';
 
 			// 8. Posisi
-			Template += '<td><select name="detail[' + awal + '][posisi]" id="posisi' + awal + '" class="form-control input-sm select2-me"><option value="D">Debet</option><option value="K">Kredit</option></select></td>';
-
-			// 9. Insert
-			Template += '<td><select name="detail[' + awal + '][proses]" id="proses' + awal + '" class="form-control input-sm select2-me"><option value="otomatis">Otomatis</option><option value="input">Input</option></select></td>';
+			Template += '<td><select name="detail[' + awal + '][posisi]" id="posisi' + awal + '" class="form-control input-sm select2-me"><option value="D">Debet</option><option value="K">Kredit</option><option value="otomatis">Otomatis (ikuti tanda nilai)</option></select></td>';
 
 			// 10. Opsi
 			Template += '<td align="center"><button type="button" class="btn btn-sm btn-danger" onClick="return DelRow(' + awal + ');">Delete <i class="fa fa-trash-o"></i></button></td>';
