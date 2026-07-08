@@ -123,7 +123,6 @@ error_reporting(E_ALL & ~E_NOTICE);
 								<td>
 									<a href="<?= base_url() ?>index.php/master/edit_master_jurnal/<?= $row->kode_master_jurnal ?>" class="btn btn-success btn-sm" role="button" title="Edit" width="20%"><i class="fa fa-edit"></i></a>
 									&nbsp;
-									<!-- <a href="<?= base_url() ?>index.php/master/view_master_jurnal" onclick="return detail4(<?= $row->kode_master_jurnal ?>)" class="btn btn-info btn-sm" role="button" title="View" width="20%"><i class="fa fa-search"></i></a> -->
 
 									<button class='btn btn-info btn-sm' onclick="return view('<?= $kode_master_jurnal ?>')" title="View" width="20%"><i class="fa fa-search"></i></button>
 								</td>
