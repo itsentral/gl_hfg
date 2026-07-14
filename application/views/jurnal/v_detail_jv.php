@@ -98,6 +98,12 @@ error_reporting(E_ALL & ~E_NOTICE);
 										<th>
 											<center>Kredit</center>
 										</th>
+										<th>
+											<center>Debit Kurs</center>
+										</th>
+										<th>
+											<center>Kredit Kurs</center>
+										</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -112,12 +118,18 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 											$sum_debet	+= $row->debet;
 											$sum_kredit	+= $row->kredit;
+											$sum_debet_kurs  += $row->nilai_valas_debet ?? 0;
+											$sum_kredit_kurs += $row->nilai_valas_kredit ?? 0;
 
 											$format_debet = number_format($row->debet, 0, ',', '.');
 											$format_kredit = number_format($row->kredit, 0, ',', '.');
+											$format_debet_kurs  = number_format($row->nilai_valas_debet ?? 0, 0, ',', '.');
+											$format_kredit_kurs = number_format($row->nilai_valas_kredit ?? 0, 0, ',', '.');
 
 											$format_sumdebet = number_format($sum_debet, 0, ',', '.');
 											$format_sumkredit = number_format($sum_kredit, 0, ',', '.');
+											$format_sumdebetkurs   = number_format($sum_debet_kurs, 0, ',', '.');
+											$format_sumkreditkurs  = number_format($sum_kredit_kurs, 0, ',', '.');
 
 											$periode_jv	= $row->tanggal;
 											$bln_jv		= substr($row->tanggal, 5, 2); // 2019-11-20
@@ -133,6 +145,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 												<td align="center"><?= $row->no_reff ?></td>
 												<td align="right"><?= $format_debet ?></td>
 												<td align="right"><?= $format_kredit ?></td>
+												<td align="right"><?= $format_debet_kurs ?></td>
+												<td align="right"><?= $format_kredit_kurs ?></td>
 											</tr>
 									<?php
 										}
@@ -147,9 +161,11 @@ error_reporting(E_ALL & ~E_NOTICE);
 										<td colspan="4" align="right"><b>TOTAL</b></td>
 										<td align="right"><b><?= $format_sumdebet ?></b></td>
 										<td align="right"><b><?= $format_sumkredit ?></b></td>
+										<td></td>
+										<td></td>
 									</tr>
 									<tr bgcolor='#DCDCDC'>
-										<td colspan="8" align="left">
+										<td colspan="10" align="left">
 											<a href="<?= base_url() ?>index.php/jurnal/list_jv" class="btn btn-success">Kembali</a>&nbsp;
 											<a href="<?= base_url() ?>index.php/multi_bum/print_jv/<?= $row->nomor ?>" target="_blank" title="Print" class='btn btn-info'><i class="fa fa-print"></i> Print</a>&nbsp;
 											<!-- <a href="<?= base_url() ?>index.php/jurnal/print_jv/<?= $row->nomor ?>/<?= $bln_jv ?>/<?= $thn_jv ?>" class="btn btn-primary">Print</a> -->
