@@ -12,7 +12,7 @@
 
 						<div class="form-group has-success col-lg-6" id="c_name">
 							<label class="control-label" for="inputSuccess"><i class="fa fa-check"></i> No. Perkiraan (Level 4)</label>
-							<select type="text" name="project" class="form-control" id="project" onchange="changeValue(this.value)">
+							<select name="project" class="form-control select2" id="project" style="width: 100%;" onchange="changeValue(this.value)">
 								<option value="">-- Pilih Nomor Perkiraan Level 4 --</option>
 								<?php
 								if ($data_nokir1 > 0) {
@@ -90,8 +90,25 @@
 </div>
 
 <script src="<?= base_url() ?>dist/moment.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <script type="text/javascript">
+	$(document).ready(function() {
+		if (typeof $.fn.select2 === 'undefined') {
+			$.getScript("https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js", function() {
+				$('.select2').select2({
+					width: '100%',
+					dropdownParent: $('#myModal')
+				});
+			});
+		} else {
+			$('.select2').select2({
+				width: '100%',
+				dropdownParent: $('#myModal')
+			});
+		}
+	});
+
 	function check() { // updated by Rindra
 		if ($("#no_perkiraan").val() == '') {
 			alert('Silahkan Isi No Perkiraan');
