@@ -205,10 +205,10 @@ if ($data_perkiraan) {
 											<center><b>Debet</b></center>
 										</td>
 										<td>
-											<center><b>Debet USD</b></center>
+											<center><b>Kredit</b></center>
 										</td>
 										<td>
-											<center><b>Kredit</b></center>
+											<center><b>Debet USD</b></center>
 										</td>
 										<td>
 											<center><b>Kredit USD</b></center>
@@ -246,13 +246,13 @@ if ($data_perkiraan) {
 											<?php
 											$sum_debet = array();
 											$sum_kredit = array();
-											$sum_debet_usd = array();      // BARU
-											$sum_kredit_usd = array();     // BARU
+											$sum_debet_usd = array();     
+											$sum_kredit_usd = array();    
 											$nilai_debet = array();
 											$nilai_kredit = array();
-											$nilai_debet_usd = array();    // BARU
-											$nilai_kredit_usd = array();   // BARU
-											$no_reff = array();            // BARU
+											$nilai_debet_usd = array();   
+											$nilai_kredit_usd = array();  
+											$no_reff = array();           
 
 											$detail_jurnal = $this->Report_model->get_detail_jurnal2($nokir_induk, $var_tgl_awal, $var_tgl_akhir);
 
@@ -266,17 +266,17 @@ if ($data_perkiraan) {
 													$nama_perkiraan2[$count2]  = $row_dj->keterangan;
 													$tgl_bukti[$count2]        = $row_dj->tanggal;
 													$nomor_bukti[$count2]      = $row_dj->nomor;
-													$no_reff[$count2]          = $row_dj->no_reff;                 // BARU
+													$no_reff[$count2]          = $row_dj->no_reff;                
 													$tipe_sm[$count2]          = $row_dj->tipe;
 													$nilai_debet[$count2]      = $row_dj->debet;
 													$nilai_kredit[$count2]     = $row_dj->kredit;
-													$nilai_debet_usd[$count2]  = $row_dj->nilai_valas_debet;       // BARU
-													$nilai_kredit_usd[$count2] = $row_dj->nilai_valas_kredit;      // BARU
+													$nilai_debet_usd[$count2]  = $row_dj->nilai_valas_debet;      
+													$nilai_kredit_usd[$count2] = $row_dj->nilai_valas_kredit;     
 
 													$sum_debet[$count]      += $nilai_debet[$count2];
 													$sum_kredit[$count]     += $nilai_kredit[$count2];
-													$sum_debet_usd[$count]  += $nilai_debet_usd[$count2];          // BARU
-													$sum_kredit_usd[$count] += $nilai_kredit_usd[$count2];         // BARU
+													$sum_debet_usd[$count]  += $nilai_debet_usd[$count2];         
+													$sum_kredit_usd[$count] += $nilai_kredit_usd[$count2];        
 
 													$current_saldo[$count3] = $saldo_awal[$count] + $nilai_debet[$count2] - $nilai_kredit[$count2];
 													$saldo_akhir             = $current_saldo[$count3];
@@ -290,8 +290,8 @@ if ($data_perkiraan) {
 														<td align="center"><?= $no_reff[$count2] ?></td>
 														<td align="center"><?= $tipe_sm[$count2] ?></td>
 														<td align="right"><?= number_format($nilai_debet[$count2], 0, ',', '.'); ?></td>
-														<td align="right"><?= number_format($nilai_debet_usd[$count2], 2, ',', '.'); ?></td>
 														<td align="right"><?= number_format($nilai_kredit[$count2], 0, ',', '.'); ?></td>
+														<td align="right"><?= number_format($nilai_debet_usd[$count2], 2, ',', '.'); ?></td>
 														<td align="right"><?= number_format($nilai_kredit_usd[$count2], 2, ',', '.'); ?></td>
 														<td align="right"><?= number_format($current_saldo[$count3], 0, ',', '.'); ?></td>
 													</tr>
@@ -308,8 +308,8 @@ if ($data_perkiraan) {
 												<td></td>
 												<td align="right" colspan="5">Saldo Akhir -></td>
 												<td align="right"><?= number_format($sum_debet[$count], 0, ',', '.'); ?></td>
-												<td align="right"><?= number_format($sum_debet_usd[$count], 2, ',', '.'); ?></td>
 												<td align="right"><?= number_format($sum_kredit[$count], 0, ',', '.'); ?></td>
+												<td align="right"><?= number_format($sum_debet_usd[$count], 2, ',', '.'); ?></td>
 												<td align="right"><?= number_format($sum_kredit_usd[$count], 2, ',', '.'); ?></td>
 												<td align="right"><?= number_format($saldo_akhir, 0, ',', '.'); ?></td>
 											</tr>
