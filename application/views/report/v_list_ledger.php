@@ -151,29 +151,29 @@ if ($data_perkiraan) {
 										if ($bln_ledger > 0) {
 											$nm_bln = $bln_ledger;
 											if ($nm_bln == 1) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br>Periode : Januari " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br>Periode : Januari " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 2) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Februari " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Februari " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 3) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Maret " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Maret " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 4) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : April " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : April " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 5) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Mei " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Mei " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 6) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Juni " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Juni " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 7) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Juli " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Juli " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 8) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Agustus " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Agustus " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 9) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : September " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : September " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 10) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Oktober " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Oktober " . $thn_ledger . "</center></th></tr>";
 											} elseif ($nm_bln == 11) {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : November " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : November " . $thn_ledger . "</center></th></tr>";
 											} else {
-												echo "<tr><th colspan='9' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Desember " . $thn_ledger . "</center></th></tr>";
+												echo "<tr><th colspan='12' style='text-align:center;font-size:15px;'><center>LAPORAN LEDGER<br><br>Periode : Desember " . $thn_ledger . "</center></th></tr>";
 											}
 										}
 										?>
@@ -196,13 +196,22 @@ if ($data_perkiraan) {
 											<center><b>Nomor Bukti</b></center>
 										</td>
 										<td>
+											<center><b>No. Reff</b></center>
+										</td>
+										<td>
 											<center><b>SM</b></center>
 										</td>
 										<td>
 											<center><b>Debet</b></center>
 										</td>
 										<td>
+											<center><b>Debet USD</b></center>
+										</td>
+										<td>
 											<center><b>Kredit</b></center>
+										</td>
+										<td>
+											<center><b>Kredit USD</b></center>
 										</td>
 										<td>
 											<center><b>Saldo</b></center>
@@ -226,24 +235,27 @@ if ($data_perkiraan) {
 												<td><b><?= $nama_perkiraan ?></b></td>
 												<td></td>
 												<td align="center"><b><?= $nokir_induk ?></b></td>
-												<td align="right" colspan="3">Saldo Awal -></td>
+												<td align="right" colspan="4">Saldo Awal -></td>
 												<td></td>
 												<td></td>
-												<!-- <td align="right"><?= number_format($saldo_awal[$count]); ?></td> -->
+												<td></td>
+												<td></td>
 												<td align="right"><?= number_format($saldo_awal[$count], 0, ',', '.'); ?></td>
 											</tr>
 											<!-- DATA DARI JURNAL -->
 											<?php
-											$sum_debet = 0;
-											$sum_kredit = 0;
 											$sum_debet = array();
 											$sum_kredit = array();
+											$sum_debet_usd = array();      // BARU
+											$sum_kredit_usd = array();     // BARU
 											$nilai_debet = array();
 											$nilai_kredit = array();
+											$nilai_debet_usd = array();    // BARU
+											$nilai_kredit_usd = array();   // BARU
+											$no_reff = array();            // BARU
 
-											$detail_jurnal	= $this->Report_model->get_detail_jurnal2($nokir_induk, $var_tgl_awal, $var_tgl_akhir);
-											
-											
+											$detail_jurnal = $this->Report_model->get_detail_jurnal2($nokir_induk, $var_tgl_awal, $var_tgl_akhir);
+
 											if ($detail_jurnal > 0) {
 												$count2 = 0;
 												$count3 = 0;
@@ -251,60 +263,62 @@ if ($data_perkiraan) {
 												foreach ($detail_jurnal as $row_dj) {
 													$count2++;
 													$count3++;
-													//$nokir 					= $row_dj->no_perkiraan;
-													$nama_perkiraan2[$count2] 	= $row_dj->keterangan;
-													$tgl_bukti[$count2]			= $row_dj->tanggal;
-													$nomor_bukti[$count2] 		= $row_dj->nomor;
-													$tipe_sm[$count2] 			= $row_dj->tipe;
-													$nilai_debet[$count2] 		= $row_dj->debet;
-													$nilai_kredit[$count2] 		= $row_dj->kredit;
-													// if ((isset($sum_debet[$count]))  == "" || (isset($sum_kredit[$count])) == "" || (isset($nilai_debet[$count2]))  == "" || (isset($nilai_kredit[$count2])) == "") {
-													// 	$sum_debet[$count]	 		+= $nilai_debet[$count2];
-													// 	$sum_kredit[$count]  		+= $nilai_kredit[$count2];
-													// } else {
+													$nama_perkiraan2[$count2]  = $row_dj->keterangan;
+													$tgl_bukti[$count2]        = $row_dj->tanggal;
+													$nomor_bukti[$count2]      = $row_dj->nomor;
+													$no_reff[$count2]          = $row_dj->no_reff;                 // BARU
+													$tipe_sm[$count2]          = $row_dj->tipe;
+													$nilai_debet[$count2]      = $row_dj->debet;
+													$nilai_kredit[$count2]     = $row_dj->kredit;
+													$nilai_debet_usd[$count2]  = $row_dj->nilai_valas_debet;       // BARU
+													$nilai_kredit_usd[$count2] = $row_dj->nilai_valas_kredit;      // BARU
 
-													$sum_debet[$count]	 		+= $nilai_debet[$count2];
-													$sum_kredit[$count]  		+= $nilai_kredit[$count2];
-													//}
+													$sum_debet[$count]      += $nilai_debet[$count2];
+													$sum_kredit[$count]     += $nilai_kredit[$count2];
+													$sum_debet_usd[$count]  += $nilai_debet_usd[$count2];          // BARU
+													$sum_kredit_usd[$count] += $nilai_kredit_usd[$count2];         // BARU
 
-													//$current_saldo[$count3]	= $saldo_awal[$count];
-													$current_saldo[$count3]		= $saldo_awal[$count] + $nilai_debet[$count2] - $nilai_kredit[$count2];
-													//$current_saldo[$count2]	+= $current_saldo[$count2] + $nilai_debet[$count2] - $nilai_kredit[$count2];
-													// $saldo_akhir				= $sum_debet + $saldo_awal[$count] - $sum_kredit;	
-													$saldo_akhir				= $current_saldo[$count3];
+													$current_saldo[$count3] = $saldo_awal[$count] + $nilai_debet[$count2] - $nilai_kredit[$count2];
+													$saldo_akhir             = $current_saldo[$count3];
 											?>
 													<tr>
 														<td></td>
 														<td><?= $nama_perkiraan2[$count2] ?></td>
 														<td></td>
-														<td align="center"><?= date_format(new DateTime($tgl_bukti[$count2]), "d-m-Y")  ?></td>
+														<td align="center"><?= date_format(new DateTime($tgl_bukti[$count2]), "d-m-Y") ?></td>
 														<td align="center"><?= $nomor_bukti[$count2] ?></td>
+														<td align="center"><?= $no_reff[$count2] ?></td>
 														<td align="center"><?= $tipe_sm[$count2] ?></td>
 														<td align="right"><?= number_format($nilai_debet[$count2], 0, ',', '.'); ?></td>
+														<td align="right"><?= number_format($nilai_debet_usd[$count2], 2, ',', '.'); ?></td>
 														<td align="right"><?= number_format($nilai_kredit[$count2], 0, ',', '.'); ?></td>
+														<td align="right"><?= number_format($nilai_kredit_usd[$count2], 2, ',', '.'); ?></td>
 														<td align="right"><?= number_format($current_saldo[$count3], 0, ',', '.'); ?></td>
 													</tr>
 											<?php
 													$saldo_awal[$count] = $current_saldo[$count3];
 												}
 											} else {
-												$saldo_akhir				= $saldo_awal[$count];
+												$saldo_akhir = $saldo_awal[$count];
 											}
 											?>
 
 											<tr>
 												<td></td>
 												<td></td>
-												<td align="right" colspan="4">Saldo Akhir -></td>
-
+												<td align="right" colspan="5">Saldo Akhir -></td>
 												<td align="right"><?= number_format($sum_debet[$count], 0, ',', '.'); ?></td>
+												<td align="right"><?= number_format($sum_debet_usd[$count], 2, ',', '.'); ?></td>
 												<td align="right"><?= number_format($sum_kredit[$count], 0, ',', '.'); ?></td>
+												<td align="right"><?= number_format($sum_kredit_usd[$count], 2, ',', '.'); ?></td>
 												<td align="right"><?= number_format($saldo_akhir, 0, ',', '.'); ?></td>
 											</tr>
 											<tr>
 												<td></td>
 												<td></td>
-												<td align="right" colspan="4"></td>
+												<td align="right" colspan="5"></td>
+												<td align="right"></td>
+												<td align="right"></td>
 												<td align="right"></td>
 												<td align="right"></td>
 												<td align="right"></td>
