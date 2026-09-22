@@ -47,17 +47,15 @@ class Multi_bum extends CI_Controller
 
     public function detail_bum($no_bum)
     {
-		
-				
         $sql = "
             SELECT 
                jurnal.*, jurnal.no_perkiraan, coa_master.nama 
             FROM 
                 jurnal 
-			INNER JOIN coa_master ON coa_master.no_perkiraan=jurnal.no_perkiraan 
+            LEFT JOIN 
+                coa_master ON coa_master.no_perkiraan = jurnal.no_perkiraan 
             WHERE 
                 jurnal.nomor = '" . $no_bum . "'
-                AND SUBSTR(jurnal.no_perkiraan,1,4) NOT IN ('1102','1101') 
             ORDER BY 
                 jurnal.debet DESC
         ";
