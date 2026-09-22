@@ -49,14 +49,16 @@ class Multi_buk extends CI_Controller
     {
         $sql = "
             SELECT 
-                * 
+                jurnal.*, coa_master.nama 
             FROM 
                 jurnal 
+            LEFT JOIN 
+                coa_master ON coa_master.no_perkiraan = jurnal.no_perkiraan 
             WHERE 
-                tipe = 'BUK' 
-                AND nomor = '" . $no_buk . "'
+                jurnal.tipe = 'BUK' 
+                AND jurnal.nomor = '" . $no_buk . "'
             ORDER BY 
-                debet DESC
+                jurnal.debet DESC
         ";
         $data['detail']         = $this->db->query($sql);
         $data['rows_header']     = $this->db->get_where('japh', array('nomor' => $no_buk))->result();
