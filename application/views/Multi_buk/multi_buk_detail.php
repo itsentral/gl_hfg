@@ -34,46 +34,44 @@ error_reporting(E_ALL & ~E_NOTICE);
 </div>
 <table id="my-grid" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
-        <tr>
+        <tr bgcolor='#9acfea'>
             <th width="10">#</th>
             <th>Keterangan</th>
             <th>No. COA</th>
             <th>Nama COA</th>
-            <th>D/K</th>
-            <th>Jumlah (Rp.)</th>
+            <th class="text-right">Debit</th>
+            <th class="text-right">Kredit</th>
         </tr>
     </thead>
     <tbody>
         <?php
+        $sum_debet = 0;
+        $sum_kredit = 0;
         if ($detail->num_rows() > 0) {
             $no = 1;
             foreach ($detail->result() as $d) {
-                if ($d->debet > 0) {
-                    $jenis_tr    = 'D';
-                    $jumlah = $d->debet;
-                } else {
-                    $jenis_tr    = 'K';
-                    $jumlah = $d->kredit;
-                }
+                $sum_debet  += $d->debet;
+                $sum_kredit += $d->kredit;
 
-                $singkat_cbg    = $this->session->userdata('singkat_cbg');
-                $cek_periode    = $this->db->query("SELECT * FROM periode WHERE stsaktif = 'O' and kdcab='$singkat_cbg'")->result();
-                if ($cek_periode > 0) {
-                    foreach ($cek_periode as $brs_periode) {
-                        $tanggal_periode    = $brs_periode->periode;
-                        $bln                = substr($tanggal_periode, 0, 2);
-                        $thn                = substr($tanggal_periode, 3, 4);
+                $nama_coa = !empty($d->nama) ? $d->nama : '';
+                if (empty($nama_coa)) {
+                    $singkat_cbg    = $this->session->userdata('singkat_cbg');
+                    $cek_periode    = $this->db->query("SELECT * FROM periode WHERE stsaktif = 'O' and kdcab='$singkat_cbg'")->result();
+                    if ($cek_periode > 0) {
+                        foreach ($cek_periode as $brs_periode) {
+                            $tanggal_periode    = $brs_periode->periode;
+                            $bln                = substr($tanggal_periode, 0, 2);
+                            $thn                = substr($tanggal_periode, 3, 4);
+                        }
                     }
-                }
 
-                $kode_cabang    = $this->session->userdata('kode_cabang');
-                $data_buk_coa    = $this->db->query("SELECT * FROM coa WHERE no_perkiraan = '$d->no_perkiraan' and bln='$bln' and thn='$thn' and kdcab='$kode_cabang'")->result();
-                if ($data_buk_coa > 0) {
-                    foreach ($data_buk_coa as $brs_coa) {
-                        $nama_coa = $brs_coa->nama;
+                    $kode_cabang    = $this->session->userdata('kode_cabang');
+                    $data_buk_coa   = $this->db->query("SELECT * FROM coa WHERE no_perkiraan = '$d->no_perkiraan' and bln='$bln' and thn='$thn' and kdcab='$kode_cabang'")->result();
+                    if ($data_buk_coa > 0) {
+                        foreach ($data_buk_coa as $brs_coa) {
+                            $nama_coa = $brs_coa->nama;
+                        }
                     }
-                } else {
-                    $nama_coa = "";
                 }
 
                 echo "
@@ -82,8 +80,8 @@ error_reporting(E_ALL & ~E_NOTICE);
                     <td>" . $d->keterangan . "</td>                    
                     <td>" . $d->no_perkiraan . "</td>
                     <td>" . $nama_coa . "</td>
-                    <td>" . $jenis_tr . "</td>
-                    <td align='right'>" . number_format($jumlah) . "</td>
+                    <td align='right'>" . number_format($d->debet, 0, ',', '.') . "</td>
+                    <td align='right'>" . number_format($d->kredit, 0, ',', '.') . "</td>
                 </tr>
                 ";
                 $no++;
@@ -91,4 +89,11 @@ error_reporting(E_ALL & ~E_NOTICE);
         }
         ?>
     </tbody>
+    <tfoot>
+        <tr bgcolor='#DCDCDC'>
+            <td colspan="4" align="right"><b>TOTAL</b></td>
+            <td align="right"><b><?= number_format($sum_debet, 0, ',', '.') ?></b></td>
+            <td align="right"><b><?= number_format($sum_kredit, 0, ',', '.') ?></b></td>
+        </tr>
+    </tfoot>
 </table>

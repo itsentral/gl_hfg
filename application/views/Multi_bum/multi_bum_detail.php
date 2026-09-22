@@ -31,29 +31,27 @@
 </div>
 <table id="my-grid" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
-        <tr>
+        <tr bgcolor='#9acfea'>
             <th width="10">#</th>
             <th>Keterangan</th>
             <th>Reff</th>
             <th>No. Perkiraan</th>
 			<th>Nama Perkiraan</th>
-            <th>D/K</th>
-            <th>Jumlah (Rp.)</th>
+            <th class="text-right">Debit</th>
+            <th class="text-right">Kredit</th>
         </tr>
     </thead>
     <tbody>
         <?php
+        $sum_debet = 0;
+        $sum_kredit = 0;
         if($detail->num_rows() > 0)
         {
             $no=1;
             foreach($detail->result() as $d){
-                if ($d->debet > 0) {
-					$jenis_tr	='D';
-                    $jumlah = $d->debet;
-                } else {
-					$jenis_tr	='K';
-                    $jumlah = $d->kredit;
-                }
+                $sum_debet  += $d->debet;
+                $sum_kredit += $d->kredit;
+
                 echo "
                 <tr>
                     <td>".$no.".</td>
@@ -61,8 +59,8 @@
                     <td>".$d->no_reff."</td>
                     <td>".$d->no_perkiraan."</td>
 					<td>".$d->nama."</td>
-                    <td>".$jenis_tr."</td>
-                    <td align='right'>".number_format($jumlah)."</td>
+                    <td align='right'>".number_format($d->debet, 0, ',', '.')."</td>
+                    <td align='right'>".number_format($d->kredit, 0, ',', '.')."</td>
                 </tr>
                 ";
                 $no++;
@@ -70,4 +68,11 @@
         }
         ?>
     </tbody>
+    <tfoot>
+        <tr bgcolor='#DCDCDC'>
+            <td colspan="5" align="right"><b>TOTAL</b></td>
+            <td align="right"><b><?= number_format($sum_debet, 0, ',', '.') ?></b></td>
+            <td align="right"><b><?= number_format($sum_kredit, 0, ',', '.') ?></b></td>
+        </tr>
+    </tfoot>
 </table>
