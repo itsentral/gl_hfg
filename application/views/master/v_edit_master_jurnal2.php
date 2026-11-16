@@ -204,7 +204,6 @@ if (!empty($data_detail)) {
 	var data_coa = <?php echo json_encode($Arr_Coa); ?>;
 	var data_menu = <?php echo json_encode($Arr_Menu); ?>;
 	var existing_details = <?php echo json_encode($Existing_Detail); ?>;
-	var max_fields = 15;
 	var sortableDetail = null;
 
 	function initSelect2(context) {
@@ -513,9 +512,6 @@ if (!empty($data_detail)) {
 		});
 
 		$(document).on('click', '#add_field_button', function() {
-			var total_row = parseInt($('#list_detail').find('tr').length);
-			if (total_row >= max_fields) return;
-
 			var last_row = $('#list_detail tr:last').attr('id');
 			var awal = parseInt(last_row.split('_')[1]) + 1;
 
