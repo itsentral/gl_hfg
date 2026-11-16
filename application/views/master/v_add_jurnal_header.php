@@ -269,7 +269,6 @@ if ($data_field) {
 <script>
 	var data_coa = <?php echo json_encode($Arr_Coa); ?>;
 	var data_menu = <?php echo json_encode($Arr_Menu); ?>;
-	var max_fields = 15;
 	var sortableDetail = null;
 
 	function initSelect2(context) {
@@ -431,9 +430,6 @@ if ($data_field) {
 		});
 
 		$('#add_field_button').click(function() {
-			var total_row = parseInt($('#list_detail').find('tr').length);
-			if (total_row >= max_fields) return;
-
 			var last_row = $('#list_detail tr:last').attr('id');
 			var awal = parseInt(last_row.split('_')[1]) + 1;
 
