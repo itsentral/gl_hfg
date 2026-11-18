@@ -99,8 +99,6 @@ error_reporting(E_ALL & ~E_NOTICE);
 						<th class="text-center" style="color:white;">Nama Jurnal</th>
 						<th class="text-center" style="color:white;">Keterangan Header</th>
 						<th class="text-center" style="color:white;">Tipe</th>
-						<th class="text-center" style="color:white;">Jenis Pembelian</th>
-						<th class="text-center" style="color:white;">Eksekusi Saat</th>
 						<th class="text-center" style="color:white;">Opsi</th>
 					</tr>
 				</thead>
@@ -118,8 +116,6 @@ error_reporting(E_ALL & ~E_NOTICE);
 								<td><?= $row->nama_jurnal ?></td>
 								<td><?= $row->keterangan_header ?></td>
 								<td><?= $row->tipe ?></td>
-								<td><?= ucfirst($row->jenis_jurnal) ?></td>
-								<td><?= ucfirst($row->eksekusi) ?></td>
 								<td>
 									<a href="<?= base_url() ?>index.php/master/edit_master_jurnal/<?= $row->kode_master_jurnal ?>" class="btn btn-success btn-sm" role="button" title="Edit" width="20%"><i class="fa fa-edit"></i></a>
 									&nbsp;
