@@ -28,12 +28,14 @@ class Jurnal extends CI_Controller
 	public function jvcost()
 	{
 		$data['judul'] 			= "Input JV";
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 
 		$data['data_cabang'] = $this->Model_latihan2->cek_list_kode_cabang();
 		//$data['data_nokir1']=$this->Model_latihan2->cek_nokir1();
 
 		$cek_periode_aktif			= $this->Model_latihan->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
@@ -53,8 +55,10 @@ class Jurnal extends CI_Controller
 	public function list_jv()
 	{
 		$data['judul'] 			= "Jurnal Voucher";
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Model_latihan->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
@@ -69,8 +73,10 @@ class Jurnal extends CI_Controller
 	public function list_jv_excel()
 	{
 		$data['judul'] 			= "Jurnal Voucher";
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Model_latihan->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
@@ -185,8 +191,10 @@ class Jurnal extends CI_Controller
 
 	function list_dana_keluar()
 	{
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Jurnal_model->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode; // 01-2020
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2); // 01
@@ -320,8 +328,10 @@ class Jurnal extends CI_Controller
 
 	function list_dana_masuk()
 	{
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Jurnal_model->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
@@ -492,6 +502,8 @@ class Jurnal extends CI_Controller
 		//$mpdf=new mPDF('utf-8', array(210,170));
 		$no_buk_ = '';
 		$sg_tgl = '';
+		$html = array();
+		$pdfFilePath = '';
 
 		if ($this->input->post('pilih') == null) { // jika data dikirim lewat url
 			$no_buk_ 			= $this->uri->segment(3);
@@ -508,9 +520,9 @@ class Jurnal extends CI_Controller
 			$data['list_detail']	= $this->Jurnal_model->get_print_detail($no_buk, $sg_tglxx, $tipe_bu);
 			$data['data_keluardr']	= $this->Jurnal_model->get_print_keluardr($no_buk, $sg_tglxx, $tipe_bu);
 
-			$html			= $this->load->view('jurnal/v_print_buk_2', $data, true);
+			$html[]			= $this->load->view('jurnal/v_print_buk_2', $data, true);
 		} elseif ($this->input->post('pilih') != null) { // jika data dikirim lewat form checkbox
-			$pilih = $this->input->post('pilih');
+			$pilih = (array) $this->input->post('pilih');
 
 			foreach ($pilih as $key => $value) {
 				// explode checkbox value
@@ -532,13 +544,13 @@ class Jurnal extends CI_Controller
 				$data['list_detail']	= ($this->Jurnal_model->get_print_detail($no_buk, $sg_tglxx, $tipe_bu)) ? $this->Jurnal_model->get_print_detail($no_buk, $sg_tglxx, $tipe_bu) : array();
 				$data['data_keluardr']	= ($this->Jurnal_model->get_print_keluardr($no_buk, $sg_tglxx, $tipe_bu)) ? $this->Jurnal_model->get_print_keluardr($no_buk, $sg_tglxx, $tipe_bu) : array();
 
-				$html[$key]			= $this->load->view('jurnal/v_print_buk_2', $data, true);
+				$html[]			= $this->load->view('jurnal/v_print_buk_2', $data, true);
 			}
 		}
 
 		//print_r($data['list_print']);
 		//var_dump($html);
-		if ($html != null) { // jika tidak kosong
+		if (!empty($html)) { // jika tidak kosong
 			$before = '<!DOCTYPE html>
 			<html>
 			<head>
@@ -546,41 +558,21 @@ class Jurnal extends CI_Controller
 			</head>
 			<body>';
 			$after = '</body></html>';
-			//echo count($html);
-			if (count($html) > 0) {
-				foreach ($html as $key => $value) {
-					$data_html .= $value;
-				}
-				$pdf->AddPage(
-					'P',
-					'',
-					'',
-					'',
-					// margin right
-					1, // margin top
-					1, // margin bottom
-					5, // margin header
-					10, // margin top
-					10, // margin bottom
-					5
-				); // margin footer
-				$pdf->WriteHTML($before . $data_html . $after);
-			} elseif (count($html) == 0) {
-				$pdf->AddPage(
-					'P',
-					'',
-					'',
-					'',
-					// margin right
-					1, // margin top
-					1, // margin bottom
-					5, // margin header
-					10, // margin top
-					10, // margin bottom
-					5
-				); // margin footer
-				$pdf->WriteHTML($before . $html . $after);
-			}
+			$data_html = implode('', $html);
+			$pdf->AddPage(
+				'P',
+				'',
+				'',
+				'',
+				// margin right
+				1, // margin top
+				1, // margin bottom
+				5, // margin header
+				10, // margin top
+				10, // margin bottom
+				5
+			); // margin footer
+			$pdf->WriteHTML($before . $data_html . $after);
 
 			$pdf->Output($pdfFilePath, 'I');
 		}
@@ -627,6 +619,8 @@ class Jurnal extends CI_Controller
 		//$mpdf=new mPDF('utf-8', array(210,170));
 		$no_bum_ = '';
 		$sg_tgl = '';
+		$html = array();
+		$pdfFilePath = '';
 
 		if ($this->input->post('pilih') == null) { // jika data dikirim lewat url
 			$no_bum_ 			= $this->uri->segment(3);
@@ -643,9 +637,9 @@ class Jurnal extends CI_Controller
 			$data['list_detail']	= $this->Jurnal_model->get_print_detail($no_bum, $sg_tglxx, $tipe_bu);
 			$data['data_keluardr']	= $this->Jurnal_model->get_print_keluardr($no_bum, $sg_tglxx, $tipe_bu);
 
-			$html			= $this->load->view('jurnal/v_print_bum_2', $data, true);
+			$html[]			= $this->load->view('jurnal/v_print_bum_2', $data, true);
 		} elseif ($this->input->post('pilih') != null) { // jika data dikirim lewat form checkbox
-			$pilih = $this->input->post('pilih');
+			$pilih = (array) $this->input->post('pilih');
 
 			foreach ($pilih as $key => $value) {
 				// explode checkbox value
@@ -667,13 +661,13 @@ class Jurnal extends CI_Controller
 				$data['list_detail']	= ($this->Jurnal_model->get_print_detail($no_bum, $sg_tglxx, $tipe_bu)) ? $this->Jurnal_model->get_print_detail($no_bum, $sg_tglxx, $tipe_bu) : array();
 				$data['data_keluardr']	= ($this->Jurnal_model->get_print_keluardr($no_bum, $sg_tglxx, $tipe_bu)) ? $this->Jurnal_model->get_print_keluardr($no_bum, $sg_tglxx, $tipe_bu) : array();
 
-				$html[$key]			= $this->load->view('jurnal/v_print_bum_2', $data, true);
+				$html[]			= $this->load->view('jurnal/v_print_bum_2', $data, true);
 			}
 		}
 
 		//print_r($data['list_print']);
 		//var_dump($html);
-		if ($html != null) { // jika tidak kosong
+		if (!empty($html)) { // jika tidak kosong
 			$before = '<!DOCTYPE html>
 			<html>
 			<head>
@@ -681,41 +675,21 @@ class Jurnal extends CI_Controller
 			</head>
 			<body>';
 			$after = '</body></html>';
-			//echo count($html);
-			if (count($html) > 0) {
-				foreach ($html as $key => $value) {
-					$data_html .= $value;
-				}
-				$pdf->AddPage(
-					'P',
-					'',
-					'',
-					'',
-					// margin right
-					1, // margin top
-					1, // margin bottom
-					5, // margin header
-					10, // margin top
-					10, // margin bottom
-					5
-				); // margin footer
-				$pdf->WriteHTML($before . $data_html . $after);
-			} elseif (count($html) == 0) {
-				$pdf->AddPage(
-					'P',
-					'',
-					'',
-					'',
-					// margin right
-					1, // margin top
-					1, // margin bottom
-					5, // margin header
-					10, // margin top
-					10, // margin bottom
-					5
-				); // margin footer
-				$pdf->WriteHTML($before . $html . $after);
-			}
+			$data_html = implode('', $html);
+			$pdf->AddPage(
+				'P',
+				'',
+				'',
+				'',
+				// margin right
+				1, // margin top
+				1, // margin bottom
+				5, // margin header
+				10, // margin top
+				10, // margin bottom
+				5
+			); // margin footer
+			$pdf->WriteHTML($before . $data_html . $after);
 
 			$pdf->Output($pdfFilePath, 'I');
 		}
@@ -778,8 +752,10 @@ class Jurnal extends CI_Controller
 	public function dana_masuk()
 	{
 		$data['judul']				= "Input Dana Masuk";
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Jurnal_model->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
@@ -796,8 +772,10 @@ class Jurnal extends CI_Controller
 	public function dana_masuk_edit()
 	{
 		$data['judul']				= "Edit Dana Masuk";
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Jurnal_model->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
@@ -842,8 +820,10 @@ class Jurnal extends CI_Controller
 	{
 
 		$data['judul']				= "Input Dana Keluar";
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Jurnal_model->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
@@ -862,8 +842,10 @@ class Jurnal extends CI_Controller
 	public function dana_keluar_edit()
 	{
 		$data['judul']				= "Edit Dana Keluar";
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Jurnal_model->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
@@ -964,8 +946,10 @@ class Jurnal extends CI_Controller
 		);
 		$this->db->insert("log_transaksi", $in_log_transaksi);
 		
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Jurnal_model->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);
@@ -1135,8 +1119,10 @@ class Jurnal extends CI_Controller
 		$data['pesan_on']				= 1;
 
 		$data['judul'] = "Bukti Uang Masuk";
+		$bln_aktif = date('m');
+		$thn_aktif = date('Y');
 		$cek_periode_aktif			= $this->Jurnal_model->cek_periode_aktif();
-		if ($cek_periode_aktif > 0) {
+		if (!empty($cek_periode_aktif)) {
 			foreach ($cek_periode_aktif as $row_periode_aktif) {
 				$tgl_periode_aktif	= $row_periode_aktif->periode;
 				$bln_aktif			= substr($tgl_periode_aktif, 0, 2);

@@ -331,8 +331,19 @@ class Jurnal_model extends CI_Model
 		}
 	}
 
-	public function get_noperkiraan($bln_aktif, $thn_aktif)
+	public function get_noperkiraan($bln_aktif = null, $thn_aktif = null)
 	{
+		if ($bln_aktif === null || $thn_aktif === null) {
+			$bln_aktif = date('m');
+			$thn_aktif = date('Y');
+			$periode_aktif = $this->cek_periode_aktif();
+			if (!empty($periode_aktif)) {
+				foreach ($periode_aktif as $row_periode_aktif) {
+					$bln_aktif = substr($row_periode_aktif->periode, 0, 2);
+					$thn_aktif = substr($row_periode_aktif->periode, 3, 4);
+				}
+			}
+		}
 
 		$kode_cabang	= $this->session->userdata('kode_cabang');
 
@@ -540,8 +551,21 @@ class Jurnal_model extends CI_Model
 		}
 	}
 
-	public function list_dana_keluar($tanggal_awal, $tanggal_akhir)
+	public function list_dana_keluar($tanggal_awal = null, $tanggal_akhir = null)
 	{
+		if ($tanggal_awal === null || $tanggal_akhir === null) {
+			$bln_aktif = date('m');
+			$thn_aktif = date('Y');
+			$periode_aktif = $this->cek_periode_aktif();
+			if (!empty($periode_aktif)) {
+				foreach ($periode_aktif as $row_periode_aktif) {
+					$bln_aktif = substr($row_periode_aktif->periode, 0, 2);
+					$thn_aktif = substr($row_periode_aktif->periode, 3, 4);
+				}
+			}
+			$tanggal_awal = $thn_aktif . '-' . $bln_aktif . '-01';
+			$tanggal_akhir = date('Y-m-t', strtotime($tanggal_awal));
+		}
 		$kode_cabang	= $this->session->userdata('kode_cabang'); // Contoh hasil : 202-A
 
 		$query 	= "SELECT * from japh where batal='0' and tgl between '$tanggal_awal' and '$tanggal_akhir' ORDER BY nomor DESC";
@@ -558,18 +582,7 @@ class Jurnal_model extends CI_Model
 	
 	public function list_dana_keluar2()
 	{
-		$kode_cabang	= $this->session->userdata('kode_cabang'); // Contoh hasil : 202-A
-
-		$query 	= "SELECT * from japh where batal='0' and tgl between '$tanggal_awal' and '$tanggal_akhir' ORDER BY nomor DESC";
-
-		// $query 	= "SELECT * from japh where nomor LIKE '$kode_cabang%' AND batal='0' ORDER BY nomor DESC";
-		// $query 	= "SELECT * from japh where nomor LIKE '$kode_cabang%' AND batal='0' ORDER BY nomor DESC LIMIT 20";
-		$query	= $this->db->query($query);
-		if ($query->num_rows() > 0) {
-			return $query->result();
-		} else {
-			return 0;
-		}
+		return $this->list_dana_keluar();
 	}
 	public function get_detailjur($nomorjurnal, $tipe)
 	{
@@ -608,8 +621,21 @@ class Jurnal_model extends CI_Model
 		return $this->datatables->generate();
 	}
 
-	public function list_dana_masuk($var_tgl_awal, $var_tgl_akhir)
+	public function list_dana_masuk($var_tgl_awal = null, $var_tgl_akhir = null)
 	{
+		if ($var_tgl_awal === null || $var_tgl_akhir === null) {
+			$bln_aktif = date('m');
+			$thn_aktif = date('Y');
+			$periode_aktif = $this->cek_periode_aktif();
+			if (!empty($periode_aktif)) {
+				foreach ($periode_aktif as $row_periode_aktif) {
+					$bln_aktif = substr($row_periode_aktif->periode, 0, 2);
+					$thn_aktif = substr($row_periode_aktif->periode, 3, 4);
+				}
+			}
+			$var_tgl_awal = $thn_aktif . '-' . $bln_aktif . '-01';
+			$var_tgl_akhir = date('Y-m-t', strtotime($var_tgl_awal));
+		}
 		$kode_cabang	= $this->session->userdata('kode_cabang');
 		// $query 	= "SELECT * from jarh where batal='0' AND nomor LIKE '$kode_cabang%' ORDER BY nomor DESC LIMIT 20";
 
@@ -636,8 +662,19 @@ class Jurnal_model extends CI_Model
 		}
 	}
 
-	public function get_bank($bln_aktif, $thn_aktif)
+	public function get_bank($bln_aktif = null, $thn_aktif = null)
 	{
+		if ($bln_aktif === null || $thn_aktif === null) {
+			$bln_aktif = date('m');
+			$thn_aktif = date('Y');
+			$periode_aktif = $this->cek_periode_aktif();
+			if (!empty($periode_aktif)) {
+				foreach ($periode_aktif as $row_periode_aktif) {
+					$bln_aktif = substr($row_periode_aktif->periode, 0, 2);
+					$thn_aktif = substr($row_periode_aktif->periode, 3, 4);
+				}
+			}
+		}
 		$kode_cabang	= $this->session->userdata('kode_cabang');
 
 		$query 	= "SELECT * FROM coa WHERE (no_perkiraan like '1101%' OR no_perkiraan like '1102%') AND level like '%5%' and kdcab='$kode_cabang' and bln='$bln_aktif' and thn='$thn_aktif'";

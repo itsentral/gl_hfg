@@ -4,7 +4,7 @@ header("Content-Disposition: attachment; filename=BUM_DETAIL_$tanggal-_-$tanggal
 header("Pragma: no-cache");
 header("Expires: 0");
 //disini script laporan anda
-$dfgh = count($filter_tgl_bum);
+$dfgh = is_countable($filter_tgl_bum) ? count($filter_tgl_bum) : 0;
 ?>
 <table width='50%' border="1" cellpadding="5" cellspacing="0">
 	<tr>

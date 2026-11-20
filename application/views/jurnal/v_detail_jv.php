@@ -111,6 +111,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 									$i = 0;
 									$sum_debet = 0;
 									$sum_kredit = 0;
+									$sum_debet_kurs = 0;
+									$sum_kredit_kurs = 0;
 									if ($list_data > 0) {
 										$no = 0;
 										foreach ($list_data as $row) {
