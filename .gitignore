@@ -27,3 +27,6 @@ application/config/development/*
 
 #kiro
 .kiro/*
+
+# local development artifacts
+.artifacts/

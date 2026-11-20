@@ -52,6 +52,7 @@ header("Expires: 0");
 
 	<?php
 	$num_temp	= 0;
+	$totalrp = 0;
 	if ($filter_tgl > 0) {
 		$arr_tgl	= array();
 		foreach ($filter_tgl as $row_temp) {

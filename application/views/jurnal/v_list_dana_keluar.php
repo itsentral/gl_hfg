@@ -76,6 +76,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 								<tbody>
 									<?php
 									$i = 0;
+									$totalrp = 0;
 									if ($list_data > 0) {
 										$no = 0;
 										foreach ($list_data as $row) {
