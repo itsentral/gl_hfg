@@ -100,8 +100,10 @@ $company 		= $this->db->query("SELECT * FROM pastibisa_tb_cabang WHERE kdcab = '
 </table>
 
 <?php
+$keterangan_jv = '';
 if ($data_javh > 0) {
 	foreach ($data_javh as $row_javh) {
+		$keterangan_jv = $row_javh->keterangan;
 ?>
 		<table width="100%">
 			<tr>
@@ -121,7 +123,7 @@ if ($data_javh > 0) {
 KETERANGAN
 <table width="100%" class="gridtable2">
 	<tr>
-		<td><?= $row_javh->keterangan ?> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+		<td><?= $keterangan_jv ?> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></td>
 	</tr>
 </table>
 <br>
