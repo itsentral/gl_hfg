@@ -71,13 +71,19 @@ class Multi_buk extends CI_Controller
     {
         $this->load->library("m_pdf");
         //$this->load->helper("currency");
-        $pdf            = $this->m_pdf->load_c();
+        $pdf            = $this->m_pdf->load_a4(array(
+            'margin_left' => 5,
+            'margin_right' => 5,
+            'margin_top' => 8,
+            'margin_bottom' => 0,
+            'margin_header' => 0,
+            'margin_footer' => 0
+        ));
         $get_buk = $this->input->get('no_buk');
         $data["nomor_buk"] = $get_buk;
         $html = $this->load->view("Multi_buk/multi_buk_print", $data, true);
 
         $pdfFilePath = "BUK_" . date('d-m-Y') . ".pdf";
-        $pdf = new mPDF("c", "A4", "", "", "5", "5", "8", "0", "0", "0", "L");
         $pdf->AddPage('P');
         $pdf->WriteHTML($html);
         $pdf->Output($pdfFilePath, "I");
@@ -86,14 +92,20 @@ class Multi_buk extends CI_Controller
     {
         $this->load->library("m_pdf");
         //$this->load->helper("currency");
-        $pdf            = $this->m_pdf->load_c();
+        $pdf            = $this->m_pdf->load_a4(array(
+            'margin_left' => 5,
+            'margin_right' => 5,
+            'margin_top' => 8,
+            'margin_bottom' => 0,
+            'margin_header' => 0,
+            'margin_footer' => 0
+        ));
         // $get_bum = $this->input->get('no_buk');
         $get_buk = $this->uri->segment(3);
         $data["nomor_buk"] = $get_buk;
         $html = $this->load->view("Multi_buk/multi_buk_print", $data, true);
 
         $pdfFilePath = "BUK_" . date('d-m-Y') . ".pdf";
-        $pdf = new mPDF("c", "A4", "", "", "5", "5", "8", "0", "0", "0", "L");
         $pdf->AddPage('P');
         $pdf->WriteHTML($html);
         $pdf->Output($pdfFilePath, "I");

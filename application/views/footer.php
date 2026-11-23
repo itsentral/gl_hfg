@@ -234,6 +234,75 @@
 -->
 <!-- AdminLTE for demo purposes -->
 <script src="<?=base_url();?>dist/js/demo.js"></script>
+	<script>
+		(function ($) {
+			'use strict';
+
+			var $form = $('#sidebar-search-form');
+			var $input = $('#sidebar-search-input');
+			var $menu = $('.sidebar-menu');
+			var $emptyResult = $('<li class="sidebar-search-empty" style="display:none;"><a href="#"><i class="fa fa-info-circle"></i> Menu tidak ditemukan</a></li>');
+
+			$menu.append($emptyResult);
+
+			function filterSidebarMenu() {
+				var keyword = $.trim($input.val()).toLowerCase();
+				var matched = 0;
+
+				$menu.children('li').not('.header, .sidebar-search-empty').each(function () {
+					var $parent = $(this);
+					var $subMenu = $parent.children('.treeview-menu');
+					var parentText = $.trim($parent.children('a').first().text()).toLowerCase();
+
+					if (keyword === '') {
+						$parent.show();
+						$subMenu.children('li').show();
+						if (!$parent.hasClass('active')) {
+							$parent.removeClass('menu-open');
+							$subMenu.hide();
+						}
+						return;
+					}
+
+					var parentMatches = parentText.indexOf(keyword) !== -1;
+					var childMatches = 0;
+
+					$subMenu.children('li').each(function () {
+						var $child = $(this);
+						var childMatchesKeyword = $child.text().toLowerCase().indexOf(keyword) !== -1;
+						$child.toggle(parentMatches || childMatchesKeyword);
+						if (childMatchesKeyword) {
+							childMatches++;
+						}
+					});
+
+					var showParent = parentMatches || childMatches > 0;
+					$parent.toggle(showParent);
+					if (showParent) {
+						matched++;
+						if ($subMenu.length) {
+							$parent.addClass('menu-open');
+							$subMenu.show();
+						}
+					}
+				});
+
+				$emptyResult.toggle(keyword !== '' && matched === 0);
+			}
+
+			$form.on('submit', function (event) {
+				event.preventDefault();
+				filterSidebarMenu();
+			});
+
+			$input.on('input', filterSidebarMenu).on('keydown', function (event) {
+				if (event.key === 'Escape') {
+					$(this).val('');
+					filterSidebarMenu();
+				}
+			});
+		}(jQuery));
+	</script>
 </body>
 </html>
 <style>

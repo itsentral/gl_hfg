@@ -16,7 +16,7 @@ application/config/development/*
 !application/logs/.htaccess
 /application/config/development/database.php
 
-#/vendor/
+/vendor/
 /uploads/*
 /assets/files/*
 /assets/expense/*
