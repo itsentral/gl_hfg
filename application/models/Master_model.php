@@ -1,10 +1,21 @@
 <?php
 class Master_model extends CI_Model
 {
+	private $db_acc = null;
+
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->database();
+	}
+
+	private function _db_accounting()
+	{
+		if ($this->db_acc === null) {
+			$this->db_acc = $this->load->database('accounting', TRUE);
+		}
+
+		return $this->db_acc;
 	}
 
 	public function cek_periode_aktif()
@@ -2198,14 +2209,14 @@ class Master_model extends CI_Model
 
 	public function get_menu()
 	{
-		$db_hfg = $this->load->database(DBHFG, TRUE);
+		$db_acc = $this->_db_accounting();
 
-		$query = $db_hfg->query("
-        SELECT TABLE_NAME 
-        FROM INFORMATION_SCHEMA.TABLES 
-        WHERE TABLE_SCHEMA = 'db_hfg_dev'
-        ORDER BY TABLE_NAME
-    	");
+		$query = $db_acc->query("
+			SELECT TABLE_NAME
+			FROM INFORMATION_SCHEMA.TABLES
+			WHERE TABLE_SCHEMA = ?
+			ORDER BY TABLE_NAME
+		", array($db_acc->database));
 
 		if ($query->num_rows() > 0) {
 			// disamakan formatnya biar kompatibel dgn view (pakai nama_table & nama_menu)
@@ -2228,14 +2239,14 @@ class Master_model extends CI_Model
 			return 0;
 		}
 
-		$db_hfg = $this->load->database(DBHFG, TRUE);
+		$db_acc = $this->_db_accounting();
 
-		$query = $db_hfg->query("
-        SELECT COLUMN_NAME, DATA_TYPE
-        FROM INFORMATION_SCHEMA.COLUMNS
-        WHERE TABLE_SCHEMA = 'db_hfg_dev' AND TABLE_NAME = ?
-        ORDER BY ORDINAL_POSITION
-    	", array($nama_table));
+		$query = $db_acc->query("
+			SELECT COLUMN_NAME, DATA_TYPE
+			FROM INFORMATION_SCHEMA.COLUMNS
+			WHERE TABLE_SCHEMA = ? AND TABLE_NAME = ?
+			ORDER BY ORDINAL_POSITION
+		", array($db_acc->database, $nama_table));
 
 		if ($query->num_rows() > 0) {
 			$result = array();

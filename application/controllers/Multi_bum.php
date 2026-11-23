@@ -70,13 +70,19 @@ class Multi_bum extends CI_Controller
     {
         $this->load->library("m_pdf");
         //$this->load->helper("currency");
-        $pdf            = $this->m_pdf->load_c(); // load_c()
+        $pdf            = $this->m_pdf->load_a4(array(
+            'margin_left' => 5,
+            'margin_right' => 5,
+            'margin_top' => 8,
+            'margin_bottom' => 0,
+            'margin_header' => 0,
+            'margin_footer' => 0
+        ));
         $get_bum = $this->input->get('no_bum');
         $data["nomor_bum"] = $get_bum;
         $html = $this->load->view("Multi_bum/multi_bum_print", $data, true);
 
         $pdfFilePath = "BUM_" . date('d-m-Y') . ".pdf";
-        $pdf = new mPDF("c", "A4", "", "", "5", "5", "8", "0", "0", "0", "L");
         $pdf->AddPage('P');
         $pdf->WriteHTML($html);
         $pdf->Output($pdfFilePath, "I");
@@ -85,14 +91,20 @@ class Multi_bum extends CI_Controller
     {
         $this->load->library("m_pdf");
         //$this->load->helper("currency");
-        $pdf            = $this->m_pdf->load_c(); // load_c()
+        $pdf            = $this->m_pdf->load_a4(array(
+            'margin_left' => 5,
+            'margin_right' => 5,
+            'margin_top' => 8,
+            'margin_bottom' => 0,
+            'margin_header' => 0,
+            'margin_footer' => 0
+        ));
         // $get_bum = $this->input->get('no_bum');
         $get_bum = $this->uri->segment(3);
         $data["nomor_bum"] = $get_bum;
         $html = $this->load->view("Multi_bum/multi_bum_print", $data, true);
 
         $pdfFilePath = "BUM_" . date('d-m-Y') . ".pdf";
-        $pdf = new mPDF("c", "A4", "", "", "5", "5", "8", "0", "0", "0", "L");
         $pdf->AddPage('P');
         $pdf->WriteHTML($html);
         $pdf->Output($pdfFilePath, "I");
@@ -101,7 +113,14 @@ class Multi_bum extends CI_Controller
     {
         $this->load->library("m_pdf");
         //$this->load->helper("currency");
-        $pdf            = $this->m_pdf->load_c(); // load_c()
+        $pdf            = $this->m_pdf->load_a4(array(
+            'margin_left' => 5,
+            'margin_right' => 5,
+            'margin_top' => 8,
+            'margin_bottom' => 0,
+            'margin_header' => 0,
+            'margin_footer' => 0
+        ));
         // $get_bum = $this->input->get('no_bum');
         $get_jv = $this->uri->segment(3);
 		
@@ -110,7 +129,6 @@ class Multi_bum extends CI_Controller
         $html = $this->load->view("Multi_bum/print_jv", $data, true);
 
         $pdfFilePath = "JV_" . date('d-m-Y') . ".pdf";
-        $pdf = new mPDF("c", "A4", "", "", "5", "5", "8", "0", "0", "0", "L");
         $pdf->AddPage('P');
         $pdf->WriteHTML($html);
         $pdf->Output($pdfFilePath, "I");
