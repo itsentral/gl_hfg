@@ -1239,7 +1239,7 @@ class Report extends CI_Controller
 			$data['data_bulan_post']			= $var_bulan;
 			$data['data_tahun_post']			= $var_tahun;
 
-			$this->load->view("report/v_list_labarugi", $data);
+			$this->load->view("report/v_list_labarugi_format_baru", $data);
 			//redirect('report/print_labarugi');
 		}
 	}
@@ -1254,7 +1254,7 @@ class Report extends CI_Controller
 		$var_bulan = $this->uri->segment(3);
 		$var_tahun = $this->uri->segment(4);
 		$level = $this->uri->segment(5);
-		$data['level']				= $this->input->post('level');
+		$data['level']				= $level;
 
 		$data['data_nokir_pdptn']	= $this->Report_model->get_nokir_pdptn($var_bulan, $var_tahun, $level);
 		$data['data_nokir_pdptn2']	= $this->Report_model->get_nokir_pdptn2($var_bulan, $var_tahun, $level);
@@ -1268,8 +1268,13 @@ class Report extends CI_Controller
 
 		$data['data_bulan_post']			= $var_bulan;
 		$data['data_tahun_post']			= $var_tahun;
+		$data['mode_export']				= 'excel';
 
-		$this->load->view("report/v_labarugi_excel", $data);
+		header('Content-Type: application/vnd.ms-excel');
+		header('Content-Disposition: attachment; filename="Laporan_Laba_Rugi_' . $var_bulan . '_' . $var_tahun . '.xls"');
+		header('Pragma: no-cache');
+		header('Expires: 0');
+		$this->load->view("report/v_list_labarugi_format_baru", $data);
 		//redirect('report/print_labarugi');		
 	}
 
@@ -1296,8 +1301,9 @@ class Report extends CI_Controller
 
 		$data['data_bulan_post']			= $var_bulan;
 		$data['data_tahun_post']			= $var_tahun;
+		$data['mode_export']				= 'pdf';
 
-		$html			= $this->load->view('report/v_print_labarugi', $data, true);
+		$html			= $this->load->view('report/v_list_labarugi_format_baru', $data, true);
 		$pdfFilePath	= "Laporan_Laba_Rugi_" . $var_bulan . "_" . $var_tahun . ".pdf";
 		$this->load->library('m_pdf');
 		$pdf			= $this->m_pdf->load();
@@ -1307,9 +1313,9 @@ class Report extends CI_Controller
 			'',
 			'',
 			'',
-			30, // margin_left
-			30, // margin right
-			20, // margin top
+			12, // margin_left
+			12, // margin right
+			12, // margin top
 			10, // margin bottom
 			10, // margin header
 			10
@@ -1442,10 +1448,11 @@ class Report extends CI_Controller
 			$data['data_AktivaTetap']	= $this->Report_model->get_AktivaTetap($var_bulan, $var_tahun, $level);
 			$data['data_AktivaLain']	= $this->Report_model->get_AktivaLain($var_bulan, $var_tahun, $level);
 			$data['data_Hutang']		= $this->Report_model->get_Hutang($var_bulan, $var_tahun, $level);
+			$data['data_HutangJkPjg']	= $this->Report_model->get_HutangJangkaPanjang($var_bulan, $var_tahun, $level);
 			$data['data_Modal']			= $this->Report_model->get_Modal($var_bulan, $var_tahun, $level);
 			$data['data_Laba']			= $this->Report_model->get_Laba($var_bulan, $var_tahun, $level);
 
-			$this->load->view("report/v_list_neraca", $data);
+			$this->load->view("report/v_list_neraca_format_baru", $data);
 		}
 	}
 	function print_neraca()
@@ -1454,6 +1461,7 @@ class Report extends CI_Controller
 		$var_tahun 	= $this->uri->segment(4);
 		$level		= $this->uri->segment(5);
 
+		$data['judul']				= "Laporan Neraca";
 		$data['level']				= $level;
 
 		$data['data_bulan']		= $this->Report_model->get_bulan_coa();
@@ -1464,32 +1472,32 @@ class Report extends CI_Controller
 		$data['data_AktivaTetap']	= $this->Report_model->get_AktivaTetap($var_bulan, $var_tahun, $level);
 		$data['data_AktivaLain']	= $this->Report_model->get_AktivaLain($var_bulan, $var_tahun, $level);
 		$data['data_Hutang']		= $this->Report_model->get_Hutang($var_bulan, $var_tahun, $level);
+		$data['data_HutangJkPjg']	= $this->Report_model->get_HutangJangkaPanjang($var_bulan, $var_tahun, $level);
 		$data['data_Modal']			= $this->Report_model->get_Modal($var_bulan, $var_tahun, $level);
 		$data['data_Laba']			= $this->Report_model->get_Laba($var_bulan, $var_tahun, $level);
 
 		$data['data_bulan_post']			= $var_bulan;
 		$data['data_tahun_post']			= $var_tahun;
+		$data['mode_export']				= 'pdf';
 
-		$html			= $this->load->view('report/v_print_neraca', $data, true);
+		$html			= $this->load->view('report/v_list_neraca_format_baru', $data, true);
 		$pdfFilePath	= "Laporan_Neraca_" . $var_bulan . "_" . $var_tahun . ".pdf";
 		$this->load->library('m_pdf');
 		$pdf			= $this->m_pdf->load();
-		//$mpdf = new mPDF('c', 'A4-L'); 
 		$pdf->AddPage(
-			'P', // L = Landscape, P = Potrait
+			'L', // Landscape agar tabel 7 kolom pas dan rapi
 			'',
 			'',
 			'',
-			20, // margin_left
-			20, // margin right
-			20, // margin top
-			5, // margin bottom
+			10, // margin_left
+			10, // margin right
+			10, // margin top
+			10, // margin bottom
 			5, // margin header
 			5
 		); // margin footer
 		$pdf->WriteHTML($html);
 		$pdf->Output($pdfFilePath, "I");
-		//redirect('report/tampilkan_labarugi');
 	}
 
 	function excel_neraca()
@@ -1498,6 +1506,7 @@ class Report extends CI_Controller
 		$var_tahun 	= $this->uri->segment(4);
 		$level		= $this->uri->segment(5);
 
+		$data['judul']				= "Laporan Neraca";
 		$data['level']				= $level;
 
 		$data['data_bulan']		= $this->Report_model->get_bulan_coa();
@@ -1508,13 +1517,20 @@ class Report extends CI_Controller
 		$data['data_AktivaTetap']	= $this->Report_model->get_AktivaTetap($var_bulan, $var_tahun, $level);
 		$data['data_AktivaLain']	= $this->Report_model->get_AktivaLain($var_bulan, $var_tahun, $level);
 		$data['data_Hutang']		= $this->Report_model->get_Hutang($var_bulan, $var_tahun, $level);
+		$data['data_HutangJkPjg']	= $this->Report_model->get_HutangJangkaPanjang($var_bulan, $var_tahun, $level);
 		$data['data_Modal']			= $this->Report_model->get_Modal($var_bulan, $var_tahun, $level);
 		$data['data_Laba']			= $this->Report_model->get_Laba($var_bulan, $var_tahun, $level);
 
 		$data['data_bulan_post']			= $var_bulan;
 		$data['data_tahun_post']			= $var_tahun;
+		$data['mode_export']				= 'excel';
 
-		$this->load->view("report/v_neraca_excel", $data);
+		header("Content-type: application/vnd.ms-excel");
+		header("Content-Disposition: attachment; filename=\"Laporan_Neraca_" . $var_bulan . "_" . $var_tahun . ".xls\"");
+		header("Pragma: no-cache");
+		header("Expires: 0");
+
+		$this->load->view("report/v_list_neraca_format_baru", $data);
 	}
 
 	// SYAM TERKAIT REPORT KARTU PIUTANG

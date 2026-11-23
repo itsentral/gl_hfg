@@ -1426,6 +1426,18 @@ class Report_model extends CI_Model
 		}
 	}
 
+	public function get_HutangJangkaPanjang($var_bulan, $var_tahun, $level)
+	{
+		$kode_cabang	= $this->session->userdata('kode_cabang');
+		$query 	= "SELECT * FROM coa WHERE (no_perkiraan like '22%') AND level='$level' AND bln='$var_bulan' AND thn='$var_tahun' and kdcab='$kode_cabang' ORDER BY no_perkiraan ASC";
+		$query	= $this->db->query($query);
+		if ($query->num_rows() > 0) {
+			return $query->result();
+		} else {
+			return 0;
+		}
+	}
+
 	public function get_Modal($var_bulan, $var_tahun, $level)
 	{
 		$kode_cabang	= $this->session->userdata('kode_cabang');
