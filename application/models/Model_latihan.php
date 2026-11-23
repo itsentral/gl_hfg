@@ -935,7 +935,11 @@ class Model_latihan extends CI_Model
 			$thn = date('Y');
 		}
 
-		$sql  = "SELECT * FROM javh WHERE tahun = ?";
+		$sql  = "SELECT javh.*,
+			(SELECT MAX(jurnal.no_reff)
+			FROM jurnal
+			WHERE jurnal.nomor = javh.nomor) AS no_reff
+			FROM javh WHERE tahun = ?";
 		$bind = [$thn];
 
 		// Hanya filter bulan jika bukan "All" (bln = 0 atau kosong)
