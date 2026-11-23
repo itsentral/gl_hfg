@@ -2,41 +2,53 @@
 class M_pdf
 {
 
-    function m_pdf()
+    public function __construct()
     {
-        $CI = &get_instance();
-        log_message('Debug', 'mPDF class is loaded.');
+        if (function_exists('log_message')) {
+            log_message('debug', 'mPDF class is loaded.');
+        }
     }
 
-    function load($param = NULL)
+    public function load($config = array())
     {
-        include_once APPPATH . 'libraries/MPDF57/mpdf.php';
-
-        if ($params == NULL) {
-            $param = '"en-GB-x","A5","","",10,10,10,10,6,3';
-        }
-
-        return new mPDF($param);
+        return $this->createMpdf('A5', $config);
     }
-    function load_a4($param = NULL)
+
+    public function load_a4($config = array())
     {
-        include_once APPPATH . 'libraries/MPDF57/mpdf.php';
-
-        if ($params == NULL) {
-            $param = '"en-GB-x","A5","","",10,10,10,10,6,3';
-        }
-
-        return new mPDF($param);
+        return $this->createMpdf('A4', $config);
     }
-    function load_c($param = NULL) //pake yang load_c
-    {
-        include_once APPPATH . 'libraries/MPDF57/mpdf.php';
 
-        if ($params == NULL) {
-            $param = '"A5"';
-            // $param = '"en-GB-x","A5","","",0,0,0,0,0,0';
+    public function load_c($config = array())
+    {
+        return $this->createMpdf('A5', $config);
+    }
+
+    private function createMpdf($format, $config)
+    {
+        $autoload = FCPATH . 'vendor/autoload.php';
+        if (!is_file($autoload)) {
+            throw new RuntimeException('Dependency mPDF belum terpasang. Jalankan composer install.');
         }
 
-        return new mPDF($param); //jadi pas didsini di ganti pas di print pprofiew di pdf jadinya landscape
+        require_once $autoload;
+
+        if (!is_array($config)) {
+            $config = array();
+        }
+
+        $defaultConfig = array(
+            'mode' => 'utf-8',
+            'format' => $format,
+            'margin_left' => 10,
+            'margin_right' => 10,
+            'margin_top' => 10,
+            'margin_bottom' => 10,
+            'margin_header' => 6,
+            'margin_footer' => 3,
+            'tempDir' => APPPATH . 'cache'
+        );
+
+        return new \Mpdf\Mpdf(array_merge($defaultConfig, $config));
     }
 }
