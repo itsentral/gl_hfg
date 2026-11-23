@@ -68,6 +68,9 @@
 											<center>Nomor</center>
 										</th>
 										<th>
+											<center>No. Referensi</center>
+										</th>
+										<th>
 											<center>Tanggal</center>
 										</th>
 										<th>
@@ -96,6 +99,7 @@
 									?>
 											<tr bgcolor='#DCDCDC'>
 												<td align="left"><a href="<?= base_url() ?>index.php/jurnal/detail_jv/<?= $row->nomor ?>" data-toggle="tooltip" title="Click for detail"><?= $row->nomor ?></a></td>
+												<td><?= isset($row->no_reff) ? $row->no_reff : '' ?></td>
 												<!-- <td><?= $row->nomor ?></td> -->
 												<td><?= date_format(new DateTime($row->tgl), "d-m-Y") ?></td>
 												<td><?= $row->koreksi_no ?></td>

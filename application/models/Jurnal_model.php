@@ -20,7 +20,13 @@ class Jurnal_model extends CI_Model
 	public function list_jv($bln_aktif, $thn_aktif)
 	{
 		$kode_cabang	= $this->session->userdata('kode_cabang');
-		$query = "SELECT * from javh where bulan='$bln_aktif' and tahun='$thn_aktif' and nomor like '$kode_cabang%' order by nomor desc";
+		$query = "SELECT javh.*,
+			(SELECT MAX(jurnal.no_reff)
+			FROM jurnal
+			WHERE jurnal.nomor = javh.nomor) AS no_reff
+			FROM javh
+			WHERE bulan='$bln_aktif' and tahun='$thn_aktif' and nomor like '$kode_cabang%'
+			ORDER BY nomor DESC";
 		$query = $this->db->query($query);
 		if ($query->num_rows() > 0) {
 			return $query->result();
