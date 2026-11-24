@@ -1235,6 +1235,11 @@ class Report extends CI_Controller
 			$data['data_nokir_biaya2']	= $this->Report_model->get_nokir_biaya2($var_bulan, $var_tahun, $level);
 			$data['data_nokir_biaya3']	= $this->Report_model->get_nokir_biaya3($var_bulan, $var_tahun, $level);
 			$data['data_nokir_fee']		= $this->Report_model->get_nokir_fee($var_bulan, $var_tahun, $level);
+			$data['data_coa_master']		= $this->Report_model->get_coa_with_master(
+				$var_bulan,
+				$var_tahun,
+				$this->session->userdata('kode_cabang')
+			);
 
 			$data['data_bulan_post']			= $var_bulan;
 			$data['data_tahun_post']			= $var_tahun;
@@ -1265,6 +1270,11 @@ class Report extends CI_Controller
 		$data['data_nokir_biaya2']	= $this->Report_model->get_nokir_biaya2($var_bulan, $var_tahun, $level);
 		$data['data_nokir_biaya3']	= $this->Report_model->get_nokir_biaya3($var_bulan, $var_tahun, $level);
 		$data['data_nokir_fee']		= $this->Report_model->get_nokir_fee($var_bulan, $var_tahun, $level);
+		$data['data_coa_master']		= $this->Report_model->get_coa_with_master(
+			$var_bulan,
+			$var_tahun,
+			$this->session->userdata('kode_cabang')
+		);
 
 		$data['data_bulan_post']			= $var_bulan;
 		$data['data_tahun_post']			= $var_tahun;
@@ -1298,6 +1308,11 @@ class Report extends CI_Controller
 		$data['data_nokir_biaya2']	= $this->Report_model->get_nokir_biaya2($var_bulan, $var_tahun, $level);
 		$data['data_nokir_biaya3']	= $this->Report_model->get_nokir_biaya3($var_bulan, $var_tahun, $level);
 		$data['data_nokir_fee']		= $this->Report_model->get_nokir_fee($var_bulan, $var_tahun, $level);
+		$data['data_coa_master']		= $this->Report_model->get_coa_with_master(
+			$var_bulan,
+			$var_tahun,
+			$this->session->userdata('kode_cabang')
+		);
 
 		$data['data_bulan_post']			= $var_bulan;
 		$data['data_tahun_post']			= $var_tahun;

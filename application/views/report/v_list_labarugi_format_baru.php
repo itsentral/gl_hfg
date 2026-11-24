@@ -20,11 +20,15 @@ $format_coa = $this->config->item('labarugi_format_baru');
 $format_coa = is_array($format_coa) ? $format_coa : array();
 
 $semua_akun = array();
-$sumber_akun = array(
-	$data_nokir_pdptn, $data_nokir_hpp, $data_nokir_biaya52,
-	$data_nokir_biaya61, $data_nokir_biaya, $data_nokir_pdptn2,
-	$data_nokir_biaya3
-);
+if ((int) $level === 5 && !empty($data_coa_master)) {
+	$sumber_akun = array($data_coa_master);
+} else {
+	$sumber_akun = array(
+		$data_nokir_pdptn, $data_nokir_hpp, $data_nokir_biaya52,
+		$data_nokir_biaya61, $data_nokir_biaya, $data_nokir_pdptn2,
+		$data_nokir_biaya3
+	);
+}
 foreach ($sumber_akun as $daftar_akun) {
 	if (is_array($daftar_akun) || is_object($daftar_akun)) {
 		foreach ($daftar_akun as $akun) {
@@ -49,7 +53,7 @@ $nilai_periode = function ($akun) {
 $akun_kelompok = function ($prefix) use ($semua_akun, $akun_per_kode, $format_coa, $level) {
 	$hasil = array();
 	if ((int) $level === 5 && !empty($format_coa)) {
-		foreach ($format_coa as $kode_coa => $nama_coa) {
+		foreach ($format_coa as $kode_coa) {
 			if (strpos($kode_coa, $prefix) !== 0) {
 				continue;
 			}
@@ -63,8 +67,8 @@ $akun_kelompok = function ($prefix) use ($semua_akun, $akun_per_kode, $format_co
 				$akun->debet = 0;
 				$akun->kredit = 0;
 				$akun->faktor = 1;
+				$akun->nama = '';
 			}
-			$akun->nama = $nama_coa;
 			$hasil[] = $akun;
 		}
 		return $hasil;
@@ -226,6 +230,7 @@ $tampilkan_kelompok = function ($prefix, $judul_kelompok, $judul_subtotal) use (
 	.baris-kelompok td, .baris-subtotal td, .baris-total td { font-weight: bold; }
 	.baris-subtotal td, .baris-total td { border-top: 1px solid black; }
 	.baris-subtotal td:first-child, .baris-total td:first-child { border-top: none; }
+	.baris-jarak td { border: none; height: 12px; padding: 0; }
 </style>
 <?php } else { ?>
 <style>
@@ -246,6 +251,7 @@ $tampilkan_kelompok = function ($prefix, $judul_kelompok, $judul_subtotal) use (
 	.table-labarugi .baris-kelompok td { font-weight: bold; padding-top: 15px; }
 	.table-labarugi .baris-subtotal td { font-weight: bold; padding-top: 6px; border-top: 1px solid #222; }
 	.table-labarugi .baris-total td { font-weight: bold; padding-top: 8px; padding-bottom: 8px; border-top: 1px solid #222; }
+	.table-labarugi .baris-jarak td { border: 0; height: 12px; padding: 0; }
 	.labarugi-export { padding: 0; }
 	@media print {
 		.content-header, .main-footer, .labarugi-filter { display: none !important; }
@@ -333,6 +339,7 @@ $tampilkan_kelompok = function ($prefix, $judul_kelompok, $judul_subtotal) use (
 						<?php } ?>
 
 						<?php foreach ($kelompok_produksi as $kelompok) { $tampilkan_kelompok($kelompok[0], $kelompok[1], $kelompok[2]); } ?>
+						<tr class="baris-jarak"><td colspan="<?= $mode_export === 'excel' ? 5 : 3 ?>">&nbsp;</td></tr>
 						<?php $baris_ringkasan('TOTAL COST OF GOODS SOLD', $total_hpp, $periode_total_hpp); ?>
 						<?php $baris_ringkasan('GROSS PROFIT', $gross_profit, $periode_gross_profit); ?>
 
