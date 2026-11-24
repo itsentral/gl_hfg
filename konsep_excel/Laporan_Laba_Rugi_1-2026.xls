@@ -1,0 +1,2163 @@
+<style type="text/css">
+	.str {
+		mso-number-format: \@;
+	}
+
+	.myDiv {
+		background-color: #d3eefa;
+		font-family: verdana;
+	}
+
+	.warnaTombol {
+		background-color: #286090;
+		color: white;
+	}
+
+	.warnaTombol {
+		background-color: #286090;
+		color: white;
+	}
+
+	.warnaTombolExcel {
+		background-color: #02723B;
+		color: white;
+	}
+
+	.warnaTombolPdf {
+		background-color: #DE0B0B;
+		color: white;
+	}
+
+	.teksPutih {
+		color: white;
+	}
+
+	.teksBiru {
+		color: #005279;
+	}
+
+	/* table,
+	th,
+	td {
+		border: 1px solid black;
+		border-collapse: collapse;
+	} */
+
+	th,
+	td {
+		padding: 15px;
+	}
+</style>
+<table width='50%' border="1" cellpadding="5" cellspacing="0">
+
+	<th colspan='5' style='text-align:center;font-size:18px;border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;'><center>INCOME STATEMENT LEVEL <br>Periode : Januari 2026<br>HARAPAN FAJAR GEMILANG</center></th>	</tr>
+
+	<tr>
+		<td>
+			<center><b>No. Perkiraan</b></center>
+		</td>
+		<td>
+			<center><b>Nama Perkiraan</b></center>
+		</td>
+		<td>
+			<center><b>Previous (Year-To-Date)</b></center>
+		</td>
+		<td>
+			<center><b>Current Month</b></center>
+		</td>
+		<td>
+			<center><b>Year-To-Date</b></center>
+		</td>
+	</tr>
+
+	<!-- PENDAPATAN -->
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="left"><b>41</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>PENDAPATAN</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">4101-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"> PENDAPATAN PENJUALAN PRODUCT</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">4101-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">PENDAPATAN LAIN-LAIN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+		<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>Sub Total PENDAPATAN</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+	<!-- HPP -->
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="left"><b>51</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>HARGA POKOK PENJUALAN</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5101-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">MATERIAL</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5101-02-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">LABOUR COST PC</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5101-03-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BAHAN PENDUKUNG KHUSUS PC</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5101-04-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">CONSUMABLE PC</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5101-05-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FACTORY OVERHEAD PC</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5101-06-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BIAYA KOORDINASI PC</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5101-07-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BIAYA SCRAP PC</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5101-08-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BIAYA KW 2</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5103-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">COST OF GOOD MANUFACTURE</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5104-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">COST OF GOODS SOLD</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5105-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLEBIAYA FORWADING</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5105-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BIAYA PENGIRIMAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5105-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLE TENAGA KERJA PABRIK</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5105-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLE FACTORY OVERHEAD</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5106-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLE LABOUR COST</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5106-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLE BAHAN PENDUKUNG KHUSUS</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5106-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLE CONSUMABLE</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5106-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLE FACTORY OVERHEAD</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5106-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLE BIAYA KOORDINASI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5106-01-06</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLE BIAYA SCRAPE PC</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5106-01-07</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FAVORABLE / UNFAVORABLE BIAYA PENGIRIMAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5107-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">WASTE POTONGAN PISAU, REJECT PRODUCTION, PLATBS</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5107-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">TONG KOIL</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5107-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">WASTE VENDOR</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5107-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">SELISIH PACKING LIST VS ACTUAL OUTPUT</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+		<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>Sub Total HARGA POKOK PENJUALAN</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="center"><b>LABA/RUGI KOTOR</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+
+	<!-- BIAYA PENJUALAN-->
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>52</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>BIAYA TUNJANGAN LAIN-LAIN</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5201-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">GAJI POKOK</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5201-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">TUNJANGAN JABATAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5201-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">TUNJANGAN KPI</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5201-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">TUNJANGAN KEAHLIAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5201-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">INSENTIF ADMIN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5201-01-06</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">UANG MAKAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5202-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BAHAN PENDUKUNG KHUSUS</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5202-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">SALARYBORONGAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5202-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">TUNJANGAN HARI RAYA</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5202-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BPJS TENAGA KERJA</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5202-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BPJS KLESEHATAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5202-01-06</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">UANG MAKAN HARIAN P[RODUKSI</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5202-01-07</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">POTONGAN PPH 21</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5203-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">CONSUMABLE</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERAWATAN & PEMELIHARAAN MESIN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERAWATAN & PEMELIHARAAN FORKLIF</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERAWATAN & PEMELIHARAAN KENDARAAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TELEPHONE & INTERNET</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LITRIK & AIR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-06</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ALAT TULIS KANOT</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-07</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SEWA FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-08</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERLENGKAPAN FO </td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-09</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERALATAN FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-10</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. KURIR ( JNE,TIKI ) FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-11</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. MATERAI FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-12</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B.BENSIN / TOLL/ PARKIR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-13</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TRANSPORTASI FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-14</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. MAKAN & MINUIM FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-15</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ASURANSI</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-16</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN MESIN PABRIK</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-17</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN PERALATAN PABRIK</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-18</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTANBANGUNAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-19</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN KENDARAAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-20</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN PERALATAN KANTOR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-21</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYSUTAN INVENTARIS KANTOR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-22</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN PERLENGKAPAN PABRIK</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-23</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN PERLENGKAPAN KANTOR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5204-01-30</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LAIN-LAIN FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5205-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BIAYA SCRAP</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERAWATAN & PEMELIHARAAN MESIN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERAWATAN & PEMELIHARAAN FORKLIF</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERAWATAN & PEMELIHARAAN KENDARAAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TELEPHONE & INTERNET</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LITRIK & AIR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-06</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ALAT TULIS KANTOR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-07</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SEWA FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-08</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERLENGKAPAN FO </td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-09</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERALATAN FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-10</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. KURIR ( JNE,TIKI ) FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-11</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. MATERAI FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-12</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. BENSIN/TOLL/PARKIR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-13</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TRANSPORTASI FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-14</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. MAKAN & MINUIM FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-15</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ASURANSI</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-16</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN MESIN PABRIK</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-17</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN PERALATAN PABRIK</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-18</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN BANGUNAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-19</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN KENDARAAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-20</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN PERALATAN KANTOR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-21</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYSUTAN INVENTARIS KANTOR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-22</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN PERLENGKAPAN PABRIK</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-23</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTAN PERLENGKAPAN KANTOR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5206-01-30</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LAIN-LAIN FO</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5207-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. GAJI SUPIR</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5207-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. UANG MAKAN</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5207-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. BBM</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5207-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TOLL</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5207-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. RETRIBUSI</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5208-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">LABOUR COST CONTROL</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5209-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BAHAN PENDUKUNG KHUSUS CONTROL</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5210-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">CONSUMABLE CONTROL</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5211-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BIAYA KOORDINASI CONTROL</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5212-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BIAYA SCRAP CONTROL</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5213-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">FACTORY OVERHEAD CONTROL</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">5214-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">BIAYA PENGIRIMAN CONTROL</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+				<td align="right" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">
+					0				</td>
+			</tr>
+		<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td align="center" style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>Sub Total BIAYA TUNJANGAN LAIN-LAIN</b></td>
+		<td align="right" style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>0</b></td>
+		<td align="right" style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>0</b></td>
+		<td align="right" style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>0</b></td>
+	</tr>
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+	<!-- BIAYA PENJUALAN 61-->
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="left"><b>61</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>BIAYA GAJI DAN TUNJANGAN PEMASARAN DAN PENJUALAN</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SALARY PEMASARAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TUN JANGANBPJS TK & KES PEMASARAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TKK PEMASARAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. UANG MAKAN PEMASARAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B.BONUS PEMASARAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-06</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. THR PEMASARAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-07</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. KOMISI SALES</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-08</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. T. PPH 21 PEMASARAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-09</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. IKLAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-10</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. CETAKAN PROMOSI PEMASARAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-11</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PEREKRUTAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-12</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PAMERAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-13</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. CONSUMER PROMO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-14</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TRADE PROMO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-15</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SPG /BA/ PROMOTOR</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-16</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LISTING PRODUCT</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-17</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SAMPLE & TESTER</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-18</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B.BBM/TOLL/PARKIR PEMASARAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-19</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. OPERATIONAL SALES</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-20</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. FEE PENJUALAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6101-01-30</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LAIN-LAIN PROMOSI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+	
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+	
+	<!-- BIAYA PENJUALAN-->
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="left"><b>62</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>BIAYA GAJI DAN TUNJANGAN UMUM ADMINISTRASI DAN PENJUALAN</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SALARY HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TUNJANGANBPJS TK & KES HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TKK</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. UANG MAKAN HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B.BONUS HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-06</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. THR HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-07</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. T. PPH 21</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-08</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B.BPJS KES HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-09</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENGOBATAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-10</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B.BPJS TK HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-11</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SERBA SERBI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-12</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. MAKAN / MINUM</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-13</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B.BBM/TOLL/PARKIR HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-14</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TRANSPORTASI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-15</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERAWATAN & PEMELIHARAAN KENDARAAN HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-16</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENGIRIMAN HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-17</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. OPERATIONAL DIREKSI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-18</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. OPERATIONAL HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-19</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. OPERATIONAL KOLEKTOR</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-20</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERJALANAN DINAS</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-21</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. EKSPEDISI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-22</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LISTRIK & AIR HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-23</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TELP & INTERNET HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-24</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. HP & KARTU</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-25</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. KURIR (JNE,TIKI)</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-26</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. MATERAI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-27</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. FOTOCOPY & CETAKAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-28</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PEMBELIAN & RISET PABRIK</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-29</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SEWA HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-30</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. KORAN & MAJALAH</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-31</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERAWATAN & PEMELIHARAAN PERALATAN HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-32</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ADMINISTRASI KANTOR</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-33</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERALATAN KANTOR</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-34</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERLENGKAPAN KANTOR</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-35</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ALAT TULIS KANTOR</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-36</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERIZINAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-37</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. KOORDINASI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-38</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. KEAMANAN & KEBERSIHAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-39</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. TRAINING / SEMINAR</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-40</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. DAPUR KANTOR</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-41</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SEWA KENDARAAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-42</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SEWA PERALATAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-43</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ENTERTAINMENT</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-44</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PAJAK</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-45</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PENYUSUTANBAHAN KONSINYASI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-46</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ASURANSI KENDARAAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-47</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PAJAK KENDARAAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-48</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PERAWATAN & PEMELIHARAAN HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-49</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ASURANSI PINJAMAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-50</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SERAGAM HO</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-51</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. KONSULTAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-52</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SEWA GUDANG</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-53</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. GATHERING</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-54</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ESTIMASI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-55</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. RENTAL ASSETS LEASING</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">6201-01-60</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LAIN-LAIN UMUM & ADMINISTRASI</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+		<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>Sub Total BIAYA PENJUALAN</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+	
+	<!-- BIAYA KANTOR DAN UMUM-->
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="left"><b>68</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>BIAYA KANTOR DAN UMUM</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+		<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>Sub Total BIAYA KANTOR</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="center"><b>Total BIAYA</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="center"><b>LABA OPERASI</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+	
+	<!-- PENDAPATAN LAIN-LAIN -->
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="left"><b>71</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>PENDAPATAN LAIN-LAIN</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7101-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">PENDAPATAN BUNGA BANK</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7101-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">PENJUALAN AKTIVA TETAP</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7101-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">LABA RUGI REVALUASI AKTIVA TETAP</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7101-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">PENDAPATAN PEMBULATAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7101-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">PENDAPATAN LAIN-LAIN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7101-01-06</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">PENDAPATAN DARI PENEMUAN STOCK</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7101-01-07</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">PENDAPATAN LAIN-LAIN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">0</td>
+			</tr>
+		<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>Sub Total PENDAPATAN LAIN-LAIN</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+	<!-- FEE ORGANISASI -->
+	<!-- <tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="left"><b>91</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>FEE ORGANISASI</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr> -->
+
+		<!-- <tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>Sub Total FEE ORGANISASI</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr> -->
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+
+	<!-- BIAYA LAIN-LAIN-->
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="left"><b>72</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"><b>BIAYA LAIN-LAIN</b></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+	</tr>
+
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7201-01-01</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. ADMINISTRASI BANK</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7201-01-02</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B.BUNGABANK</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7201-01-03</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SELISIH STOCK AUDIT</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7201-01-04</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B.BUNGA LEASING</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7201-01-05</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PEMBULATAN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7201-01-06</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. PIUTANG TAK TERTAGIH</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7201-01-07</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. SELSIH KURS</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7201-01-10</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LAIN-LAIN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+				<tr>
+				<td class="str" style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">7201-01-20</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;">B. LAIN-LAIN</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+				<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;" align="right">
+					0				</td>
+			</tr>
+		<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;"><b>Sub Total BIAYA LAIN-LAIN</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-bottom-style:none; border-left-style:none;"></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="center"><b>LABA/RUGI BERSIH</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+		<td style="border-right:none; border-bottom-style:none; border-left-style:none;" align="right"><b>0</b></td>
+	</tr>
+	<tr>
+		<td style="border-top-style:none; border-right:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-left-style:none;"></td>
+		<td style="border-top-style:none; border-right:none; border-left-style:none;"></td>
+	</tr>
+
+	</table>

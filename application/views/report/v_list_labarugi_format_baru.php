@@ -15,6 +15,10 @@ if ($tahun_terpilih < 1) {
 	$tahun_terpilih = isset($thn_aktif) ? (int) $thn_aktif : (int) date('Y');
 }
 
+$this->config->load('labarugi_format_baru');
+$format_coa = $this->config->item('labarugi_format_baru');
+$format_coa = is_array($format_coa) ? $format_coa : array();
+
 $semua_akun = array();
 $sumber_akun = array(
 	$data_nokir_pdptn, $data_nokir_hpp, $data_nokir_biaya52,
@@ -29,6 +33,11 @@ foreach ($sumber_akun as $daftar_akun) {
 	}
 }
 
+$akun_per_kode = array();
+foreach ($semua_akun as $akun) {
+	$akun_per_kode[$akun->no_perkiraan] = $akun;
+}
+
 $nilai_akun = function ($akun) {
 	return (((float) $akun->saldoawal) + ((float) $akun->debet - (float) $akun->kredit)) * (float) $akun->faktor;
 };
@@ -37,8 +46,30 @@ $nilai_periode = function ($akun) {
 	$current = ((float) $akun->debet - (float) $akun->kredit) * (float) $akun->faktor;
 	return array($previous, $current, $previous + $current);
 };
-$akun_kelompok = function ($prefix) use ($semua_akun) {
+$akun_kelompok = function ($prefix) use ($semua_akun, $akun_per_kode, $format_coa, $level) {
 	$hasil = array();
+	if ((int) $level === 5 && !empty($format_coa)) {
+		foreach ($format_coa as $kode_coa => $nama_coa) {
+			if (strpos($kode_coa, $prefix) !== 0) {
+				continue;
+			}
+
+			if (isset($akun_per_kode[$kode_coa])) {
+				$akun = clone $akun_per_kode[$kode_coa];
+			} else {
+				$akun = new stdClass();
+				$akun->no_perkiraan = $kode_coa;
+				$akun->saldoawal = 0;
+				$akun->debet = 0;
+				$akun->kredit = 0;
+				$akun->faktor = 1;
+			}
+			$akun->nama = $nama_coa;
+			$hasil[] = $akun;
+		}
+		return $hasil;
+	}
+
 	foreach ($semua_akun as $akun) {
 		if (strpos($akun->no_perkiraan, $prefix) === 0) {
 			$hasil[] = $akun;
@@ -53,8 +84,8 @@ $total_kelompok = function ($prefix) use ($akun_kelompok, $nilai_akun) {
 	}
 	return $total;
 };
-$format_nilai = function ($nilai) {
-	return number_format($nilai, 2, ',', '.');
+$format_nilai = function ($nilai) use ($mode_export) {
+	return number_format($nilai, $mode_export === 'excel' ? 0 : 2, ',', '.');
 };
 $total_periode = function ($prefix) use ($akun_kelompok, $nilai_periode) {
 	$total = array(0, 0, 0);
@@ -150,9 +181,12 @@ $baris_ringkasan = function ($judul, $nilai_ytd, $nilai_periode) use ($mode_expo
 };
 $tampilkan_kelompok = function ($prefix, $judul_kelompok, $judul_subtotal) use ($akun_kelompok, $nilai_akun, $nilai_periode, $format_nilai, $mode_export, $sel_periode) {
 	$daftar = $akun_kelompok($prefix);
-	echo '<tr class="baris-kelompok"><td></td><td>' . html_escape($judul_kelompok) . '</td><td></td>' . ($mode_export === 'excel' ? '<td></td><td></td>' : '') . '</tr>';
+	if ($mode_export === 'excel' && $prefix !== '41') {
+		echo '<tr><td colspan="5">&nbsp;</td></tr>';
+	}
+	echo '<tr class="baris-kelompok"><td align="left">' . ($mode_export === 'excel' ? html_escape($prefix) : '') . '</td><td>' . html_escape($judul_kelompok) . '</td><td></td>' . ($mode_export === 'excel' ? '<td></td><td></td>' : '') . '</tr>';
 	foreach ($daftar as $akun) {
-		echo '<tr><td>' . html_escape($akun->no_perkiraan) . '</td><td class="nama-akun">' . html_escape($akun->nama) . '</td>';
+		echo '<tr><td class="kode-coa">' . html_escape($akun->no_perkiraan) . '</td><td class="nama-akun">' . html_escape($akun->nama) . '</td>';
 		if ($mode_export === 'excel') {
 			$sel_periode($nilai_periode($akun));
 		} else {
@@ -179,6 +213,21 @@ $tampilkan_kelompok = function ($prefix, $judul_kelompok, $judul_subtotal) use (
 };
 ?>
 
+<?php if ($mode_export === 'excel') { ?>
+<meta charset="utf-8">
+<style>
+	td, th { padding: 15px; }
+	td { border: none; }
+	th { text-align: center; }
+	.kode-coa { mso-number-format: "\@"; }
+	.nilai { text-align: right; }
+	.header-excel th { border: 1px solid black; }
+	.judul-excel th { border: none; font-size: 18px; }
+	.baris-kelompok td, .baris-subtotal td, .baris-total td { font-weight: bold; }
+	.baris-subtotal td, .baris-total td { border-top: 1px solid black; }
+	.baris-subtotal td:first-child, .baris-total td:first-child { border-top: none; }
+</style>
+<?php } else { ?>
 <style>
 	.labarugi-filter { background: #d3eefa; padding: 15px; }
 	.labarugi-filter .form-group { margin-right: 12px; }
@@ -198,14 +247,12 @@ $tampilkan_kelompok = function ($prefix, $judul_kelompok, $judul_subtotal) use (
 	.table-labarugi .baris-subtotal td { font-weight: bold; padding-top: 6px; border-top: 1px solid #222; }
 	.table-labarugi .baris-total td { font-weight: bold; padding-top: 8px; padding-bottom: 8px; border-top: 1px solid #222; }
 	.labarugi-export { padding: 0; }
-	.labarugi-excel .table-labarugi td,
-	.labarugi-excel .table-labarugi th { padding: 4px 7px; }
-	.labarugi-excel .header-excel th { border: 1px solid #000; text-align: center; }
 	@media print {
 		.content-header, .main-footer, .labarugi-filter { display: none !important; }
 		.labarugi-sheet { max-width: none; margin: 0; padding: 0; }
 	}
 </style>
+<?php } ?>
 
 <?php if ($mode_export === '') { ?>
 <section class="content-header">
@@ -251,15 +298,23 @@ $tampilkan_kelompok = function ($prefix, $judul_kelompok, $judul_subtotal) use (
 	<div class="box">
 		<?php } ?>
 		<div class="labarugi-sheet <?= $mode_export !== '' ? 'labarugi-export' : '' ?> <?= $mode_export === 'excel' ? 'labarugi-excel' : '' ?>">
+			<?php if ($mode_export !== 'excel') { ?>
 			<div class="labarugi-title">
 				INCOME STATEMENT LEVEL <?= (int) $level ?><br>
 				Periode : <?= $nama_bulan[$bulan_terpilih] ?> <?= $tahun_terpilih ?><br>
 				<?= html_escape($nama_cabang) ?>
 			</div>
+			<?php } ?>
 			<div class="table-responsive">
-				<table class="table-labarugi">
+				<table class="table-labarugi" <?= $mode_export === 'excel' ? 'width="50%" border="1" cellpadding="5" cellspacing="0"' : '' ?>>
 					<?php if ($mode_export === 'excel') { ?>
-					<thead><tr class="header-excel">
+					<thead>
+					<tr class="judul-excel"><th colspan="5">
+						INCOME STATEMENT LEVEL <?= (int) $level ?><br>
+						Periode : <?= $nama_bulan[$bulan_terpilih] ?> <?= $tahun_terpilih ?><br>
+						<?= html_escape($nama_cabang) ?>
+					</th></tr>
+					<tr class="header-excel">
 						<th>No. Perkiraan</th><th>Nama Perkiraan</th><th>Previous (Year-To-Date)</th><th>Current Month</th><th>Year-To-Date</th>
 					</tr></thead>
 					<?php } ?>
