@@ -228,7 +228,7 @@ if ($data_perkiraan) {
 
 											$nokir_induk 		= $row_sa->no_perkiraan;
 											$nama_perkiraan		= $row_sa->nama;
-											$saldo_awal[$count]	= $row_sa->saldoawal;
+											$saldo_awal[$count]	= (float) ($row_sa->saldoawal ?? 0);
 									?>
 
 											<tr>
@@ -248,6 +248,10 @@ if ($data_perkiraan) {
 											$sum_kredit = array();
 											$sum_debet_usd = array();     
 											$sum_kredit_usd = array();    
+											$sum_debet[$count] = 0;
+											$sum_kredit[$count] = 0;
+											$sum_debet_usd[$count] = 0;
+											$sum_kredit_usd[$count] = 0;
 											$nilai_debet = array();
 											$nilai_kredit = array();
 											$nilai_debet_usd = array();   
@@ -268,10 +272,10 @@ if ($data_perkiraan) {
 													$nomor_bukti[$count2]      = $row_dj->nomor;
 													$no_reff[$count2]          = $row_dj->no_reff;                
 													$tipe_sm[$count2]          = $row_dj->tipe;
-													$nilai_debet[$count2]      = $row_dj->debet;
-													$nilai_kredit[$count2]     = $row_dj->kredit;
-													$nilai_debet_usd[$count2]  = $row_dj->nilai_valas_debet;      
-													$nilai_kredit_usd[$count2] = $row_dj->nilai_valas_kredit;     
+													$nilai_debet[$count2]      = (float) ($row_dj->debet ?? 0);
+													$nilai_kredit[$count2]     = (float) ($row_dj->kredit ?? 0);
+													$nilai_debet_usd[$count2]  = (float) ($row_dj->nilai_valas_debet ?? 0);
+													$nilai_kredit_usd[$count2] = (float) ($row_dj->nilai_valas_kredit ?? 0);
 
 													$sum_debet[$count]      += $nilai_debet[$count2];
 													$sum_kredit[$count]     += $nilai_kredit[$count2];

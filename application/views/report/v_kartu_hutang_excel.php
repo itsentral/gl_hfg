@@ -81,7 +81,7 @@ header("Expires: 0");
 										$count = 0;
 										foreach ($coa_sa as $row_sa) {
 											$count++;
-     										$saldo_awal[$count]	= $row_sa->saldo;
+										$saldo_awal[$count]	= (float) ($row_sa->saldo ?? 0);
 									?>
 									
 									<tr>
@@ -97,10 +97,10 @@ header("Expires: 0");
 																	
 									<!-- DATA DARI JURNAL -->
 											<?php
-											$sum_debet = 0;
-											$sum_kredit = 0;
 											$sum_debet = array();
 											$sum_kredit = array();
+											$sum_debet[$count] = 0;
+											$sum_kredit[$count] = 0;
 											$nilai_debet = array();
 											$nilai_kredit = array();
 
@@ -117,8 +117,8 @@ header("Expires: 0");
 													$tgl_bukti[$count2]			= $row_dj->tanggal;
 													$nomor_bukti[$count2] 		= $row_dj->nomor;
 													$tipe_sm[$count2] 			= $row_dj->tipe;
-													$nilai_debet[$count2] 		= $row_dj->debet;
-													$nilai_kredit[$count2] 		= $row_dj->kredit;
+													$nilai_debet[$count2] 		= (float) ($row_dj->debet ?? 0);
+													$nilai_kredit[$count2] 		= (float) ($row_dj->kredit ?? 0);
 													$no_request[$count2]        = $row_dj->no_request;
 													// if ((isset($sum_debet[$count]))  == "" || (isset($sum_kredit[$count])) == "" || (isset($nilai_debet[$count2]))  == "" || (isset($nilai_kredit[$count2])) == "") {
 													// 	$sum_debet[$count]	 		+= $nilai_debet[$count2];
