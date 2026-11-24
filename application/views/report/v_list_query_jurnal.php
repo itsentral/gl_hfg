@@ -113,8 +113,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 										foreach ($list_data as $row) {
 											$no++;
 
-											$format_debet = number_format($row->debet, 0, ',', '.');
-											$format_kredit = number_format($row->kredit, 0, ',', '.');
+											$format_debet = number_format((float) ($row->debet ?? 0), 0, ',', '.');
+											$format_kredit = number_format((float) ($row->kredit ?? 0), 0, ',', '.');
 									?>
 											<tr bgcolor='#DCDCDC'>
 												<td align="center"><?= $row->tipe ?></td>

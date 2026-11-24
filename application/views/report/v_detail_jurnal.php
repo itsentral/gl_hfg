@@ -69,11 +69,11 @@
 										foreach ($list_data as $row) {
 											$no++;
 
-											$sum_debet	+= $row->debet;
-											$sum_kredit	+= $row->kredit;
+											$sum_debet	+= (float) ($row->debet ?? 0);
+											$sum_kredit	+= (float) ($row->kredit ?? 0);
 
-											$format_debet = number_format($row->debet, 0, ',', '.');
-											$format_kredit = number_format($row->kredit, 0, ',', '.');
+											$format_debet = number_format((float) ($row->debet ?? 0), 0, ',', '.');
+											$format_kredit = number_format((float) ($row->kredit ?? 0), 0, ',', '.');
 
 											$format_sumdebet = number_format($sum_debet, 0, ',', '.');
 											$format_sumkredit = number_format($sum_kredit, 0, ',', '.');

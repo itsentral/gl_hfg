@@ -110,8 +110,8 @@ if ($data_perkiraan) {
 											if (!empty($row_temp->no_perkiraan)) {
 												$arr_nokir[]	= $row_temp->no_perkiraan;
 
-												$format_debet = number_format($row_temp->debet, 0, ',', '.');
-												$format_kredit = number_format($row_temp->kredit, 0, ',', '.');
+												$format_debet = number_format((float) ($row_temp->debet ?? 0), 0, ',', '.');
+												$format_kredit = number_format((float) ($row_temp->kredit ?? 0), 0, ',', '.');
 												echo "<tr bgcolor='#DCDCDC'>";
 												echo "<td style='text-align:center'>" . date_format(new DateTime($row_temp->tanggal), "d-m-Y") . "</td>";
 												echo "<td style='text-align:center'><a href='<?= base_url() ?>index.php/report/detail_jurnal/<?= $row_temp->tipe ?>/<?= $row_temp->nomor ?>' data-toggle='tooltip' title='Click for detail'><?= $row_temp->nomor ?></a></td>";

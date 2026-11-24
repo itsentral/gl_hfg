@@ -54,10 +54,10 @@ $dfgh = count($filter_tgl);
 			$num_temp++;
 			if (!empty($row_temp->tanggal)) {
 				$arr_tgl[]		= $row_temp->tanggal;
-				$format_debet 	= number_format($row_temp->debet, 0, ',', '.');
-				$format_kredit 	= number_format($row_temp->kredit, 0, ',', '.');
-				$sum_debet		+= $row_temp->debet;
-				$sum_kredit		+= $row_temp->kredit;
+				$format_debet 	= number_format((float) ($row_temp->debet ?? 0), 0, ',', '.');
+				$format_kredit 	= number_format((float) ($row_temp->kredit ?? 0), 0, ',', '.');
+				$sum_debet		+= (float) ($row_temp->debet ?? 0);
+				$sum_kredit		+= (float) ($row_temp->kredit ?? 0);
 				$sum_debet_rp 	= number_format($sum_debet, 0, ',', '.');
 				$sum_kredit_rp 	= number_format($sum_kredit, 0, ',', '.');
 

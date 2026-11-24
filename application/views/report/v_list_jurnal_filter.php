@@ -110,8 +110,8 @@ if ($data_perkiraan) {
 											if (!empty($row_temp->tanggal)) {
 												$arr_tgl[]	= $row_temp->tanggal;
 
-												$format_debet = number_format($row_temp->debet, 0, ',', '.');
-												$format_kredit = number_format($row_temp->kredit, 0, ',', '.');
+												$format_debet = number_format((float) ($row_temp->debet ?? 0), 0, ',', '.');
+												$format_kredit = number_format((float) ($row_temp->kredit ?? 0), 0, ',', '.');
 								?>
 												<tr bgcolor='#DCDCDC'>
 												<td align="center"><?= date_format(new DateTime($row_temp->tanggal), "d-m-Y") ?></td>
